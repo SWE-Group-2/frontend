@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint:style": "prettier --write src/**/*.{css,vue}",
     "format": "prettier .  --write",
     "prepare": "husky install"
   },
