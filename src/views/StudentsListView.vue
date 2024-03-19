@@ -1,5 +1,7 @@
 <script setup>
 import StudentsDisplay from "@/components/StudentsDisplay.vue";
+
+// currently still using placeholder information instead of collecting from the database
 </script>
 
 <template>
@@ -32,6 +34,6 @@ import StudentsDisplay from "@/components/StudentsDisplay.vue";
   max-width: 980px;
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.418);
   padding: 1.5rem;
-  margin: 0 auto; /* Add this line to center the element */
+  margin: 0 auto;
 }
 </style>

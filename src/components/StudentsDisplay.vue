@@ -1,3 +1,8 @@
+<script setup>
+// insert code to collect list of students as a const
+// then replace template with proper loops to display the list
+</script>
+
 <template>
   <div id="table">
     <table id="students">
