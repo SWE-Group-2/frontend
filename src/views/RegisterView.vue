@@ -1,5 +1,5 @@
 <template>
-  <div class="align-center">
+  <div class="item-center">
     <div class="register-box align-center">
       <h1 class="h1-text">REGISTER</h1>
       <form @submit.prevent="submitForm">
@@ -25,9 +25,17 @@
 </template>
 
 
-<style scoped>
+<style lang="scss" scoped>
 .h1-text {
+  font-family: Roboto Slab;
   font-weight: 450;
+  font-size: 36px;
+}
+
+.item-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .align-center {
@@ -38,8 +46,8 @@
 .register-box {
   background-color: #B5A7C8;
   width: 280px;
-  height: 460px;
-  margin-top: 120px;
+  height: 450px;
+  margin: 100px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -83,16 +91,18 @@ button:hover {
 export default {
   data() {
     return {
+      firstname: '',
+      lastname: '',
       username: '',
       password: ''
     };
   },
   methods: {
     submitForm() {
-      console.log('Username:', this.username);
-      console.log('Password:', this.password);
       console.log('First Name:', this.firstname);
       console.log('Last Name:', this.lastname);
+      console.log('Username:', this.username);
+      console.log('Password:', this.password);
     }
   }
 }

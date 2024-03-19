@@ -1,4 +1,23 @@
-// shows the internship list view
+<script setup>
+import PostDisplay from "@/components/PostsDisplay.vue";
+</script>
+
 <template>
-  <h1>INTERNSHIPS</h1>
+  <div id="internships">
+    <div class="internships-list-header">Internships</div>
+      <PostDisplay />
+  </div>
 </template>
+
+<style lang="scss" scoped>
+.internships-list-header {
+  font-family: Roboto Slab;
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: 0em;
+  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 100px;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="align-center">
+  <div class="item-center">
     <div class="login-box align-center">
       <h1 class="h1-text">LOGIN</h1>
       <form @submit.prevent="submitForm">
@@ -16,9 +16,16 @@
 </template>
 
 
-<style scoped>
+<style lang="scss" scoped>
 .h1-text {
+  font-family: Roboto Slab;
   font-weight: 450;
+}
+
+.item-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .align-center {
@@ -30,7 +37,7 @@
   background-color: #B5A7C8;
   width: 280px;
   height: 300px;
-  margin-top: 200px;
+  margin: 200px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
