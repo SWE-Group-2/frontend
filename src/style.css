@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://muic.mahidol.ac.th/eng/wp-content/themes/unicamp/assets/fonts/awesome/webfonts/fa-regular-400.eot);
+  src:
+    url(https://muic.mahidol.ac.th/eng/wp-content/themes/unicamp/assets/fonts/awesome/webfonts/fa-regular-400.eot?#iefix)
+      format("embedded-opentype"),
+    url(https://muic.mahidol.ac.th/eng/wp-content/themes/unicamp/assets/fonts/awesome/webfonts/fa-regular-400.woff2)
+      format("woff2"),
+    url(https://muic.mahidol.ac.th/eng/wp-content/themes/unicamp/assets/fonts/awesome/webfonts/fa-regular-400.woff)
+      format("woff"),
+    url(https://muic.mahidol.ac.th/eng/wp-content/themes/unicamp/assets/fonts/awesome/webfonts/fa-regular-400.ttf)
+      format("truetype"),
+    url(https://muic.mahidol.ac.th/eng/wp-content/themes/unicamp/assets/fonts/awesome/webfonts/fa-regular-400.svg#fontawesome)
+      format("svg");
+}
+
+:root {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 1.4;
+}
