@@ -23,6 +23,10 @@ const router = createRouter({
       path: "/students",
       component: () => import("../views/StudentsListView.vue"),
     },
+    {
+      path: "/edit-internship",
+      component: () => import("../views/EditPostView.vue"),
+    }
   ],
 });
 
