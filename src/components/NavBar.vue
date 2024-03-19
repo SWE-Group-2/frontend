@@ -1,18 +1,58 @@
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
+
 <template>
   <div class="navbar">
     <nav class="navbar-menu">
       <div class="navbar-menu-left">
-        <img class="menu-logo" alt="logo" src="/logo_muic.png" />
-        <span class="menu-item">Internships</span>
-        <span class="menu-item">Students</span>
+        <RouterLink to="/"
+          ><img
+            class="menu-logo"
+            alt="logo"
+            src="/logo_muic.png"
+            :class="{ 'current-page': $route.path === '/' }"
+        /></RouterLink>
+        <span class="menu-item"
+          ><RouterLink
+            style="text-decoration: none; color: inherit"
+            to="/internships"
+            >Internships</RouterLink
+          ></span
+        >
+        <span class="menu-item"
+          ><RouterLink
+            style="text-decoration: none; color: inherit"
+            to="/students"
+            >Students</RouterLink
+          ></span
+        >
       </div>
       <div class="navbar-menu-right">
         <span class="dropdown">
           Account &#9662;
-          <ul class="dropdown_menu dropdown_menu--animated dropdown_menu-style">
-            <li class="dropdown_item">Login</li>
-            <li class="dropdown_item">Register</li>
-            <li class="dropdown_item">Logout</li>
+          <ul
+            class="dropdown-menu dropdown-menu--animated dropdown-menu-style"
+            :class="{ 'current-page': $route.path === '/login' }"
+          >
+            <li class="dropdown-item">
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                to="/login"
+                >Login</RouterLink
+              >
+            </li>
+            <li class="dropdown-item">
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                to="/register"
+                >Register</RouterLink
+              >
+            </li>
+            <li class="dropdown-item">
+              Logout
+              <!-- some technical code to log user out -->
+            </li>
           </ul>
         </span>
       </div>
@@ -47,14 +87,6 @@
     margin: 40px;
     color: #b5a7c8;
   }
-  .menu-item a {
-    text-decoration: none;
-    color: #b5a7c8;
-  }
-  .menu-item a:visited {
-    color: #b5a7c8;
-  }
-
   .menu-item:hover {
     color: #dd9832;
     cursor: pointer;
@@ -81,7 +113,7 @@
     cursor: pointer;
   }
 }
-.dropdown_menu {
+.dropdown-menu {
   position: absolute;
   margin-top: 15px;
   margin-left: -10px;
@@ -90,28 +122,28 @@
   width: 50px;
   li {
     display: none;
-    color: white;
     margin-left: -40px;
     padding: 10px;
     font-size: 13px;
     opacity: 0;
+    color: white;
     &:hover {
       color: #dd9832;
       cursor: pointer;
     }
   }
 }
-.dropdown:hover .dropdown_menu--animated {
+.dropdown:hover .dropdown-menu--animated {
   display: block;
 }
-.dropdown_menu--animated {
+.dropdown-menu--animated {
   display: none;
   li {
     display: block;
     opacity: 1;
   }
 }
-.dropdown_menu-style {
+.dropdown-menu-style {
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
 }
