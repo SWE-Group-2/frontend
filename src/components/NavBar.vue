@@ -78,6 +78,7 @@ import { RouterLink } from "vue-router";
   font-size: 15px;
   font-weight: 500;
   .menu-logo {
+    margin-top: 5px;
     margin-left: 30px;
     margin-right: 50px;
     width: 160px;
