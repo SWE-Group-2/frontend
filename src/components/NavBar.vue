@@ -85,11 +85,32 @@ import { RouterLink } from "vue-router";
   }
   .menu-item {
     margin: 40px;
+    display: inline-block;
+    position: relative;
     color: #b5a7c8;
+    transition: color 0.25s ease-in-out;
+  }
+  .menu-item::after {
+    content: "";
+    position: absolute;
+    margin-bottom: -5px;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #dd9832;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
   }
   .menu-item:hover {
     color: #dd9832;
     cursor: pointer;
+    transition: color 0.25s ease-in-out;
+  }
+  .menu-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 }
 .navbar-menu-left {
@@ -108,9 +129,11 @@ import { RouterLink } from "vue-router";
   z-index: 100;
   color: #b5a7c8;
   padding: 34px 0;
+  transition: color 0.15s ease-in-out;
   &:hover {
     color: #dd9832;
     cursor: pointer;
+    transition: color 0.15s ease-in-out;
   }
 }
 .dropdown-menu {
@@ -127,6 +150,7 @@ import { RouterLink } from "vue-router";
     font-size: 13px;
     opacity: 0;
     color: white;
+    transition: color 0.25s ease-in-out;
     &:hover {
       color: #dd9832;
       cursor: pointer;
