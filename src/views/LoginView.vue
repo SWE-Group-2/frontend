@@ -1,20 +1,26 @@
 <template>
-  <div class="login-box align-center">
-    <h1>LOGIN</h1>
-    <form @submit.prevent="submitForm">
-      <div class="input-group">
-        <input type="text" id="username" v-model="username" placeholder="username" required>
-      </div>
-      <div class="input-group">
-        <input type="password" id="password" v-model="password" placeholder="password" required>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+  <div class="align-center">
+    <div class="login-box align-center">
+      <h1 class="h1-text">LOGIN</h1>
+      <form @submit.prevent="submitForm">
+        <div class="input-group">
+          <input class="input-text" type="text" id="username" v-model="username" placeholder="username" required>
+        </div>
+        <div class="input-group">
+          <input class="input-text" type="password" id="password" v-model="password" placeholder="password" required>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 
 
 <style scoped>
+.h1-text {
+  font-weight: 450;
+}
+
 .align-center {
   text-align: center;
   margin: 0 auto;
@@ -30,18 +36,19 @@
   border-radius: 5px;
 }
 
-.input-group {
-  margin-bottom: 20px;
+.input-text::placeholder {
+  text-align: center;
+  color: #B5A7C8;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
+.input-group {
+  margin-bottom: 20px;
 }
 
 .input-group input {
   width: 60%;
   padding: 9px;
+  background-color: #EBEBEB;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
@@ -49,7 +56,7 @@
 button {
   width: 30%;
   padding: 10px;
-  margin-top: 5px;
+  margin-top: 7px;
   background-color: #462378;
   color: #fff;
   border: none;
