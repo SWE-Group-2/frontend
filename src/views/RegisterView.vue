@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { registerUser } from "@/services/Register.spec.js";
+import { registerUser } from "@/services/UserService.spec.js";
 
 export default {
   data() {
