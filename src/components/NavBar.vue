@@ -1,6 +1,17 @@
 <script setup>
 import { RouterLink } from "vue-router";
 </script>
+<script>
+import { clearAuthToken } from "@/services/AuthService.spec.js";
+
+export default {
+  methods: {
+    logout() {
+      clearAuthToken();
+    },
+  },
+};
+</script>
 
 <template>
   <div class="navbar">
@@ -58,10 +69,7 @@ import { RouterLink } from "vue-router";
                 >Register</RouterLink
               >
             </li>
-            <li class="dropdown-item">
-              Logout
-              <!-- some technical code to log user out -->
-            </li>
+            <li class="dropdown-item" @click="logout">Logout</li>
           </ul>
         </span>
       </div>
@@ -79,6 +87,7 @@ import { RouterLink } from "vue-router";
   z-index: 9;
   background-color: #462378;
 }
+
 .navbar-menu {
   display: flex;
   justify-content: space-between;
@@ -86,6 +95,7 @@ import { RouterLink } from "vue-router";
   height: 30px;
   font-size: 15px;
   font-weight: 500;
+
   .menu-logo {
     margin-top: 5px;
     margin-left: 30px;
@@ -93,6 +103,7 @@ import { RouterLink } from "vue-router";
     width: 160px;
     color: #dd9832;
   }
+
   .menu-item {
     margin: 40px;
     display: inline-block;
@@ -100,6 +111,7 @@ import { RouterLink } from "vue-router";
     color: #b5a7c8;
     transition: color 0.25s ease-in-out;
   }
+
   .menu-item::after {
     content: "";
     position: absolute;
@@ -125,11 +137,13 @@ import { RouterLink } from "vue-router";
     transform-origin: bottom left;
   }
 }
+
 .navbar-menu-left {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .navbar-menu-right {
   display: flex;
   justify-content: center;
@@ -142,12 +156,14 @@ import { RouterLink } from "vue-router";
   color: #b5a7c8;
   padding: 34px 0;
   transition: color 0.15s ease-in-out;
+
   &:hover {
     color: #dd9832;
     cursor: pointer;
     transition: color 0.15s ease-in-out;
   }
 }
+
 .dropdown-menu {
   position: absolute;
   margin-top: 15px;
@@ -155,6 +171,7 @@ import { RouterLink } from "vue-router";
   z-index: -1;
   background-color: #7f53bf;
   width: 50px;
+
   li {
     display: none;
     margin-left: -40px;
@@ -163,22 +180,27 @@ import { RouterLink } from "vue-router";
     opacity: 0;
     color: white;
     transition: color 0.25s ease-in-out;
+
     &:hover {
       color: #dd9832;
       cursor: pointer;
     }
   }
 }
+
 .dropdown:hover .dropdown-menu--animated {
   display: block;
 }
+
 .dropdown-menu--animated {
   display: none;
+
   li {
     display: block;
     opacity: 1;
   }
 }
+
 .dropdown-menu-style {
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
