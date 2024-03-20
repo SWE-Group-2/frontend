@@ -26,7 +26,7 @@ const router = createRouter({
     {
       path: "/edit-internship",
       component: () => import("../views/EditPostView.vue"),
-    }
+    },
   ],
 });
 

@@ -4,10 +4,24 @@
       <h1 class="h1-text">LOGIN</h1>
       <form @submit.prevent="submitForm">
         <div class="input-group">
-          <input class="input-text" type="text" id="username" v-model="username" placeholder="username" required>
+          <input
+            id="username"
+            v-model="username"
+            class="input-text"
+            type="text"
+            placeholder="username"
+            required
+          />
         </div>
         <div class="input-group">
-          <input class="input-text" type="password" id="password" v-model="password" placeholder="password" required>
+          <input
+            id="password"
+            v-model="password"
+            class="input-text"
+            type="password"
+            placeholder="password"
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
@@ -15,6 +29,23 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    submitForm() {
+      // Here you can implement your login logic
+      console.log("Username:", this.username);
+      console.log("Password:", this.password);
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .h1-text {
@@ -34,7 +65,7 @@
 }
 
 .login-box {
-  background-color: #B5A7C8;
+  background-color: #b5a7c8;
   width: 280px;
   height: 300px;
   margin: 200px;
@@ -45,7 +76,7 @@
 
 .input-text::placeholder {
   text-align: center;
-  color: #B5A7C8;
+  color: #b5a7c8;
 }
 
 .input-group {
@@ -55,7 +86,7 @@
 .input-group input {
   width: 60%;
   padding: 9px;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
@@ -75,22 +106,3 @@ button:hover {
   background-color: #351b5a;
 }
 </style>
-
-
-<script>
-export default {
-  data() {
-    return {
-      username: '',
-      password: ''
-    };
-  },
-  methods: {
-    submitForm() {
-      // Here you can implement your login logic
-      console.log('Username:', this.username);
-      console.log('Password:', this.password);
-    }
-  }
-}
-</script>
