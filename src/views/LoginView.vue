@@ -30,6 +30,9 @@
 </template>
 
 <script>
+import { loginUser } from "@/services/UserService.spec.js";
+import { setAuthToken } from "@/services/AuthService.spec.js";
+
 export default {
   data() {
     return {
@@ -39,9 +42,13 @@ export default {
   },
   methods: {
     submitForm() {
-      // Here you can implement your login logic
-      console.log("Username:", this.username);
-      console.log("Password:", this.password);
+      loginUser(this.username, this.password)
+        .then((response) => {
+          setAuthToken(response["access_token"]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
