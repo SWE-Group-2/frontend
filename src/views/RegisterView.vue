@@ -4,19 +4,54 @@
       <h1 class="h1-text">REGISTER</h1>
       <form @submit.prevent="submitForm">
         <div class="input-group">
-          <input class="input-text" type="text" id="firstname" v-model="firstname" placeholder="first name" required>
+          <input
+            id="firstname"
+            v-model="firstname"
+            class="input-text"
+            type="text"
+            placeholder="first name"
+            required
+          />
         </div>
         <div class="input-group">
-          <input class="input-text" type="text" id="lastname" v-model="lastname" placeholder="last name" required>
+          <input
+            id="lastname"
+            v-model="lastname"
+            class="input-text"
+            type="text"
+            placeholder="last name"
+            required
+          />
         </div>
         <div class="input-group">
-          <input class="input-text" type="text" id="username" v-model="username" placeholder="username" required>
+          <input
+            id="username"
+            v-model="username"
+            class="input-text"
+            type="text"
+            placeholder="username"
+            required
+          />
         </div>
         <div class="input-group">
-          <input class="input-text" type="password" id="password" v-model="password" placeholder="password" required>
+          <input
+            id="password"
+            v-model="password"
+            class="input-text"
+            type="password"
+            placeholder="password"
+            required
+          />
         </div>
         <div class="input-group">
-          <input class="input-text" type="password" id="confirmpassword" v-model="confirmpassword" placeholder="confirm password" required>
+          <input
+            id="confirmpassword"
+            v-model="confirmpassword"
+            class="input-text"
+            type="password"
+            placeholder="confirm password"
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
@@ -24,6 +59,32 @@
   </div>
 </template>
 
+<script>
+import { registerUser } from "@/services/Register.spec.js";
+
+export default {
+  data() {
+    return {
+      firstname: "",
+      lastname: "",
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    submitForm() {
+      registerUser(
+        this.firstname,
+        this.lastname,
+        this.username,
+        this.password,
+      ).catch((error) => {
+        console.error(error);
+      });
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .h1-text {
@@ -44,7 +105,7 @@
 }
 
 .register-box {
-  background-color: #B5A7C8;
+  background-color: #b5a7c8;
   width: 280px;
   height: 450px;
   margin: 100px;
@@ -55,7 +116,7 @@
 
 .input-text::placeholder {
   text-align: center;
-  color: #B5A7C8;
+  color: #b5a7c8;
 }
 
 .input-group {
@@ -66,7 +127,7 @@
   width: 60%;
   padding: 9px;
   border: 1px solid #ccc;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border-radius: 3px;
 }
 
@@ -85,25 +146,3 @@ button:hover {
   background-color: #351b5a;
 }
 </style>
-
-
-<script>
-export default {
-  data() {
-    return {
-      firstname: '',
-      lastname: '',
-      username: '',
-      password: ''
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log('First Name:', this.firstname);
-      console.log('Last Name:', this.lastname);
-      console.log('Username:', this.username);
-      console.log('Password:', this.password);
-    }
-  }
-}
-</script>
