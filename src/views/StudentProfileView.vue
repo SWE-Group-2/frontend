@@ -16,7 +16,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
             <div class="edit-profile">
               <RouterLink
                 style="text-decoration: underline; color: inherit"
-                to="/edit_profile"
+                to="/edit-profile"
                 >EDIT PROFILE
               </RouterLink>
             </div>

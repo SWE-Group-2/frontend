@@ -31,6 +31,10 @@ const router = createRouter({
     {
       path: "/edit-internship",
       component: () => import("../views/EditPostView.vue"),
+    },
+    {
+      path: "/edit-profile",
+      component: () => import("../views/EditProfileView.vue"),
     }
   ],
 });
