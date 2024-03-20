@@ -33,8 +33,16 @@ import { RouterLink } from "vue-router";
         </span>
       </div>
       <div class="navbar-menu-right">
-        <span class="dropdown">
-          Account &#9662;
+        <span
+          class="dropdown"
+          :class="{ 'current-page-normal': $route.path === '/profile' }"
+        >
+          <RouterLink
+            style="text-decoration: none; color: inherit"
+            to="/profile"
+          >
+            Account &#9662;
+          </RouterLink>
           <ul class="dropdown-menu dropdown-menu--animated dropdown-menu-style">
             <li class="dropdown-item">
               <RouterLink
@@ -174,6 +182,10 @@ import { RouterLink } from "vue-router";
 .dropdown-menu-style {
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
+}
+
+.current-page-normal {
+  color: #dd9832;
 }
 
 @keyframes growDown {
