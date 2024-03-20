@@ -13,7 +13,7 @@ import StudentsDisplay from "@/components/StudentsDisplay.vue";
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .students-list-header {
   font-family: Roboto Slab;
   font-weight: 700;
@@ -21,7 +21,8 @@ import StudentsDisplay from "@/components/StudentsDisplay.vue";
   letter-spacing: 0em;
   line-height: 1.3;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  margin-top: 100px;
 }
 
 .students-list-display {

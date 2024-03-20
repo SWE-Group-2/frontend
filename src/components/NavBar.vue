@@ -17,35 +17,44 @@ export default {
   <div class="navbar">
     <nav class="navbar-menu">
       <div class="navbar-menu-left">
-        <RouterLink to="/"
-          ><img
-            class="menu-logo"
-            alt="logo"
-            src="/logo_muic.png"
-            :class="{ 'current-page': $route.path === '/' }"
-        /></RouterLink>
-        <span class="menu-item"
-          ><RouterLink
+        <RouterLink to="/">
+          <img class="menu-logo" alt="logo" src="/logo_muic.png" />
+        </RouterLink>
+        <span
+          class="menu-item"
+          :class="{ 'current-page': $route.path === '/internships' }"
+        >
+          <RouterLink
             style="text-decoration: none; color: inherit"
             to="/internships"
-            >Internships</RouterLink
-          ></span
+          >
+            Internships
+          </RouterLink>
+        </span>
+        <span
+          class="menu-item"
+          :class="{ 'current-page': $route.path === '/students' }"
         >
-        <span class="menu-item"
-          ><RouterLink
+          <RouterLink
             style="text-decoration: none; color: inherit"
             to="/students"
-            >Students</RouterLink
-          ></span
-        >
+          >
+            Students
+          </RouterLink>
+        </span>
       </div>
       <div class="navbar-menu-right">
-        <span class="dropdown">
-          Account &#9662;
-          <ul
-            class="dropdown-menu dropdown-menu--animated dropdown-menu-style"
-            :class="{ 'current-page': $route.path === '/login' }"
+        <span
+          class="dropdown"
+          :class="{ 'current-page-normal': $route.path === '/profile' }"
+        >
+          <RouterLink
+            style="text-decoration: none; color: inherit"
+            to="/profile"
           >
+            Account &#9662;
+          </RouterLink>
+          <ul class="dropdown-menu dropdown-menu--animated dropdown-menu-style">
             <li class="dropdown-item">
               <RouterLink
                 style="text-decoration: none; color: inherit"
@@ -116,14 +125,14 @@ export default {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-
-  .menu-item:hover {
+  .menu-item:hover,
+  .current-page {
     color: #dd9832;
     cursor: pointer;
     transition: color 0.25s ease-in-out;
   }
-
-  .menu-item:hover::after {
+  .menu-item:hover::after,
+  .current-page::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
@@ -195,6 +204,10 @@ export default {
 .dropdown-menu-style {
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
+}
+
+.current-page-normal {
+  color: #dd9832;
 }
 
 @keyframes growDown {
