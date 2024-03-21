@@ -25,9 +25,9 @@
       </div>
       <div class="column">
         <div class="button-row">
-            <RouterLink to="/edit-internship" class="button">
-                <img src="/pencil.png" alt="edit"/>
-            </RouterLink>
+          <RouterLink to="/edit-internship" class="button">
+            <img src="/pencil.png" alt="edit" />
+          </RouterLink>
         </div>
         <div class="button-row">
           <a href="/login" class="button">
@@ -56,9 +56,9 @@
       </div>
       <div class="column">
         <div class="button-row">
-            <RouterLink to="/edit-internship" class="button">
-                <img src="/pencil.png" alt="edit"/>
-            </RouterLink>
+          <RouterLink to="/edit-internship" class="button">
+            <img src="/pencil.png" alt="edit" />
+          </RouterLink>
         </div>
         <div class="button-row">
           <a href="/login" class="button">
@@ -89,9 +89,9 @@
       </div>
       <div class="column">
         <div class="button-row">
-            <RouterLink to="/edit-internship" class="button">
-                <img src="/pencil.png" alt="edit"/>
-            </RouterLink>
+          <RouterLink to="/edit-internship" class="button">
+            <img src="/pencil.png" alt="edit" />
+          </RouterLink>
         </div>
         <div class="button-row">
           <a href="/login" class="button">

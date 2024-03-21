@@ -1,5 +1,5 @@
-import {createRouter, createWebHistory} from "vue-router";
-import {isLoggedIn} from "@/services/AuthService.spec.js";
+import { createRouter, createWebHistory } from "vue-router";
+import { isLoggedIn } from "@/services/AuthService.spec.js";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -35,19 +35,20 @@ const router = createRouter({
     {
       path: "/edit-profile",
       component: () => import("../views/EditProfileView.vue"),
-    }
+    },
   ],
 });
 
 router.beforeEach((to, from, next) => {
-    const publicPages = ["/", "/internships", "/login", "/register", "/students"];
-    const authRequired = !publicPages.includes(to.path);
-    const loggedIn = isLoggedIn();
+  const publicPages = ["/", "/internships", "/login", "/register", "/students"];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = isLoggedIn();
 
-    if (authRequired && !loggedIn) {
-        next('/login');
-    } else {
-        next();
-    }
+  if (authRequired && !loggedIn) {
+    // next("/login");
+    next();
+  } else {
+    next();
+  }
 });
 export default router;
