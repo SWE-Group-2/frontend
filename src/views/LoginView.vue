@@ -45,6 +45,8 @@ export default {
       loginUser(this.username, this.password)
         .then((response) => {
           setAuthToken(response["access_token"]);
+          console.log("SUCCESSFUL LOGIN");
+          this.$router.push("/internships");
         })
         .catch((error) => {
           console.log(error);

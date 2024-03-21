@@ -73,14 +73,14 @@ export default {
   },
   methods: {
     submitForm() {
-      registerUser(
-        this.firstname,
-        this.lastname,
-        this.username,
-        this.password,
-      ).catch((error) => {
-        console.error(error);
-      });
+      registerUser(this.firstname, this.lastname, this.username, this.password)
+        .then(() => {
+          console.log("SUCCESSFUL REGISTRATION");
+          this.$router.push("/internships");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
 };

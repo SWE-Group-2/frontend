@@ -18,6 +18,8 @@ export async function registerUser(firstName, lastName, username, password) {
 
   if (response.status === 201) {
     return response.json();
+  } else if (response.status === 409) {
+    console.log("User already exists");
   }
 
   throw new Error("Failed to register user");
