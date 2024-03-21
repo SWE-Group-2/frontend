@@ -1,11 +1,11 @@
 <script setup>
-import PostDisplay from "@/components/PostsDisplay.vue";
+import PostsDisplay from "@/components/PostsDisplay.vue";
 </script>
 
 <template>
   <div id="internships">
     <div class="internships-list-header">Internships</div>
-    <PostDisplay />
+    <PostsDisplay />
   </div>
 </template>
 
