@@ -60,13 +60,13 @@
 </template>
 
 <script>
-import { registerUser } from "@/services/UserService.spec.js";
+import { registerUser } from "@/services/UserService.spec.ts";
 
 export default {
   data() {
     return {
-      firstname: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       username: "",
       password: "",
     };

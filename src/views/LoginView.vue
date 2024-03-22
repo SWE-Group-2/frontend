@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import { loginUser } from "@/services/UserService.spec.js";
-import { setAuthToken } from "@/services/AuthService.spec.js";
+import { loginUser } from "@/services/UserService.spec.ts";
+import { setAuthToken } from "@/services/AuthService.spec.ts";
 
 export default {
   data() {
