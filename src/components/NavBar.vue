@@ -2,7 +2,7 @@
 import { RouterLink } from "vue-router";
 </script>
 <script>
-import { clearAuthToken } from "@/services/AuthService.spec.js";
+import { clearAuthToken } from "@/services/AuthService.spec.ts";
 
 export default {
   methods: {
@@ -125,12 +125,14 @@ export default {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
+
   .menu-item:hover,
   .current-page {
     color: #dd9832;
     cursor: pointer;
     transition: color 0.25s ease-in-out;
   }
+
   .menu-item:hover::after,
   .current-page::after {
     transform: scaleX(1);
