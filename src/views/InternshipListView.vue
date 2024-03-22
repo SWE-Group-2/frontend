@@ -5,6 +5,9 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
 <template>
   <div id="internships">
     <div class="internships-list-header">Internships</div>
+    <RouterLink to="/create-internship">
+      <button>Create Internship</button>
+    </RouterLink>
     <PostsDisplay />
   </div>
 </template>
