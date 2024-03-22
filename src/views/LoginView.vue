@@ -29,9 +29,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { loginUser } from "@/services/UserService.spec.ts";
 import { setAuthToken } from "@/services/AuthService.spec.ts";
+import { UserLoginInfo } from "@/types/UserLoginInfo";
 
 export default {
   data() {
@@ -42,7 +43,11 @@ export default {
   },
   methods: {
     submitForm() {
-      loginUser(this.username, this.password)
+      const userInfo: UserLoginInfo = {
+        username: this.username,
+        password: this.password,
+      };
+      loginUser(userInfo)
         .then((response) => {
           setAuthToken(response["access_token"]);
           console.log("SUCCESSFUL LOGIN");

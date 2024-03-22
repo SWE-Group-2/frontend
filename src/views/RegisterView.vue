@@ -6,7 +6,7 @@
         <div class="input-group">
           <input
             id="firstname"
-            v-model="firstname"
+            v-model="firstName"
             class="input-text"
             type="text"
             placeholder="first name"
@@ -16,7 +16,7 @@
         <div class="input-group">
           <input
             id="lastname"
-            v-model="lastname"
+            v-model="lastName"
             class="input-text"
             type="text"
             placeholder="last name"
@@ -46,7 +46,7 @@
         <div class="input-group">
           <input
             id="confirmpassword"
-            v-model="confirmpassword"
+            v-model="confirmPassword"
             class="input-text"
             type="password"
             placeholder="confirm password"
@@ -59,8 +59,9 @@
   </div>
 </template>
 
-<script>
-import { registerUser } from "@/services/UserService.spec.ts";
+<script lang="ts">
+import { registerUser } from "@/services/UserService.spec";
+import { UserRegistrationInfo } from "@/types/UserRegistrationInfo";
 
 export default {
   data() {
@@ -69,11 +70,24 @@ export default {
       lastName: "",
       username: "",
       password: "",
+      confirmPassword: "",
     };
   },
   methods: {
     submitForm() {
-      registerUser(this.firstname, this.lastname, this.username, this.password)
+      if (this.password !== this.confirmPassword) {
+        console.error("Passwords do not match");
+        return;
+      }
+
+      const userInfo: UserRegistrationInfo = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        username: this.username,
+        password: this.password,
+      };
+
+      registerUser(userInfo)
         .then(() => {
           console.log("SUCCESSFUL REGISTRATION");
           this.$router.push("/internships");
