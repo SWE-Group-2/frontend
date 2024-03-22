@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getTimePeriods } from "@/services/TimePeriodService.spec";
+import { getTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 
 defineProps<{

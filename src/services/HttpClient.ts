@@ -1,4 +1,4 @@
-import { authHeader } from "@/services/AuthService.spec";
+import { authHeader } from "@/services/Auth.service";
 
 class HttpClient {
   private static baseUrl: string = "http://localhost:5000";

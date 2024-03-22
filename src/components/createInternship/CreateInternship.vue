@@ -1,6 +1,6 @@
 <script lang="ts">
 import { ref, type Ref } from "vue";
-import { createInternship } from "@/services/InternshipService.spec";
+import { createInternship } from "@/services/Internship.service";
 import router from "@/router";
 
 export interface CreateInternshipState {

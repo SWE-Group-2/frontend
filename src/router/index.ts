@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { isLoggedIn } from "@/services/AuthService.spec";
+import { isLoggedIn } from "@/services/Auth.service";
 
 const router = createRouter({
   history: createWebHistory(),
