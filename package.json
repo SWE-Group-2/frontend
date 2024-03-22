@@ -9,12 +9,15 @@
     "preview": "vite preview",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
     "lint:style": "prettier --write src/**/*.{css,vue}",
     "format": "prettier .  --write",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "@vue/eslint-config-typescript": "^13.0.0",
     "axios": "^1.6.7",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
