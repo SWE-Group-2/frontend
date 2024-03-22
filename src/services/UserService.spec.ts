@@ -14,6 +14,7 @@ const baseUrl = "http://localhost:5000/users";
 export async function registerUser(userInfo: UserRegistrationInfo) {
   const response = await fetch(`${baseUrl}/register`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       first_name: userInfo.firstName,
       last_name: userInfo.lastName,
@@ -45,6 +46,7 @@ export async function registerUser(userInfo: UserRegistrationInfo) {
 export async function loginUser(userInfo: UserLoginInfo) {
   const response = await fetch(`${baseUrl}/login`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       username: userInfo.username,
       password: userInfo.password,
