@@ -3,7 +3,7 @@ import { describe, test, expect } from "vitest";
 import { useCreateInternship } from "@/components/createInternship/CreateInternship.vue";
 
 
-describe('CreateInternship', () => {
+describe('CreateInternship tests', () => {
     test('Can mount', () => {
         const wrapper = mount(useCreateInternship);
         expect(wrapper.exists()).toBe(true);
