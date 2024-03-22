@@ -1,13 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import { RouterLink } from "vue-router";
+import { isLoggedIn } from "@/services/AuthService.spec.ts";
 </script>
-<script>
+<script lang="ts">
 import { clearAuthToken } from "@/services/AuthService.spec.ts";
 
 export default {
   methods: {
     logout() {
       clearAuthToken();
+      this.$router.push("/login");
     },
   },
 };
@@ -55,21 +57,23 @@ export default {
             Account &#9662;
           </RouterLink>
           <ul class="dropdown-menu dropdown-menu--animated dropdown-menu-style">
-            <li class="dropdown-item">
+            <li class="dropdown-item" v-if="!isLoggedIn()">
               <RouterLink
                 style="text-decoration: none; color: inherit"
                 to="/login"
                 >Login</RouterLink
               >
             </li>
-            <li class="dropdown-item">
+            <li class="dropdown-item" v-if="!isLoggedIn()">
               <RouterLink
                 style="text-decoration: none; color: inherit"
                 to="/register"
                 >Register</RouterLink
               >
             </li>
-            <li class="dropdown-item" @click="logout">Logout</li>
+            <li class="dropdown-item" @click="logout" v-if="isLoggedIn()">
+              Logout
+            </li>
           </ul>
         </span>
       </div>
