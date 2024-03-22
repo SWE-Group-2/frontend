@@ -1,9 +1,9 @@
-import { authHeader } from "@/services/AuthService.spec";
 import { UserRegistrationInfo } from "@/types/UserRegistrationInfo";
 import { UserLoginInfo } from "@/types/UserLoginInfo";
 import { User } from "@/types/User";
-
-const baseUrl = "http://localhost:5000/users";
+import HttpClient from "@/services/HttpClient";
+import { Endpoints } from "@/constants/endpoints";
+import formatEndpoint from "@/utils/formatEndpoint";
 
 /**
  * Registers a new user.
@@ -12,16 +12,15 @@ const baseUrl = "http://localhost:5000/users";
  * @throws error if the input is invalid, the username already exists, or the registration fails
  */
 export async function registerUser(userInfo: UserRegistrationInfo) {
-  const response = await fetch(`${baseUrl}/register`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      first_name: userInfo.firstName,
-      last_name: userInfo.lastName,
-      username: userInfo.username,
-      password: userInfo.password,
-    }),
-  });
+  // Conform with the backend's expected JSON format
+  const userJson = {
+    first_name: userInfo.firstName,
+    last_name: userInfo.lastName,
+    username: userInfo.username,
+    password: userInfo.password,
+  };
+
+  const response = await HttpClient.post(Endpoints.REGISTER, userJson);
 
   if (response.ok) {
     return response.json();
@@ -44,14 +43,7 @@ export async function registerUser(userInfo: UserRegistrationInfo) {
  * @throws error if the username or password is invalid, or the login fails
  */
 export async function loginUser(userInfo: UserLoginInfo) {
-  const response = await fetch(`${baseUrl}/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      username: userInfo.username,
-      password: userInfo.password,
-    }),
-  });
+  const response = await HttpClient.post(Endpoints.LOGIN, userInfo);
 
   if (response.ok) {
     return response.json();
@@ -71,10 +63,7 @@ export async function loginUser(userInfo: UserLoginInfo) {
  * @throws error if the user is not logged in, or the request fails
  */
 export async function getUserInfo(): Promise<User> {
-  const response = await fetch(`${baseUrl}/get_current_user`, {
-    method: "GET",
-    headers: authHeader(),
-  });
+  const response = await HttpClient.get(Endpoints.GET_CURRENT_USER, true);
 
   if (response.ok) {
     return response.json();
@@ -95,10 +84,10 @@ export async function getUserInfo(): Promise<User> {
  * @throws error if the user is not found, the user is not logged in, or the request fails
  */
 export async function getUserById(userId: number): Promise<User> {
-  const response = await fetch(`${baseUrl}/${userId}`, {
-    method: "GET",
-    headers: authHeader(),
-  });
+  const response = await HttpClient.get(
+    formatEndpoint(Endpoints.GET_USER_BY_ID, { user_id: userId.toString() }),
+    true,
+  );
 
   if (response.ok) {
     return response.json();
