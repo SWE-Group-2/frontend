@@ -90,7 +90,7 @@ export default {
       registerUser(userInfo)
         .then(() => {
           console.log("SUCCESSFUL REGISTRATION");
-          this.$router.push("/internships");
+          this.$router.push("/login");
         })
         .catch((error) => {
           console.error(error);
