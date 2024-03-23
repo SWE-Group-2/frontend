@@ -1,4 +1,4 @@
-import {Endpoints} from "@/constants/endpoints";
+import { Endpoints } from "@/constants/endpoints";
 import HttpClient from "@/services/HttpClient";
 
 export async function getTimePeriods() {
