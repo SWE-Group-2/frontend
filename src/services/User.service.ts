@@ -49,12 +49,11 @@ export async function loginUser(userInfo: UserLoginInfo) {
     return response.json();
   }
 
-  switch (response.status) {
-    case 401:
-      throw new Error("Invalid username or password");
-    default:
-      throw new Error("Failed to login");
+  if (response.status === 401) {
+    throw new Error("Invalid username or password");
   }
+
+  throw new Error("Failed to log in");
 }
 
 /**
@@ -69,12 +68,11 @@ export async function getUserInfo(): Promise<User> {
     return response.json();
   }
 
-  switch (response.status) {
-    case 401:
-      throw new Error("Not logged in");
-    default:
-      throw new Error("Failed to get user info");
+  if (response.status === 401) {
+    throw new Error("Not logged in");
   }
+
+  throw new Error("Failed to get user info");
 }
 
 /**

@@ -5,7 +5,7 @@
 
 <template>
   <div id="table">
-    <table id="students">
+    <table id="students" aria-hidden="true">
       <tr class="table-header">
         <th>ID</th>
         <th>Name</th>
@@ -44,10 +44,10 @@
 .table {
   border-collapse: collapse;
   width: 50%;
-  font-family: Roboto;
+  font-family: Roboto, serif;
   font-size: 20px;
   font-weight: 4500;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   line-height: 1.4;
   color: #010001;
   background-color: #fefeff;
