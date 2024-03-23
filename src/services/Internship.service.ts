@@ -85,3 +85,22 @@ export async function getAllInternships() {
 
   throw new Error("Failed to get internships");
 }
+
+export async function getInternshipById(internshipId: number) {
+  const response = await HttpClient.get(
+    formatEndpoint(Endpoints.INTERNSHIP_BY_ID, {
+      internship_id: internshipId.toString(),
+    }),
+  );
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 404:
+      throw new Error("Internship not found");
+    default:
+      throw new Error("Failed to get internship");
+  }
+}
