@@ -1,5 +1,10 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { getAllInternships } from "@/services/Internship.service";
+import {
+  editInternship,
+  getAllInternships,
+  getInternshipById,
+} from "@/services/Internship.service";
+import { InternshipCreate } from "@/types/InternshipCreate";
 
 describe("Internship service tests", () => {
   function mockFetch(returnData: object) {
@@ -35,5 +40,52 @@ describe("Internship service tests", () => {
     expect(fetch).toHaveBeenCalledWith("http://localhost:5000/internships", {
       headers: {},
     });
+  });
+
+  test("Can get internships", async () => {
+    const internshipId = 1;
+    const internshipData: InternshipCreate = {
+      company: "Google",
+      position: "Software Engineer",
+      website: "https://google.com",
+      deadline: "2024-03-24",
+      timePeriodId: 1,
+      companyPhotoLink: "https://google.com/logo.png",
+    };
+    const internshipJson = {
+      company: internshipData.company,
+      position: internshipData.position,
+      website: internshipData.website,
+      deadline: internshipData.deadline,
+      time_period_id: internshipData.timePeriodId,
+      company_photo_link: internshipData.companyPhotoLink,
+    };
+    try {
+      await editInternship(internshipId, internshipData);
+    } catch (e) {
+      /* ignore */
+    }
+    expect(fetch).toHaveBeenCalledWith(
+      `http://localhost:5000/internships/${internshipId}`,
+      {
+        headers: { "Content-Type": "application/json" },
+        method: "PUT",
+        body: JSON.stringify(internshipJson),
+      },
+    );
+  });
+  test("Can get internship by id", async () => {
+    const internshipId = 1;
+    try {
+      await getInternshipById(internshipId);
+    } catch (e) {
+      /* ignore */
+    }
+    expect(fetch).toHaveBeenCalledWith(
+      `http://localhost:5000/internships/${internshipId}`,
+      {
+        headers: {},
+      },
+    );
   });
 });
