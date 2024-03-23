@@ -22,7 +22,7 @@ export function useInternshipList(): InternshipListState {
 }
 </script>
 <script setup lang="ts">
-import InternshipListView from "@/views/InternshipListView.vue";
+import InternshipListView from "@/components/internshipList/InternshipListView.vue";
 
 const internshipListPage = useInternshipList();
 </script>

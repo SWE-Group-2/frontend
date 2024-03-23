@@ -46,7 +46,7 @@ export function useCreateInternship(): CreateInternshipState {
 </script>
 
 <script setup lang="ts">
-import CreateInternshipView from "@/views/CreateInternshipView.vue";
+import CreateInternshipView from "@/components/createInternship/CreateInternshipView.vue";
 
 const createInternshipPage = useCreateInternship();
 </script>
