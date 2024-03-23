@@ -10,6 +10,7 @@ defineProps<{
 }>();
 const emit = defineEmits<{
   (e: "loadInternship", value: number): void;
+  (e: "deleteInternship", value: number): void;
 }>();
 const timePeriods: TimePeriod[] = await getTimePeriods();
 const route = useRoute();
@@ -40,6 +41,9 @@ function getTimePeriodName(id: number): string {
           >
             <button>Edit</button>
           </RouterLink>
+          <button @click="() => emit('deleteInternship', internship.id)">
+            Delete
+          </button>
         </div>
         <div class="row">
           <div class="column">

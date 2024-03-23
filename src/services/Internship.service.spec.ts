@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import {
+  deleteInternshipById,
   editInternship,
   getAllInternships,
   getInternshipById,
@@ -85,6 +86,21 @@ describe("Internship service tests", () => {
       `http://localhost:5000/internships/${internshipId}`,
       {
         headers: {},
+      },
+    );
+  });
+  test("Can delete internship by id", async () => {
+    const internshipId = 1;
+    try {
+      await deleteInternshipById(internshipId);
+    } catch (e) {
+      /* ignore */
+    }
+    expect(fetch).toHaveBeenCalledWith(
+      `http://localhost:5000/internships/${internshipId}`,
+      {
+        headers: {},
+        method: "DELETE",
       },
     );
   });

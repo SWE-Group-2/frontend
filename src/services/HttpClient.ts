@@ -30,6 +30,15 @@ class HttpClient {
       },
     });
   }
+
+  static async delete(url: string, authRequired: boolean = false) {
+    return fetch(`${this.baseUrl}${url}`, {
+      method: "DELETE",
+      headers: {
+        ...(authRequired ? authHeader() : {}),
+      },
+    });
+  }
 }
 
 export default HttpClient;

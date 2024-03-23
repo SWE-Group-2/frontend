@@ -1,23 +1,39 @@
 <script lang="ts">
 import { Internship } from "@/types/Internship";
 import { ref, Ref } from "vue";
-import { getInternshipById } from "@/services/Internship.service";
+import {
+  deleteInternshipById,
+  getInternshipById,
+} from "@/services/Internship.service";
+import router from "@/router";
 
 export interface ViewInternshipState {
   internship: Ref<Internship>;
   loadInternship: (internshipId: number) => Promise<void>;
+  deleteInternship: (internshipId: number) => Promise<void>;
 }
 
 export function useViewInternship(): ViewInternshipState {
   const internship = ref<Internship>({} as Internship);
 
   async function loadInternship(internshipId: number) {
-    internship.value = await getInternshipById(internshipId);
+    try {
+      internship.value = await getInternshipById(internshipId);
+    } catch (e) {
+      console.error(e);
+      router.push("/internships");
+    }
+  }
+
+  async function deleteInternship(internshipId: number) {
+    await deleteInternshipById(internshipId);
+    await router.push("/internships");
   }
 
   return {
     internship,
     loadInternship,
+    deleteInternship,
   };
 }
 </script>
@@ -31,6 +47,7 @@ const viewInternshipPage = useViewInternship();
     <ViewInternshipView
       v-model:internship="viewInternshipPage.internship.value"
       @loadInternship="viewInternshipPage.loadInternship"
+      @deleteInternship="viewInternshipPage.deleteInternship"
     ></ViewInternshipView>
   </Suspense>
 </template>
