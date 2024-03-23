@@ -104,3 +104,25 @@ export async function getInternshipById(internshipId: number) {
       throw new Error("Failed to get internship");
   }
 }
+
+export async function deleteInternshipById(internshipId: number) {
+  const response = await HttpClient.delete(
+    formatEndpoint(Endpoints.INTERNSHIP_BY_ID, {
+      internship_id: internshipId.toString(),
+    }),
+    true,
+  );
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 401:
+      throw new Error("Unauthorized");
+    case 404:
+      throw new Error("Internship not found");
+    default:
+      throw new Error("Failed to delete internship");
+  }
+}
