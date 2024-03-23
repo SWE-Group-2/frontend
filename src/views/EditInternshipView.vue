@@ -27,7 +27,7 @@ const internshipId = Number(route.params.internshipId);
 emit("loadInternship", internshipId);
 </script>
 
-<style>
+<style scoped>
 @import "@/components/editInternship/EditInternship.css";
 </style>
 <template>

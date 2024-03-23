@@ -61,7 +61,7 @@ export async function loginUser(userInfo: UserLoginInfo) {
  * @returns the user information
  * @throws error if the user is not logged in, or the request fails
  */
-export async function getUserInfo(): Promise<User> {
+export async function getUserInfo() {
   const response = await HttpClient.get(Endpoints.GET_CURRENT_USER, true);
 
   if (response.ok) {
