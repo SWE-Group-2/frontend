@@ -38,7 +38,7 @@ export function useViewInternship(): ViewInternshipState {
 }
 </script>
 <script setup lang="ts">
-import ViewInternshipView from "@/views/ViewInternshipView.vue";
+import ViewInternshipView from "@/components/viewInternship/ViewInternshipView.vue";
 
 const viewInternshipPage = useViewInternship();
 </script>

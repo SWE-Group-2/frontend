@@ -61,7 +61,7 @@ export function useEditInternship(): EditInternshipState {
 </script>
 
 <script setup lang="ts">
-import EditInternshipView from "@/views/EditInternshipView.vue";
+import EditInternshipView from "@/components/editInternship/EditInternshipView.vue";
 
 const editInternshipPage = useEditInternship();
 </script>
