@@ -170,7 +170,6 @@
 }
 
 .button {
-  display: inline-block;
   top: 10px;
   right: 10px;
   width: 40px;

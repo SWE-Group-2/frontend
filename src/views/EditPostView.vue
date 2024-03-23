@@ -52,7 +52,7 @@
     serif;
   font-weight: 700;
   font-size: 50px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: center;
   margin-top: 100px;
   margin-bottom: 60px;
@@ -64,7 +64,7 @@
     serif;
   font-weight: 500;
   font-size: 28px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
 }
 
 .align-center {
@@ -133,7 +133,9 @@
 
 .input-field label {
   position: absolute;
-  font-family: Roboto Mono;
+  font-family:
+    Roboto Mono,
+    serif;
   top: 50%;
   transform: translateY(-50%);
   color: #d9d9d9;
@@ -179,7 +181,9 @@ input:valid ~ label {
 
 .input-field-about label {
   position: absolute;
-  font-family: Roboto Mono;
+  font-family:
+    Roboto Mono,
+    serif;
   top: 60%;
   transform: translateY(-80%);
   color: #d9d9d9;

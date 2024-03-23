@@ -38,36 +38,40 @@ const timePeriodOptions: TimePeriod[] = await getTimePeriods();
             <div class="column">
               <div class="input-field">
                 <input
+                  id="company-input"
                   :value="company"
                   @input="$emit('update:company', $event.target.value)"
                   type="text"
                   required
                   spellcheck="false"
                 />
-                <label>Company</label>
+                <label for="company-input"> Company </label>
               </div>
               <div class="input-field">
                 <input
+                  id="position-input"
                   :value="position"
                   @input="$emit('update:position', $event.target.value)"
                   type="text"
                   required
                   spellcheck="false"
                 />
-                <label>Position</label>
+                <label for="position-input">Position</label>
               </div>
               <div class="input-field">
                 <input
+                  id="website-input"
                   :value="website"
                   @input="$emit('update:website', $event.target.value)"
                   type="text"
                   required
                   spellcheck="false"
                 />
-                <label>Application Link</label>
+                <label for="website-input">Application Link</label>
               </div>
               <div class="input-field">
                 <select
+                  id="time-period-input"
                   :value="timePeriodId"
                   @change="$emit('update:timePeriodId', $event.target.value)"
                 >
@@ -78,15 +82,16 @@ const timePeriodOptions: TimePeriod[] = await getTimePeriods();
                     {{ option.name }}
                   </option>
                 </select>
-                <label>Internship Period</label>
+                <label for="time-period-input">Internship Period</label>
               </div>
               <div class="input-field">
                 <input
+                  id="deadline-input"
                   :value="deadline"
                   type="date"
                   @change="$emit('update:deadline', $event.target.value)"
                 />
-                <label>Application Deadline</label>
+                <label for="deadline-input">Application Deadline</label>
               </div>
             </div>
             <div class="column">

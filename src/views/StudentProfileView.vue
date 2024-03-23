@@ -144,7 +144,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.418);
   padding: 1.5rem;
   max-width: 650px;
 }
@@ -160,7 +160,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.418);
   padding: 1.5rem;
 }
 .work-info {
@@ -187,7 +187,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.418);
   padding: 1.5rem;
 }
 
@@ -195,9 +195,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
   color: white;
   display: inline;
   background-color: #462378;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px 10px;
   width: fit-content;
   font-weight: 600;
   font-size: 25px;
@@ -206,9 +204,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
   color: white;
   display: inline;
   background-color: #dd9832;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px 10px;
   width: fit-content;
   font-weight: 500;
   font-size: 24px;
@@ -219,7 +215,7 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
     Roboto Mono,
     monospace;
   font-weight: 500;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   line-height: 0;
   margin-bottom: 30px;
 }
@@ -236,7 +232,7 @@ h1 {
     serif;
   font-weight: 700;
   font-size: 25px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   line-height: 0;
   margin-bottom: 30px;
 }
@@ -260,7 +256,6 @@ h1 {
   object-fit: cover;
 }
 .button {
-  display: inline-block;
   width: 80px;
   height: 80px;
   display: flex;

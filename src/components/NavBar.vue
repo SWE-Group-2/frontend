@@ -1,18 +1,12 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { isLoggedIn } from "@/services/Auth.service.ts";
-</script>
-<script lang="ts">
-import { clearAuthToken } from "@/services/Auth.service.ts";
+import { isLoggedIn, clearAuthToken } from "@/services/Auth.service";
+import router from "@/router";
 
-export default {
-  methods: {
-    logout() {
-      clearAuthToken();
-      this.$router.push("/login");
-    },
-  },
-};
+function logout() {
+  clearAuthToken();
+  router.push("/login");
+}
 </script>
 
 <template>
