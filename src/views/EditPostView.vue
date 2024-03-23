@@ -47,7 +47,9 @@
 
 <style lang="scss" scoped>
 .header {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 700;
   font-size: 50px;
   letter-spacing: 0em;
@@ -57,7 +59,9 @@
 }
 
 .title {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 500;
   font-size: 28px;
   letter-spacing: 0em;

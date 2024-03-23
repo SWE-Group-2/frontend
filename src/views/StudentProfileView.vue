@@ -231,7 +231,9 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
   color: #dd9832;
 }
 h1 {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 700;
   font-size: 25px;
   letter-spacing: 0em;

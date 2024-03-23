@@ -153,7 +153,9 @@
 
 .row {
   max-width: 450px;
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-size: 18px;
   font-weight: 700;
   color: #462378;

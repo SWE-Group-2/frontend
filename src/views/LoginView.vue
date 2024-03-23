@@ -63,7 +63,9 @@ export default {
 
 <style lang="scss" scoped>
 .h1-text {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 450;
 }
 

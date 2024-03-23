@@ -14,7 +14,9 @@ import PostsDisplay from "@/components/PostsDisplay.vue";
 
 <style lang="scss" scoped>
 .internships-list-header {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 700;
   font-size: 50px;
   letter-spacing: 0em;
