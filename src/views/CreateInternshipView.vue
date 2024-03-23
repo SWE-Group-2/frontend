@@ -22,7 +22,7 @@ defineEmits<{
 const timePeriodOptions: TimePeriod[] = await getTimePeriods();
 </script>
 
-<style>
+<style scoped>
 @import "@/components/createInternship/CreateInternship.css";
 </style>
 <template>

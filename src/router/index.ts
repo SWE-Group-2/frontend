@@ -30,7 +30,14 @@ const router = createRouter({
       component: () => import("../views/StudentProfileView.vue"),
     },
     {
+      path: "/internship/:internshipId",
+      name: "viewInternship",
+      component: () =>
+        import("../components/viewInternship/ViewInternship.vue"),
+    },
+    {
       path: "/edit-internship/:internshipId",
+      name: "editInternship",
       component: () =>
         import("../components/editInternship/EditInternship.vue"),
     },

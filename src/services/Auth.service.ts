@@ -1,3 +1,5 @@
+import { getUserInfo } from "@/services/User.service";
+
 /**
  * Set the authentication token in local storage.
  * @param token the authentication token
@@ -40,4 +42,9 @@ export function authHeader(): Record<string, string> {
   } else {
     return {};
   }
+}
+
+export async function getCurrentUserId() {
+  const currentUser = await getUserInfo();
+  return currentUser["logged_in_as"];
 }

@@ -54,7 +54,7 @@ function getTimePeriodName(id: number): string {
           <div class="row">
             <RouterLink
               :to="{
-                path: '/internships',
+                name: 'viewInternship',
                 params: { internshipId: internship.id },
               }"
             >
@@ -67,6 +67,6 @@ function getTimePeriodName(id: number): string {
   </div>
 </template>
 
-<style>
+<style scoped>
 @import "@/components/internshipList/InternshipList.css";
 </style>
