@@ -30,8 +30,8 @@
 </template>
 
 <script lang="ts">
-import { loginUser } from "@/services/UserService.spec.ts";
-import { setAuthToken } from "@/services/AuthService.spec.ts";
+import { loginUser } from "@/services/User.service.ts";
+import { setAuthToken } from "@/services/Auth.service.ts";
 import { UserLoginInfo } from "@/types/UserLoginInfo";
 
 export default {
@@ -63,7 +63,9 @@ export default {
 
 <style lang="scss" scoped>
 .h1-text {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 450;
 }
 

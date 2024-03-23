@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { isLoggedIn } from "@/services/AuthService.spec.ts";
+import { isLoggedIn } from "@/services/Auth.service.ts";
 </script>
 <script lang="ts">
-import { clearAuthToken } from "@/services/AuthService.spec.ts";
+import { clearAuthToken } from "@/services/Auth.service.ts";
 
 export default {
   methods: {

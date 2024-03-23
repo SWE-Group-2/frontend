@@ -1,58 +1,10 @@
-<template>
-  <div id="edit-internship">
-    <h1 class="header">Edit Internship Post</h1>
-    <div class="mid">
-      <div class="container">
-        <div class="row">
-          <h1 class="title">Internship Information</h1>
-        </div>
-        <div class="row">
-          <div class="column">
-            <div class="input-field">
-              <input type="text" required spellcheck="false" />
-              <label>Company Name</label>
-            </div>
-            <div class="input-field">
-              <input type="text" required spellcheck="false" />
-              <label>Internship Period</label>
-            </div>
-            <div class="input-field">
-              <input type="text" required spellcheck="false" />
-              <label>Application Deadline</label>
-            </div>
-            <div class="input-field">
-              <input type="text" required spellcheck="false" />
-              <label>Company Website</label>
-            </div>
-          </div>
-          <div class="column">
-            <div class="photo">
-              <img src="/logo_thegang.png" alt="logo" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <h1 class="title">About</h1>
-        </div>
-        <div class="row">
-          <div class="input-field-about">
-            <input type="text" required spellcheck="false" />
-            <label>Description</label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<style lang="scss" scoped>
 .header {
   font-family:
     Roboto Slab,
     serif;
   font-weight: 700;
   font-size: 50px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: center;
   margin-top: 100px;
   margin-bottom: 60px;
@@ -131,9 +83,23 @@
   outline: none;
 }
 
+.input-field select {
+  width: 400px;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 0 15px;
+  border: 2px solid #d9d9d9;
+  color: #000000;
+  outline: none;
+  box-sizing: content-box;
+}
+
 .input-field label {
   position: absolute;
-  font-family: Roboto Mono;
+  font-family:
+    Roboto Mono,
+    serif;
   top: 50%;
   transform: translateY(-50%);
   color: #d9d9d9;
@@ -148,6 +114,20 @@ input:focus {
 
 input:focus ~ label,
 input:valid ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 15px;
+  padding: 0 2px;
+  background: #ffffff;
+  color: #dd9832;
+}
+
+select:focus {
+  border: 2px solid #dd9832;
+}
+
+select:focus ~ label,
+select:valid ~ label {
   top: 0;
   left: 15px;
   font-size: 15px;
@@ -179,7 +159,9 @@ input:valid ~ label {
 
 .input-field-about label {
   position: absolute;
-  font-family: Roboto Mono;
+  font-family:
+    Roboto Mono,
+    serif;
   top: 60%;
   transform: translateY(-80%);
   color: #d9d9d9;
@@ -187,4 +169,3 @@ input:valid ~ label {
   pointer-events: none;
   transition: 0.3s;
 }
-</style>

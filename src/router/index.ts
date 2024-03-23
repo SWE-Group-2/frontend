@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { isLoggedIn } from "@/services/AuthService.spec";
+import { isLoggedIn } from "@/services/Auth.service";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +31,11 @@ const router = createRouter({
     {
       path: "/edit-internship",
       component: () => import("../views/EditPostView.vue"),
+    },
+    {
+      path: "/create-internship",
+      component: () =>
+        import("../components/createInternship/CreateInternship.vue"),
     },
     {
       path: "/edit-profile",

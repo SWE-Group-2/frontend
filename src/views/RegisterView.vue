@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts">
-import { registerUser } from "@/services/UserService.spec";
+import { registerUser } from "@/services/User.service";
 import { UserRegistrationInfo } from "@/types/UserRegistrationInfo";
 
 export default {
@@ -102,7 +102,9 @@ export default {
 
 <style lang="scss" scoped>
 .h1-text {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 450;
   font-size: 36px;
 }
