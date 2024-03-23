@@ -18,7 +18,8 @@ const router = createRouter({
     },
     {
       path: "/internships",
-      component: () => import("../views/InternshipListView.vue"),
+      component: () =>
+        import("../components/internshipList/InternshipList.vue"),
     },
     {
       path: "/students",
