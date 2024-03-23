@@ -19,6 +19,17 @@ class HttpClient {
       },
     });
   }
+
+  static async put(url: string, data: object, authRequired: boolean = false) {
+    return fetch(`${this.baseUrl}${url}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        ...(authRequired ? authHeader() : {}),
+      },
+    });
+  }
 }
 
 export default HttpClient;
