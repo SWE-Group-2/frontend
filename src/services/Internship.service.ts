@@ -37,3 +37,13 @@ export async function createInternship(internship: InternshipCreate) {
       throw new Error("Failed to create internship");
   }
 }
+
+export async function getAllInternships() {
+  const response = await HttpClient.get(Endpoints.GET_ALL_INTERNSHIPS);
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  throw new Error("Failed to get internships");
+}
