@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import {
   editInternship,
   getAllInternships,
+  getInternshipById,
 } from "@/services/Internship.service";
 import { InternshipCreate } from "@/types/InternshipCreate";
 
@@ -70,6 +71,20 @@ describe("Internship service tests", () => {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(internshipJson),
+      },
+    );
+  });
+  test("Can get internship by id", async () => {
+    const internshipId = 1;
+    try {
+      await getInternshipById(internshipId);
+    } catch (e) {
+      /* ignore */
+    }
+    expect(fetch).toHaveBeenCalledWith(
+      `http://localhost:5000/internships/${internshipId}`,
+      {
+        headers: {},
       },
     );
   });
