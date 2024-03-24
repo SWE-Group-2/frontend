@@ -1,0 +1,46 @@
+<script setup lang="ts">
+// The state of the login page
+defineProps<{
+  username: string;
+  password: string;
+}>();
+
+// Events that can occur on login, i.e., submission of the form
+// No methods here but rather the view informs parent component of an event occurring
+defineEmits<{
+  (e: "submit"): void;
+}>();
+</script>
+<template>
+  <div class="item-center">
+    <div class="login-box align-center">
+      <h1 class="h1-text">LOGIN</h1>
+      <form @submit.prevent="$emit('submit')">
+        <div class="input-group">
+          <input
+            id="username"
+            :value="username"
+            class="input-text"
+            type="text"
+            placeholder="username"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <input
+            id="password"
+            :value="password"
+            class="input-text"
+            type="password"
+            placeholder="password"
+            required
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</template>
+<style scoped>
+@import "@/components/login/Login.css";
+</style>
