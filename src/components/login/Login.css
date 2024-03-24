@@ -1,0 +1,59 @@
+.h1-text {
+  font-family:
+    Roboto Slab,
+    serif;
+  font-weight: 450;
+}
+
+.item-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.login-box {
+  background-color: #b5a7c8;
+  width: 280px;
+  height: 300px;
+  margin: 200px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-text::placeholder {
+  text-align: center;
+  color: #b5a7c8;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 60%;
+  padding: 9px;
+  background-color: #ebebeb;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  width: 30%;
+  padding: 10px;
+  margin-top: 7px;
+  background-color: #462378;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #351b5a;
+}
