@@ -1,6 +1,5 @@
 import { Endpoints } from "@/constants/endpoints";
 import HttpClient from "@/services/HttpClient";
-import { Student } from "@/types/Student";
 import formatEndpoint from "@/utils/formatEndpoint";
 
 
