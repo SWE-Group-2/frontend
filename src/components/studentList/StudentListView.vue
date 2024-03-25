@@ -25,6 +25,7 @@ emit("loadStudents");
           <th>Name</th>
           <th>GPA</th>
           <th>Positions</th>
+          <th>Hello</th>
         </tr>
         <tr>
           <td class="student-id">
@@ -37,6 +38,14 @@ emit("loadStudents");
             <div>{{ student.gpa }}</div>
           </td>
           <td class="student-positions"><div>Software Engineer</div></td>
+          <td>
+            <RouterLink
+              :to="{
+                name: 'viewProfile',
+                params: { userId: student.id },
+              }"
+            >View</RouterLink>
+          </td>
         </tr>
       </table>
     </div>
