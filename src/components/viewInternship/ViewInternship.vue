@@ -21,7 +21,7 @@ export function useViewInternship(): ViewInternshipState {
       internship.value = await getInternshipById(internshipId);
     } catch (e) {
       console.error(e);
-      router.push("/internships");
+      await router.push("/internships");
     }
   }
 

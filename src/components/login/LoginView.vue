@@ -9,6 +9,8 @@ defineProps<{
 // No methods here but rather the view informs parent component of an event occurring
 defineEmits<{
   (e: "submit"): void;
+  (e: "update:username", value: string): void;
+  (e: "update:password", value: string): void;
 }>();
 </script>
 <template>
@@ -20,6 +22,7 @@ defineEmits<{
           <input
             id="username"
             :value="username"
+            @input="$emit('update:username', $event.target.value)"
             class="input-text"
             type="text"
             placeholder="username"
@@ -30,6 +33,7 @@ defineEmits<{
           <input
             id="password"
             :value="password"
+            @input="$emit('update:password', $event.target.value)"
             class="input-text"
             type="password"
             placeholder="password"

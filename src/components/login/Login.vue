@@ -22,10 +22,8 @@ export function useLoginPage(): LoginPageState {
       password: password.value,
     };
     const response = await loginUser(userLoginInfo);
-    if (response.status === 200) {
-      setAuthToken(response["access_token"]);
-      await router.push("/internships");
-    }
+    setAuthToken(response["access_token"]);
+    await router.push("/internships");
   }
 
   return {
