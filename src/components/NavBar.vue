@@ -31,10 +31,7 @@ function logout() {
           class="menu-item"
           :class="{ 'current-page': $route.path === '/users' }"
         >
-          <RouterLink
-            style="text-decoration: none; color: inherit"
-            to="/users"
-          >
+          <RouterLink style="text-decoration: none; color: inherit" to="/users">
             Students
           </RouterLink>
         </span>
