@@ -18,8 +18,8 @@ emit("loadStudents");
 <template>
   <div id="students">
     <div class="students-list-header">CS Students</div>
-    <div id="table">
-      <table id="students" aria-hidden="true" v-for="student of students">
+    <div id="table" v-for="student of students">
+      <table id="students" aria-hidden="true">
         <tr class="table-header">
           <th>ID</th>
           <th>Name</th>

@@ -14,10 +14,10 @@ export async function getAllStudents() {
     throw new Error("Failed to get students");
 }
 
-export async function getStudentById(studentId: number) {
+export async function getStudentById(userId: number) {
     const response = await HttpClient.get(
         formatEndpoint(Endpoints.GET_USER_BY_ID, {
-            student_id: studentId.toString(),
+            user_id: userId.toString(),
         }),
     );
 

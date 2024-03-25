@@ -32,7 +32,7 @@ describe("Student service tests", () => {
         } catch (e) {
             /* ignore */
         }
-        expect(fetch).toHaveBeenCalledWith("http://localhost:5000/students", {
+        expect(fetch).toHaveBeenCalledWith("http://localhost:5000/users", {
             headers: {},
         });
     });

@@ -22,8 +22,8 @@ const router = createRouter({
         import("../components/internshipList/InternshipList.vue"),
     },
     {
-      path: "/students",
-      component: () => import("../components/studentList/StudentsList.vue"),
+      path: "/users",
+      component: () => import("../components/studentList/StudentList.vue"),
     },
     {
       path: "/profile",

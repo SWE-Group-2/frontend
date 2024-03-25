@@ -16,7 +16,7 @@ describe("CreateStudent tests", () => {
 
         // Intercept calls to StudentService's get all students and return mock data instead
         vi.spyOn(StudentService, "getAllStudents").mockResolvedValue(
-            mockdata,
+            mockData,
         );
     });
 
@@ -32,6 +32,6 @@ describe("CreateStudent tests", () => {
 
         // After loading students, the list should not be empty
         await studentList.loadStudents();
-        expect(studentList.StudentsDisplay.value.length).toBeGreaterThan(0);
+        expect(studentList.students.value.length).toBeGreaterThan(0);
     })
 })
