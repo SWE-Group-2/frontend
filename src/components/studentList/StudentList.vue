@@ -4,21 +4,21 @@ import { ref, Ref } from "vue";
 import { getAllStudents } from "@/services/Student.service";
 
 export interface StudentListState {
-    students: Ref<Student[]>;
-    loadStudents: () => Promise<void>;
+  students: Ref<Student[]>;
+  loadStudents: () => Promise<void>;
 }
 
 export function useStudentList(): StudentListState {
-    const students = ref<Student[]>([]);
+  const students = ref<Student[]>([]);
 
-    async function loadStudents() {
-        students.value = await getAllStudents();
-    }
+  async function loadStudents() {
+    students.value = await getAllStudents();
+  }
 
-    return {
-        students,
-        loadStudents,
-    };
+  return {
+    students,
+    loadStudents,
+  };
 }
 </script>
 
@@ -29,10 +29,10 @@ const studentListPage = useStudentList();
 </script>
 
 <template>
-    <Suspense>
-        <StudentListView
-            v-model:students="studentListPage.students.value"
-            @loadStudents="studentListPage.loadStudents"
-        ></StudentListView>
-    </Suspense>
+  <Suspense>
+    <StudentListView
+      v-model:students="studentListPage.students.value"
+      @loadStudents="studentListPage.loadStudents"
+    ></StudentListView>
+  </Suspense>
 </template>

@@ -27,9 +27,15 @@ emit("loadStudents");
           <th>Positions</th>
         </tr>
         <tr>
-          <td class="student-id"><div>{{ student.id }}</div></td>
-          <td class="student-name"><div>{{ student.first_name }} {{ student.last_name }}</div></td>
-          <td class="student-gpa"><div>{{ student.gpa }}</div></td>
+          <td class="student-id">
+            <div>{{ student.id }}</div>
+          </td>
+          <td class="student-name">
+            <div>{{ student.first_name }} {{ student.last_name }}</div>
+          </td>
+          <td class="student-gpa">
+            <div>{{ student.gpa }}</div>
+          </td>
           <td class="student-positions"><div>Software Engineer</div></td>
         </tr>
       </table>
