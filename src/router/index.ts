@@ -50,10 +50,15 @@ const router = createRouter({
       path: "/edit-profile",
       component: () => import("../views/EditProfileView.vue"),
     },
+    {
+      path: "/admin-dashboard",
+      component: () =>
+        import("../components/adminDashboard/AdminDashboard.vue"),
+    },
   ],
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const publicPages = ["/", "/internships", "/login", "/register", "/students"];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = isLoggedIn();
