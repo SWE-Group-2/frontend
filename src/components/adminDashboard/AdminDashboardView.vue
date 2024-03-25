@@ -7,7 +7,7 @@ defineProps<{
   createTimePeriodStartDate: string;
   createTimePeriodEndDate: string;
   roleChangeUsername: string;
-  roleChangeRoleId: string;
+  roleChangeRoleId: number;
 }>();
 
 const emit = defineEmits<{

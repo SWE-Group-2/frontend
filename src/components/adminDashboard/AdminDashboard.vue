@@ -10,7 +10,7 @@ export interface AdminDashboardState {
   createTimePeriodStartDate: Ref<string>;
   createTimePeriodEndDate: Ref<string>;
   roleChangeUsername: Ref<string>;
-  roleChangeRoleId: Ref<string>;
+  roleChangeRoleId: Ref<number>;
   // Define the events that can occur on the admin dashboard
   loadTimePeriods: () => void;
   createNewTimePeriod: () => void;
@@ -25,7 +25,7 @@ export function useAdminDashboard(): AdminDashboardState {
   const createTimePeriodStartDate = ref("");
   const createTimePeriodEndDate = ref("");
   const roleChangeUsername = ref("");
-  const roleChangeRoleId = ref("");
+  const roleChangeRoleId = ref(0);
   // Define the events that can occur on the admin dashboard
   async function createNewTimePeriod() {
     // Create a new time period

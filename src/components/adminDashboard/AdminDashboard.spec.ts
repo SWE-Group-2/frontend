@@ -10,10 +10,11 @@ describe("Admin dashboard tests", () => {
 
   test("Internal state test", () => {
     const adminPage = useAdminDashboard();
+    expect(adminPage.timePeriods.value).toEqual([]);
     expect(adminPage.createTimePeriodName.value).toBe("");
     expect(adminPage.createTimePeriodStartDate.value).toBe("");
     expect(adminPage.createTimePeriodEndDate.value).toBe("");
-    expect(adminPage.roleChangeRoleId.value).toBe(0);
     expect(adminPage.roleChangeUsername.value).toBe("");
+    expect(adminPage.roleChangeRoleId.value).toBe(0);
   });
 });
