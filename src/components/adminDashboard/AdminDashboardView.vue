@@ -32,7 +32,7 @@
         <input type="date" id="start-date" />
         <label for="end-date">End Date:</label>
         <input type="date" id="end-date" />
-        <button type="submit">Search</button>
+        <button type="submit">Create</button>
       </div>
     </form>
     <h2>Users</h2>
@@ -45,8 +45,8 @@
         <select id="role">
           <option value="">Select Role</option>
           <option value="admin">Admin</option>
-          <option value="editor">Editor</option>
-          <option value="user">User</option>
+          <option value="editor">Instructor</option>
+          <option value="user">Student</option>
         </select>
         <button type="submit">Submit</button>
       </div>
