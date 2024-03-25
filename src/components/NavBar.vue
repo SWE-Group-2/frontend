@@ -29,11 +29,11 @@ function logout() {
         </span>
         <span
           class="menu-item"
-          :class="{ 'current-page': $route.path === '/students' }"
+          :class="{ 'current-page': $route.path === '/users' }"
         >
           <RouterLink
             style="text-decoration: none; color: inherit"
-            to="/students"
+            to="/users"
           >
             Students
           </RouterLink>

@@ -1,5 +1,5 @@
 export enum Endpoints {
-  USERS = "/users",
+  GET_ALL_STUDENTS = "/users",
   REGISTER = "/users/register",
   LOGIN = "/users/login",
   GET_CURRENT_USER = "/users/get_current_user",
