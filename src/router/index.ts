@@ -65,7 +65,6 @@ router.beforeEach(async (to, from, next) => {
   const loggedIn = isLoggedIn();
   const userIsAdmin = loggedIn ? await isAdmin() : false;
 
-
   if (authRequired && !loggedIn) {
     next("/login");
   } else if (to.path === "/admin-dashboard" && !userIsAdmin) {
@@ -73,6 +72,5 @@ router.beforeEach(async (to, from, next) => {
   } else {
     next();
   }
-
 });
 export default router;
