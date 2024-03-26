@@ -18,7 +18,7 @@ emit("loadStudents");
 <template>
   <div id="students">
     <div class="students-list-header">CS Students</div>
-    <div id="table" v-for="student of students">
+    <div id="table">
       <table id="students" aria-hidden="true">
         <tr class="table-header">
           <th>ID</th>
@@ -27,7 +27,7 @@ emit("loadStudents");
           <th>Positions</th>
           <th>Hello</th>
         </tr>
-        <tr>
+        <tr v-for="student of students">
           <td class="student-id">
             <div>{{ student.id }}</div>
           </td>
@@ -44,7 +44,8 @@ emit("loadStudents");
                 name: 'viewProfile',
                 params: { userId: student.id },
               }"
-            >View</RouterLink>
+              >View</RouterLink
+            >
           </td>
         </tr>
       </table>
