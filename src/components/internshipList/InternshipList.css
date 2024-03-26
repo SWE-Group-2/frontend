@@ -11,48 +11,32 @@
   margin-top: 100px;
 }
 
-.instructor-container {
+.internship-card {
+  margin-bottom: 50px;
+}
+
+.internship-container {
   position: relative;
   display: flex;
+  align-items: center;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+  width: 800px;
+  height: 230px;
+  padding: 20px;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
   background-color: #f7f2ff;
-  width: 800px;
-  height: 230px;
-  padding: 20px;
-  border: 0.5px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 50px;
-}
-
-.student-container {
-  display: flex;
-  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
-  background-color: #efeeee;
-  width: 800px;
-  height: 230px;
-  padding: 20px;
-  border: 0.5px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 50px;
-}
-
-.admin-container {
-  display: flex;
-  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
-  background-color: #fff3e1;
-  width: 800px;
-  height: 230px;
-  padding: 20px;
-  border: 0.5px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 50px;
+  &:hover {
+    filter: brightness(102%);
+    cursor: pointer;
+  }
 }
 
 .photo {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  margin-top: 14px;
+  border: 1px solid #000000;
   margin-left: 16px;
   margin-right: 50px;
   overflow: hidden;
@@ -66,14 +50,32 @@
   font-size: 18px;
   font-weight: 700;
   color: #462378;
-  margin-top: 16px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  .row-text {
+    font-weight: 300;
+  }
 }
 
 .column {
+  display: flex;
+  flex-direction: column;
   margin-right: 50px;
+  gap: 1rem;
+}
+
+.company-offer {
+  font-family: Roboto, serif;
+  font-weight: 500;
+  font-size: 23px;
+  color: #dd9832;
+}
+.company-info {
+  font-family: Roboto, serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
 }
 
 .button {
@@ -90,22 +92,34 @@
   overflow: hidden;
 }
 
-.button:hover {
-  background-color: #ced2d6;
-}
-
-.button-row {
-  margin-bottom: 10px;
-}
-
-.button img {
-  width: 60%;
-  height: auto;
-  object-fit: cover;
-}
-
-.create-button-container {
+.button-container {
   display: flex;
   justify-content: end;
   margin-bottom: 10px;
+}
+
+.icon-box {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  border: 1px solid #462378;
+  background: #462378;
+  cursor: pointer;
+  .icon {
+    max-width: 20px;
+    max-height: 20px;
+    filter: invert(76%) sepia(25%) saturate(258%) hue-rotate(223deg)
+      brightness(88%) contrast(85%);
+  }
+  .icon:hover {
+    filter: invert(82%) sepia(16%) saturate(6920%) hue-rotate(340deg)
+      brightness(95%) contrast(81%);
+  }
+}
+.icon-box:hover {
+  border: 1px solid #dd9832;
 }
