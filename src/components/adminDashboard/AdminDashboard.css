@@ -1,0 +1,34 @@
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.search-bar,
+.user-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-bar input,
+.user-form input,
+.user-form select {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+label {
+  margin-right: 10px;
+}

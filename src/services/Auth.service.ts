@@ -1,4 +1,5 @@
-import { getUserInfo } from "@/services/User.service";
+import {getUserById, getUserInfo} from "@/services/User.service";
+import {Roles} from "@/constants/roles";
 
 /**
  * Set the authentication token in local storage.
@@ -47,4 +48,10 @@ export function authHeader(): Record<string, string> {
 export async function getCurrentUserId() {
   const currentUser = await getUserInfo();
   return currentUser["logged_in_as"];
+}
+
+export async function isAdmin() {
+  const userId: number = await getCurrentUserId();
+  const user = await getUserById(userId);
+  return user["role_id"] === Roles.ADMIN;
 }
