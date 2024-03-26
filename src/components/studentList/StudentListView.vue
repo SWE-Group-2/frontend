@@ -25,27 +25,59 @@ emit("loadStudents");
           <th>Name</th>
           <th>GPA</th>
           <th>Positions</th>
-          <th>Hello</th>
         </tr>
         <tr v-for="student of students">
           <td class="student-id">
-            <div>{{ student.id }}</div>
+            <div>
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                :to="{
+                  name: 'viewProfile',
+                  params: { userId: student.id },
+                }"
+              >
+                {{ student.id }}
+              </RouterLink>
+            </div>
           </td>
           <td class="student-name">
-            <div>{{ student.first_name }} {{ student.last_name }}</div>
+            <div>
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                :to="{
+                  name: 'viewProfile',
+                  params: { userId: student.id },
+                }"
+              >
+                {{ student.first_name }} {{ student.last_name }}
+              </RouterLink>
+            </div>
           </td>
           <td class="student-gpa">
-            <div>{{ student.gpa }}</div>
+            <div>
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                :to="{
+                  name: 'viewProfile',
+                  params: { userId: student.id },
+                }"
+              >
+                {{ student.gpa }}
+              </RouterLink>
+            </div>
           </td>
-          <td class="student-positions"><div>Software Engineer</div></td>
-          <td>
-            <RouterLink
-              :to="{
-                name: 'viewProfile',
-                params: { userId: student.id },
-              }"
-              >View</RouterLink
-            >
+          <td class="student-positions">
+            <div>
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                :to="{
+                  name: 'viewProfile',
+                  params: { userId: student.id },
+                }"
+              >
+                Software Engineer
+              </RouterLink>
+            </div>
           </td>
         </tr>
       </table>
