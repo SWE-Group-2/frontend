@@ -1,6 +1,6 @@
 export interface UserRegistrationInfo {
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   username: string;
   password: string;
 }

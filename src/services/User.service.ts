@@ -14,8 +14,8 @@ import formatEndpoint from "@/utils/formatEndpoint";
 export async function registerUser(userInfo: UserRegistrationInfo) {
   // Conform with the backend's expected JSON format
   const userJson = {
-    first_name: userInfo.firstName,
-    last_name: userInfo.lastName,
+    first_name: userInfo.first_name,
+    last_name: userInfo.last_name,
     username: userInfo.username,
     password: userInfo.password,
   };
