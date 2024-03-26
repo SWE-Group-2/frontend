@@ -48,7 +48,8 @@ const router = createRouter({
         import("../components/createInternship/CreateInternship.vue"),
     },
     {
-      path: "/edit-profile",
+      path: "/edit-profile/:userId",
+      name: "editProfile",
       component: () => import("../views/EditProfileView.vue"),
     },
     {
