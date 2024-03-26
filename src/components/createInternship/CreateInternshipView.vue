@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getTimePeriods } from "@/services/TimePeriod.service";
+import { getValidTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 
 defineProps<{
@@ -19,7 +19,7 @@ defineEmits<{
   (e: "update:companyPhotoLink", value: string | null): void;
   (e: "create"): void;
 }>();
-const timePeriodOptions: TimePeriod[] = await getTimePeriods();
+const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
 </script>
 
 <style scoped>
