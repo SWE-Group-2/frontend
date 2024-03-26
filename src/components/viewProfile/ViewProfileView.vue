@@ -43,10 +43,14 @@ emit("loadUser", userId);
         <div class="contacts">
           <div class="contacts-left">
             <a href="https://linkedin.com" class="button">
-              <img src="/icon-linkedin.svg" alt="github" />
+              <button class="icon-box" title="LinkedIn">
+                <img class="icon" src="/icon-linkedin.svg" alt="linkedin" />
+              </button>
             </a>
             <a href="https://github.com" class="button">
-              <img src="/icon-github.svg" alt="github" />
+              <button class="icon-box" title="GitHub">
+                <img class="icon" src="/icon-github.svg" alt="github" />
+              </button>
             </a>
           </div>
           <div class="contacts-right">
