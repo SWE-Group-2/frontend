@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { User } from "@/types/User";
+import { useRoute } from "vue-router";
 import { getCurrentUserId } from "@/services/Auth.service";
 
 defineProps<{
@@ -8,7 +9,9 @@ defineProps<{
 const emit = defineEmits<{
   (e: "loadUser", value: number): void;
 }>();
-const userId = await getCurrentUserId();
+const route = useRoute();
+const userId = Number(route.params.userId);
+const currentUserId = await getCurrentUserId();
 emit("loadUser", userId);
 </script>
 
@@ -25,7 +28,7 @@ emit("loadUser", userId);
               {{ user.first_name }} {{ user.last_name }}
             </div>
             <div class="student-year">{{ user.id }}</div>
-            <div class="edit-profile" v-if="userId == user.id">
+            <div class="edit-profile" v-if="userId == currentUserId">
               <RouterLink
                 style="text-decoration: underline; color: inherit"
                 :to="{
@@ -48,7 +51,7 @@ emit("loadUser", userId);
           </div>
           <div class="contacts-right">
             <div class="student-email">{{ user.email }}</div>
-            <div class="student-phone">{{ user.phoneNumber }}</div>
+            <div class="student-phone">{{ user.phone_number }}</div>
           </div>
         </div>
       </div>
@@ -73,12 +76,6 @@ emit("loadUser", userId);
                 <span class="student-period">S + T1/25</span>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="posts">
-          <h1>POSTS</h1>
-          <div class="profile-posts">
-            <PostsDisplay />
           </div>
         </div>
       </div>

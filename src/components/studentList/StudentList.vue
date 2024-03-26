@@ -1,15 +1,15 @@
 <script lang="ts">
-import { Student } from "@/types/Student";
 import { ref, Ref } from "vue";
 import { getAllStudents } from "@/services/Student.service";
+import { User } from "@/types/User";
 
 export interface StudentListState {
-  students: Ref<Student[]>;
+  students: Ref<User[]>;
   loadStudents: () => Promise<void>;
 }
 
 export function useStudentList(): StudentListState {
-  const students = ref<Student[]>([]);
+  const students = ref<User[]>([]);
 
   async function loadStudents() {
     students.value = await getAllStudents();

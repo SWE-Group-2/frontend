@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { isLoggedIn, clearAuthToken } from "@/services/Auth.service";
+import {
+  isLoggedIn,
+  clearAuthToken,
+  getCurrentUserId,
+} from "@/services/Auth.service";
 import router from "@/router";
 
 function logout() {
   clearAuthToken();
   router.push("/login");
 }
+
+const currentUserId = isLoggedIn() ? await getCurrentUserId() : -1;
 </script>
 
 <template>
@@ -41,12 +47,7 @@ function logout() {
           class="dropdown"
           :class="{ 'current-page-normal': $route.path === '/profile' }"
         >
-          <RouterLink
-            style="text-decoration: none; color: inherit"
-            to="/profile"
-          >
-            Account &#9662;
-          </RouterLink>
+          Account &#9662;
           <ul class="dropdown-menu dropdown-menu--animated dropdown-menu-style">
             <li class="dropdown-item" v-if="!isLoggedIn()">
               <RouterLink
@@ -61,6 +62,16 @@ function logout() {
                 to="/register"
                 >Register</RouterLink
               >
+            </li>
+            <li class="dropdown-item" v-if="isLoggedIn()">
+              <RouterLink
+                style="text-decoration: none; color: inherit"
+                :to="{
+                  name: 'viewProfile',
+                  params: { userId: currentUserId },
+                }"
+                >Profile
+              </RouterLink>
             </li>
             <li class="dropdown-item" @click="logout" v-if="isLoggedIn()">
               Logout
