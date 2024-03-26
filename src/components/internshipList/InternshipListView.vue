@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Internship } from "@/types/Internship";
-import { getTimePeriods } from "@/services/TimePeriod.service";
+import { getValidTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 
 // State of the view -- the list of internships
@@ -17,7 +17,7 @@ const emit = defineEmits<{
 emit("loadInternships");
 
 // Time periods on the other hand not state. They are just a constant.
-const timePeriods: TimePeriod[] = await getTimePeriods();
+const timePeriods: TimePeriod[] = await getValidTimePeriods();
 
 // Use this function to get the name of a time period given its id
 function getTimePeriodName(id: number): string {

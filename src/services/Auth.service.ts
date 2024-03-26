@@ -1,5 +1,5 @@
-import {getUserById, getUserInfo} from "@/services/User.service";
-import {Roles} from "@/constants/roles";
+import { getUserById, getUserInfo } from "@/services/User.service";
+import { Roles } from "@/constants/roles";
 
 /**
  * Set the authentication token in local storage.
