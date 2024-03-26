@@ -2,7 +2,6 @@
 import { Ref, ref } from "vue";
 import { registerUser } from "@/services/User.service";
 import router from "@/router";
-import { setAuthToken } from "@/services/Auth.service";
 
 // The state of the register page
 export interface RegisterPageState {
@@ -34,7 +33,7 @@ export function useRegisterPage(): RegisterPageState {
       username: username.value,
       password: password.value,
     };
-    const response = await registerUser(UserRegistrationInfo);
+    await registerUser(UserRegistrationInfo);
     await router.push("/login");
   }
 
