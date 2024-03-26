@@ -76,12 +76,6 @@ emit("loadUser", userId);
             </div>
           </div>
         </div>
-        <div class="posts">
-          <h1>POSTS</h1>
-          <div class="profile-posts">
-            <PostsDisplay />
-          </div>
-        </div>
       </div>
     </div>
   </div>
