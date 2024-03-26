@@ -3,11 +3,14 @@ import { Ref, ref } from "vue";
 import { loginUser } from "@/services/User.service";
 import router from "@/router";
 import { setAuthToken } from "@/services/Auth.service";
+import { UserLoginInfo } from "@/types/UserLoginInfo";
 
 // The state of the login page
 export interface LoginPageState {
+  // What user can change
   username: Ref<string>;
   password: Ref<string>;
+  // Events that can occur
   submit: () => Promise<void>;
 }
 
@@ -17,7 +20,7 @@ export function useLoginPage(): LoginPageState {
 
   // Parent component will handle the submission of the form
   async function submit() {
-    const userLoginInfo = {
+    const userLoginInfo: UserLoginInfo = {
       username: username.value,
       password: password.value,
     };
