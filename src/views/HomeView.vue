@@ -20,7 +20,7 @@ export default {
     },
   },
   mounted() {
-    setInterval(this.typeJs, 100);
+    setInterval(this.typeJs, 50);
   },
   methods: {
     typeJs() {
@@ -74,6 +74,14 @@ export default {
     <div class="landing-page-header">
       <div class="animatedHeader">{{ animatedHeader }}</div>
     </div>
+    <div class="landing-page-body">
+      <div class="landing-page-information">
+        <span class="animatedTitle">Computer Science Internship Search</span>
+        <span class="animatedDescription">
+          a site to aid MUIC computer science students in finding internships
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -91,12 +99,17 @@ export default {
   margin-top: 100px;
 }
 
-.landing-information {
+.landing-page-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 1500px;
+}
+.landing-page-information {
   display: flex;
   flex-direction: column;
+  align-items: left;
   justify-content: space-between;
-  min-width: 507px;
-  margin-left: 30px;
 }
 
 .animatedHeader {
@@ -105,5 +118,28 @@ export default {
   display: inline-block;
   padding: 0;
   border-right: 1px solid #414141;
+}
+.animatedTitle {
+  color: #dd9832;
+  font-weight: 600;
+  font-size: 40px;
+  animation-name: fade-in;
+  animation-duration: 5s;
+}
+.animatedDescription {
+  color: #462378;
+  font-weight: 500;
+  font-size: 24px;
+  margin-left: 30px;
+  animation-name: fade-in;
+  animation-duration: 5s;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
