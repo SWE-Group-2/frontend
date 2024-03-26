@@ -11,6 +11,7 @@ defineProps<{
 // Events of the view -- the loading of internships
 const emit = defineEmits<{
   (e: "loadInternships"): void;
+  (e: "sortInternships", sortKey: string): void;
 }>();
 
 // Call the loadInternships event to cause parent component to load internships
@@ -35,8 +36,18 @@ function getTimePeriodName(id: number): string {
         <button>Create Internship</button>
       </RouterLink>
     </div>
+    <div class="sort-button-container">
+      <select @change="emit('sortInternships', $event.target.value)">
+        <option value="created_at">Sort by Created At</option>
+        <option value="deadline">Sort by Deadline</option>
+      </select>
+    </div>
     <div id="internships">
-      <div class="student-container" v-for="internship of internships">
+      <div
+        class="student-container"
+        v-for="internship of internships"
+        :key="internship.id"
+      >
         <div>
           <div class="photo">
             <img src="/logo_thegang.png" alt="logo" />
