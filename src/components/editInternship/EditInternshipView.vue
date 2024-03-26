@@ -18,7 +18,7 @@ const emit = defineEmits<{
   (e: "update:deadline", value: string): void;
   (e: "update:timePeriodId", value: string): void;
   (e: "update:companyPhotoLink", value: string | null): void;
-  (e: "edit"): void;
+  (e: "edit", value: number): void;
   (e: "loadInternship", value: number): void;
 }>();
 const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
