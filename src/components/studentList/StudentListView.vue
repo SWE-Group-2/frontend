@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Student } from "@/types/Student";
+import { User } from "@/types/User";
 
 // State of the view -- the list of students
 defineProps<{
-  students: Student[];
+  students: User[];
 }>();
 
 // Event of the view -- the loading of students
@@ -21,7 +21,7 @@ emit("loadStudents");
     <div id="table">
       <table id="students" aria-hidden="true">
         <tr class="table-header">
-          <th>ID</th>
+          <th>Username</th>
           <th>Name</th>
           <th>GPA</th>
           <th>Positions</th>
@@ -36,7 +36,7 @@ emit("loadStudents");
                   params: { userId: student.id },
                 }"
               >
-                {{ student.id }}
+                {{ student.username }}
               </RouterLink>
             </div>
           </td>
