@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { User } from "@/types/User";
-import { getCurrentUserId } from "@/services/Auth.service";
+import { useRoute } from "vue-router";
 
 defineProps<{
   user: User;
@@ -8,7 +8,8 @@ defineProps<{
 const emit = defineEmits<{
   (e: "loadUser", value: number): void;
 }>();
-const userId = await getCurrentUserId();
+const route = useRoute();
+const userId = Number(route.params.userId);
 emit("loadUser", userId);
 </script>
 
@@ -48,7 +49,7 @@ emit("loadUser", userId);
           </div>
           <div class="contacts-right">
             <div class="student-email">{{ user.email }}</div>
-            <div class="student-phone">{{ user.phoneNumber }}</div>
+            <div class="student-phone">{{ user.phone_number }}</div>
           </div>
         </div>
       </div>
