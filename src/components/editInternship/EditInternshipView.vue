@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getTimePeriods } from "@/services/TimePeriod.service";
+import { getValidTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 import { useRoute } from "vue-router";
 
@@ -21,7 +21,7 @@ const emit = defineEmits<{
   (e: "edit"): void;
   (e: "loadInternship", value: number): void;
 }>();
-const timePeriodOptions: TimePeriod[] = await getTimePeriods();
+const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
 const route = useRoute();
 const internshipId = Number(route.params.internshipId);
 emit("loadInternship", internshipId);
