@@ -1,7 +1,8 @@
 <script lang="ts">
 import { ref, Ref } from "vue";
 import { TimePeriod } from "@/types/TimePeriod";
-import { getTimePeriods } from "@/services/TimePeriod.service";
+import { getAllTimePeriods } from "@/services/TimePeriod.service";
+import { createTimePeriod } from "@/services/AdminService";
 
 export interface AdminDashboardState {
   // Define the state of the admin dashboard
@@ -28,7 +29,13 @@ export function useAdminDashboard(): AdminDashboardState {
   const roleChangeRoleId = ref(0);
   // Define the events that can occur on the admin dashboard
   async function createNewTimePeriod() {
-    // Create a new time period
+    const newTimePeriod = {
+      name: createTimePeriodName.value,
+      start_date: createTimePeriodStartDate.value,
+      end_date: createTimePeriodEndDate.value,
+    };
+    await createTimePeriod(newTimePeriod);
+    await loadTimePeriods();
   }
   async function deleteTimePeriod() {
     // Delete a time period
@@ -37,7 +44,7 @@ export function useAdminDashboard(): AdminDashboardState {
     // Change the role of a user
   }
   async function loadTimePeriods() {
-    timePeriods.value = await getTimePeriods();
+    timePeriods.value = await getAllTimePeriods();
   }
 
   return {
