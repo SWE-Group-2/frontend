@@ -35,7 +35,6 @@ export function useRegisterPage(): RegisterPageState {
       password: password.value,
     };
     const response = await registerUser(UserRegistrationInfo);
-    setAuthToken(response["access_token"]);
     await router.push("/login");
   }
 
