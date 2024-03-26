@@ -76,10 +76,23 @@ export default {
     </div>
     <div class="landing-page-body">
       <div class="landing-page-information">
-        <span class="animatedTitle">Computer Science Internship Search</span>
-        <span class="animatedDescription">
-          a site to aid MUIC computer science students in finding internships
+        <span class="landing-page-title">
+          Computer Science Internship Search
         </span>
+        <div class="landing-page-description">
+          A site to aid MUIC computer science students in finding internships:
+          <span class="bullet-item">
+            &#x2022; Collated/crowdsourced resources on internship requirements
+          </span>
+          <span class="bullet-item">
+            &#x2022; Internship opportunities that are vetted / shared by CS
+            students (+ instructors) for CS students
+          </span>
+          <span class="bullet-item">
+            &#x2022; A hub for CS students to share their profiles and get
+            feedback
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -95,7 +108,7 @@ export default {
   letter-spacing: 0em;
   line-height: 1.3;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   margin-top: 100px;
 }
 
@@ -110,29 +123,36 @@ export default {
   flex-direction: column;
   align-items: left;
   justify-content: space-between;
+  animation-name: fade-in;
+  animation-duration: 5s;
+}
+.landing-page-title {
+  color: #dd9832;
+  font-weight: 600;
+  font-size: 40px;
+}
+.landing-page-description {
+  color: #462378;
+  font-weight: 300;
+  font-size: 24px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+.bullet-item {
+  color: black;
+  font-weight: 300;
+  font-size: 20px;
+  margin-left: 5px;
 }
 
 .animatedHeader {
   color: black;
   text-align: center;
   display: inline-block;
-  padding: 0;
   border-right: 1px solid #414141;
-}
-.animatedTitle {
-  color: #dd9832;
-  font-weight: 600;
-  font-size: 40px;
-  animation-name: fade-in;
-  animation-duration: 5s;
-}
-.animatedDescription {
-  color: #462378;
-  font-weight: 500;
-  font-size: 24px;
-  margin-left: 30px;
-  animation-name: fade-in;
-  animation-duration: 5s;
 }
 @keyframes fade-in {
   from {
