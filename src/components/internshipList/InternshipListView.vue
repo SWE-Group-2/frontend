@@ -51,14 +51,11 @@ function getTimePeriodName(id: number): string {
               <img src="/logo_thegang.png" alt="logo" />
             </div>
             <div class="column">
-              <div class="row">
+              <div class="row-main">
                 <span class="company-offer">
                   {{ internship.position }}
                 </span>
-                @
-                <span class="company-info">
-                  {{ internship.company }}
-                </span>
+                <span class="company-info"> @ {{ internship.company }} </span>
               </div>
               <div class="row">
                 Internship Period:
