@@ -40,21 +40,21 @@ describe("Edit profile tests", () => {
     await viewProfile.loadUser(userId);
     expect(viewProfile.user.value).toEqual({
       id: 1,
-      firstName: "Justin",
-      lastName: "Copeland",
+      first_name: "Justin",
+      last_name: "Copeland",
       username: "justin",
       password: "justinpassword",
       gpa: 4.0,
-      academicYear: "Senior",
-      githubLink: "github.com/justin.cop",
-      linkedinLink: "linkedin.com/justin.cop",
-      websiteLink: "justincopeland.io",
-      profilePictureLink: "justincopeland.io/profile.png",
+      academic_year: "Senior",
+      github_link: "github.com/justin.cop",
+      linkedin_link: "linkedin.com/justin.cop",
+      website_link: "justincopeland.io",
+      profile_picture_link: "justincopeland.io/profile.png",
       email: "justin.cop@gmail.com",
-      phoneNumber: "123-456-7890",
+      phone_number: "123-456-7890",
       description: "I am Justin Copeland and I am very handsome.",
-      roleId: 1,
-      internshipTimePeriodId: 1,
+      role_id: 1,
+      internship_time_period_id: 1,
     });
   });
 });
