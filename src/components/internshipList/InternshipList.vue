@@ -11,12 +11,12 @@ export interface InternshipListState {
   internshipFilterKey: Ref<string>;
   internshipFilterSearchTerm: Ref<string>;
   loadInternships: () => Promise<void>;
-  sortInternships: (sortKey: InternshipSortKey) => void;
+  sortInternships: (sortKey: InternshipSortKey) => Promise<void>;
   filterInternships: (
     filterKey: InternshipFilterKey,
     searchTerm: string,
-  ) => void;
-  resetInternships: () => void;
+  ) => Promise<void>;
+  resetInternships: () => Promise<void>;
 }
 
 export function useInternshipList(): InternshipListState {
@@ -30,11 +30,12 @@ export function useInternshipList(): InternshipListState {
 
   async function sortInternships(sortKey: InternshipSortKey) {
     const fetchedInternships: Internship[] = await getAllInternships();
-    internships.value = fetchedInternships.sort((a, b) => {
+    fetchedInternships.sort((a, b) => {
       const aDate = new Date(a[sortKey]);
       const bDate = new Date(b[sortKey]);
       return bDate.getTime() - aDate.getTime();
     });
+    internships.value = fetchedInternships;
   }
 
   async function filterInternships() {
