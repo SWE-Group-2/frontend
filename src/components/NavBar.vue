@@ -12,7 +12,14 @@ function logout() {
   router.push("/login");
 }
 
-const currentUserId = isLoggedIn() ? await getCurrentUserId() : -1;
+let currentUserId: number = -1;
+
+try {
+  currentUserId = await getCurrentUserId();
+} catch (error) {
+  clearAuthToken();
+  router.push("/login");
+}
 </script>
 
 <template>
