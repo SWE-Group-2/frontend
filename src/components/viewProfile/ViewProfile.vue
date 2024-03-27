@@ -1,12 +1,13 @@
 <script lang="ts">
 import { User } from "@/types/User";
 import { ref, Ref } from "vue";
-import { getUserById } from "@/services/User.service";
+import { getUserById, deleteUserById } from "@/services/User.service";
 import router from "@/router";
 
 export interface ViewProfileState {
   user: Ref<User>;
   loadUser: (userId: number) => Promise<void>;
+  deleteUser: (userId: number) => Promise<void>;
 }
 
 export function useViewProfile(): ViewProfileState {
@@ -21,9 +22,15 @@ export function useViewProfile(): ViewProfileState {
     }
   }
 
+  async function deleteUser(userId: number) {
+    await deleteUserById(userId);
+    await router.push("/users");
+  }
+
   return {
     user,
     loadUser,
+    deleteUser,
   };
 }
 </script>
@@ -39,6 +46,7 @@ const viewProfilePage = useViewProfile();
     <ViewProfileView
       v-model:user="viewProfilePage.user.value"
       @loadUser="viewProfilePage.loadUser"
+      @deleteUser="viewProfilePage.deleteUser"
     ></ViewProfileView>
   </Suspense>
 </template>

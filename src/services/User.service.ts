@@ -100,3 +100,25 @@ export async function getUserById(userId: number): Promise<User> {
       throw new Error("Failed to get user");
   }
 }
+
+export async function deleteUserById(userId: number) {
+  const response = await HttpClient.delete(
+    formatEndpoint(Endpoints.GET_USER_BY_ID, {
+      user_id: userId.toString(),
+    }),
+    true,
+  );
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 401:
+      throw new Error("Unauthorized");
+    case 404:
+      throw new Error("User not found");
+    default:
+      throw new Error("Failed to delete user");
+  }
+}
