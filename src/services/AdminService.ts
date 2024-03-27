@@ -38,3 +38,25 @@ export async function changeUserRole(username: string, roleId: number) {
 
     throw new Error("Failed to change user role");
 }
+
+export async function deleteTimePeriodById(timePeriodId: number) {
+    const response = await HttpClient.delete(
+        formatEndpoint(Endpoints.TIME_PERIOD_BY_ID, {
+            time_period_id: timePeriodId.toString(),
+        }),
+        true,
+    );
+
+    if (response.ok) {
+        return response.json();
+    }
+
+    switch (response.status) {
+        case 401:
+            throw new Error("Unauthorized");
+        case 404:
+            throw new Error("Time period not found");
+        default:
+            throw new Error("Failed to delete time period");
+    }
+}

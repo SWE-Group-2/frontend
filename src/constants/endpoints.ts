@@ -12,4 +12,6 @@ export enum Endpoints {
   GET_ALL_TIME_PERIODS = "/time_periods/all",
   CREATE_TIME_PERIOD = "/admin/add_time_period",
   CHANGE_USER_ROLE = "/admin/change_role/{username}",
+  TIME_PERIOD_BY_ID = "/time_periods/{time_period_id}",
+  EDIT_PROFILE = "/users/edit_profile",
 }
