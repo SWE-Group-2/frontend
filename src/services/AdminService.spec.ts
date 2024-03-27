@@ -1,5 +1,5 @@
 import {afterEach, beforeEach, describe, expect, test, vi} from "vitest";
-import {changeUserRole} from "@/services/AdminService";
+import {changeUserRole, createTimePeriod} from "@/services/AdminService";
 
 describe("Admin service tests", () => {
     function mockFetch(returnData: object) {
@@ -15,6 +15,25 @@ describe("Admin service tests", () => {
 
     afterEach(() => {
         vi.resetAllMocks();
+    });
+
+    test("can create time period", async () => {
+        const timePeriodData = { name: "name", start_date: "start_date", end_date: "end_date" };
+        try {
+            await createTimePeriod(timePeriodData);
+        } catch (e) {
+            /* ignore */
+        }
+        expect(fetch).toHaveBeenCalledWith(
+            `http://localhost:5000/admin/add_time_period`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(timePeriodData),
+                method: "POST",
+            },
+        );
     });
 
     test("can change user role", async () => {
