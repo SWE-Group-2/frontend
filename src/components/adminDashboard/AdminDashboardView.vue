@@ -14,7 +14,7 @@ const emit = defineEmits<{
   (e: "loadTimePeriods"): void;
   (e: "createNewTimePeriod"): void;
   (e: "deleteTimePeriod", timePeriodId: number): void;
-  (e: "changeUserRole"): void;
+  (e: "changeRole"): void;
   (e: "update:createTimePeriodName", value: string): void;
   (e: "update:createTimePeriodStartDate", value: string): void;
   (e: "update:createTimePeriodEndDate", value: string): void;
@@ -85,7 +85,7 @@ const roles = ["admin", "instructor", "student"];
     </form>
     <h2>Users</h2>
     <h3>Change User Role</h3>
-    <form @submit.prevent="$emit('changeUserRole')">
+    <form @submit.prevent="$emit('changeRole')">
       <div class="user-form">
         <label for="username">Username:</label>
         <input
