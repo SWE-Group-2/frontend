@@ -42,7 +42,8 @@
   overflow: hidden;
 }
 
-.row {
+.row,
+.row-main {
   max-width: 450px;
   font-family:
     Roboto Slab,
@@ -53,9 +54,10 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  .row-text {
-    font-weight: 300;
-  }
+}
+.row-main {
+  display: flex;
+  flex-direction: column;
 }
 
 .column {
