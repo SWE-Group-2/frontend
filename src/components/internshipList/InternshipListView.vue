@@ -96,32 +96,43 @@ function getTimePeriodName(id: number): string {
     </div>
 
     <div id="internships">
-      <div class="student-container" v-for="internship of internships">
-        <div>
-          <div class="photo">
-            <img src="/logo_thegang.png" alt="logo" />
+      <div class="internship-card" v-for="internship of internships">
+        <RouterLink
+          :to="{
+            name: 'viewInternship',
+            params: { internshipId: internship.id },
+          }"
+          style="text-decoration: none"
+        >
+          <div class="internship-container">
+            <div class="photo">
+              <img src="/logo_thegang.png" alt="logo" />
+            </div>
+            <div class="column">
+              <div class="row">
+                <span class="company-offer">
+                  {{ internship.position }}
+                </span>
+                @
+                <span class="company-info">
+                  {{ internship.company }}
+                </span>
+              </div>
+              <div class="row">
+                Internship Period:
+                <span class="company-info">
+                  {{ getTimePeriodName(internship.time_period_id) }}
+                </span>
+              </div>
+              <div class="row">
+                Application Deadline:
+                <span class="company-info">
+                  {{ internship.deadline }}
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="row">
-            {{ internship.position }} at {{ internship.company }}
-          </div>
-          <div class="row">
-            Internship Period:
-            {{ getTimePeriodName(internship.time_period_id) }}
-          </div>
-          <div class="row">Application Deadline: {{ internship.deadline }}</div>
-          <div class="row">
-            <RouterLink
-              :to="{
-                name: 'viewInternship',
-                params: { internshipId: internship.id },
-              }"
-            >
-              <button>View</button>
-            </RouterLink>
-          </div>
-        </div>
+        </RouterLink>
       </div>
     </div>
   </div>
