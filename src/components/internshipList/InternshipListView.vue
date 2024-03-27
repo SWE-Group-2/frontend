@@ -37,9 +37,12 @@ function getTimePeriodName(id: number): string {
 <template>
   <div id="internships">
     <div class="internships-list-header">Internships</div>
-    <div class="create-button-container">
+
+    <div class="button-container">
       <RouterLink to="/create-internship">
-        <button>Create Internship</button>
+        <button class="icon-box" title="Create internship">
+          <img class="icon" src="/icon-plus.svg" alt="new" />
+        </button>
       </RouterLink>
     </div>
     <div class="sort-button-container">
@@ -93,11 +96,7 @@ function getTimePeriodName(id: number): string {
     </div>
 
     <div id="internships">
-      <div
-        class="student-container"
-        v-for="internship of internships"
-        :key="internship.id"
-      >
+      <div class="student-container" v-for="internship of internships">
         <div>
           <div class="photo">
             <img src="/logo_thegang.png" alt="logo" />

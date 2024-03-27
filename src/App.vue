@@ -4,7 +4,9 @@ import NavBar from "@/components/NavBar.vue";
 
 <template>
   <div>
-    <NavBar />
+    <Suspense>
+      <NavBar />
+    </Suspense>
     <RouterView style="margin-top: 60px" />
   </div>
 </template>

@@ -26,8 +26,8 @@ const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
 @import "@/components/createInternship/CreateInternship.css";
 </style>
 <template>
-  <div id="edit-internship">
-    <h1 class="header">Edit Internship Post</h1>
+  <div id="create-internship">
+    <h1 class="header">Create Internship Post</h1>
     <div class="mid">
       <div class="container">
         <form @submit.prevent="$emit('create')">
@@ -101,7 +101,7 @@ const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
             </div>
           </div>
           <div class="row">
-            <button type="submit">Submit Internship</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </div>
