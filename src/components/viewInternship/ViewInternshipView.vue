@@ -26,53 +26,74 @@ function getTimePeriodName(id: number): string {
 }
 </script>
 <template>
-  <div id="edit-internship">
-    <div class="mid">
-      <div class="container">
-        <div class="row">
-          <h1 class="title">Internship Information</h1>
+  <div id="view-internship">
+    <div class="internship-header">Internship Information</div>
+    <div class="internship-container">
+      <div class="top">
+        <div class="photo">
+          <img src="/logo_thegang.png" alt="logo" />
         </div>
-        <div v-if="userId == internship.author_id">
-          <RouterLink
-            :to="{
-              name: 'editInternship',
-              params: { internshipId: internship.id },
-            }"
-          >
-            <button>Edit</button>
-          </RouterLink>
-          <button @click="() => emit('deleteInternship', internship.id)">
-            Delete
-          </button>
+        <div class="main">
+          <div class="row">
+            <span class="title">Company:</span>
+            <span class="name">
+              {{ internship.company }}
+            </span>
+          </div>
+          <div class="row">
+            <span class="title">Position:</span>
+            <span class="position">
+              {{ internship.position }}
+            </span>
+          </div>
         </div>
+        <div class="controls">
+          <div class="more-controls" v-if="userId == internship.author_id">
+            <RouterLink
+              :to="{
+                name: 'editInternship',
+                params: { internshipId: internship.id },
+              }"
+            >
+              <button class="icon-box" title="Edit internship">
+                <img class="icon" src="/icon-edit.svg" alt="edit" />
+              </button>
+            </RouterLink>
+            <button
+              class="icon-box"
+              title="Delete internship"
+              @click="() => emit('deleteInternship', internship.id)"
+            >
+              <img class="icon-trash" src="/icon-trash.svg" alt="delete" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="body">
         <div class="row">
-          <div class="column">
-            <h3>Company</h3>
-            {{ internship.company }}
-          </div>
-          <div class="input-field">
-            <h3>Position</h3>
-            {{ internship.position }}
-          </div>
-          <div class="input-field">
-            <h3>Apply At</h3>
-            {{ internship.website }}
-          </div>
-          <div class="input-field">
-            <h3>Time Period</h3>
+          <span class="title">Time Period:</span>
+          <span>
             {{ getTimePeriodName(internship.time_period_id) }}
-          </div>
-          <div class="input-field">
-            <h3>Deadline</h3>
-            {{ internship.deadline }}
-          </div>
+          </span>
         </div>
-        <div class="column">
-          <div class="photo">
-            <img src="/logo_thegang.png" alt="logo" />
-          </div>
+        <div class="row">
+          <span class="title">Deadline:</span>
+          <span>
+            {{ internship.deadline }}
+          </span>
+        </div>
+        <div class="row">
+          <span class="title">Apply on:</span>
+          <span class="link">
+            {{ internship.website }}
+          </span>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+@import "@/components/viewInternship/ViewInternship.css";
+</style>
