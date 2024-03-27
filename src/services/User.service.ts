@@ -100,3 +100,16 @@ export async function getUserById(userId: number): Promise<User> {
       throw new Error("Failed to get user");
   }
 }
+
+export async function roleNameFromId(roleId: number): Promise<string> {
+  switch (roleId) {
+    case 1:
+      return "Admin";
+    case 2:
+      return "Instructor";
+    case 3:
+      return "Student";
+    default:
+      throw new Error("Invalid role ID");
+  }
+}
