@@ -3,7 +3,7 @@ import { Internship } from "@/types/Internship";
 import { TimePeriod } from "@/types/TimePeriod";
 import { getValidTimePeriods } from "@/services/TimePeriod.service";
 import { useRoute } from "vue-router";
-import { getCurrentUserId } from "@/services/Auth.service";
+import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
 
 defineProps<{
   internship: Internship;
@@ -16,6 +16,8 @@ const timePeriods: TimePeriod[] = await getValidTimePeriods();
 const route = useRoute();
 const internshipId = Number(route.params.internshipId);
 const userId = await getCurrentUserId();
+const loggedIn = isLoggedIn();
+const userIsAdmin = loggedIn ? await isAdmin() : false;
 emit("loadInternship", internshipId);
 
 function getTimePeriodName(id: number): string {
@@ -48,7 +50,10 @@ function getTimePeriodName(id: number): string {
           </div>
         </div>
         <div class="controls">
-          <div class="more-controls" v-if="userId == internship.author_id">
+          <div
+            class="more-controls"
+            v-if="userId == internship.author_id || userIsAdmin"
+          >
             <RouterLink
               :to="{
                 name: 'editInternship',
@@ -99,8 +104,8 @@ function getTimePeriodName(id: number): string {
         <div class="body-2">
           <div class="row">
             <span class="title">Author:</span>
-            <span> {{ internship.author_id }} </span>
             <!-- placeholder -->
+            <span> {{ internship.author_id }} </span>
           </div>
           <div class="row">
             <span class="title">Author role:</span>
