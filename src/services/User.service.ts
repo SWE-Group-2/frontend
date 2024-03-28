@@ -1,6 +1,7 @@
 import { UserRegistrationInfo } from "@/types/UserRegistrationInfo";
 import { UserLoginInfo } from "@/types/UserLoginInfo";
 import { User } from "@/types/User";
+import { Profile } from "@/types/Profile";
 import HttpClient from "@/services/HttpClient";
 import { Endpoints } from "@/constants/endpoints";
 import formatEndpoint from "@/utils/formatEndpoint";
@@ -111,5 +112,44 @@ export async function roleNameFromId(roleId: number): Promise<string> {
       return "Student";
     default:
       throw new Error("Invalid role ID");
+  }
+}
+
+export async function editProfile(
+  userId: number,
+  profile: Profile,
+) {
+  const profileJson = {
+    gpa: profile.gpa,
+    academic_year: profile.academic_year,
+    github_link: profile.github_link,
+    linkedin_link: profile.linkedin_link,
+    website_link: profile.website_link,
+    profile_picture_link: profile.profile_picture_link,
+    email: profile.email,
+    phone_number: profile.phone_number,
+    description: profile.description,
+    internship_time_period_id: profile.internship_time_period_id,
+  };
+
+  const response = await HttpClient.put(
+    formatEndpoint(Endpoints.EDIT_PROFILE, { user_id: userId.toString() }),
+    profileJson,
+    true,
+  );
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 400:
+      throw new Error("Invalid request body");
+    case 401:
+      throw new Error("Unauthorized");
+    case 404:
+      throw new Error("User not found");
+    default:
+      throw new Error("Failed to edit profile");
   }
 }

@@ -40,10 +40,10 @@ export async function changeUserRole(username: string, roleId: number) {
 }
 
 
-export async function deleteUserById(userId: number) {
+export async function deleteTimePeriodById(timePeriodId: number) {
     const response = await HttpClient.delete(
-        formatEndpoint(Endpoints.DELETE_USER, {
-            user_id: userId.toString(),
+        formatEndpoint(Endpoints.DELETE_TIME_PERIOD_BY_ID, {
+            time_period_id: timePeriodId.toString(),
         }),
         true,
     );
@@ -56,8 +56,8 @@ export async function deleteUserById(userId: number) {
         case 401:
             throw new Error("Unauthorized");
         case 404:
-            throw new Error("User not found");
+            throw new Error("Time period not found");
         default:
-            throw new Error("Failed to delete user");
+            throw new Error("Failed to delete time period");
     }
 }
