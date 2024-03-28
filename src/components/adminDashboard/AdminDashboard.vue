@@ -2,8 +2,11 @@
 import { ref, Ref } from "vue";
 import { TimePeriod } from "@/types/TimePeriod";
 import { getAllTimePeriods } from "@/services/TimePeriod.service";
-import { changeUserRole, createTimePeriod, deleteTimePeriodById } from "@/services/AdminService";
-import router from "@/router";
+import {
+  changeUserRole,
+  createTimePeriod,
+  deleteTimePeriodById,
+} from "@/services/AdminService";
 
 export interface AdminDashboardState {
   // Define the state of the admin dashboard

@@ -2,8 +2,6 @@ import { mount } from '@vue/test-utils';
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 import { useEditProfile } from "@/components/editProfile/EditProfile.vue";
 import * as UserService from "@/services/User.service";
-import { editInternship } from '@/services/Internship.service';
-import { before } from 'node:test';
 
 describe("Edit profile tests", () => {
     beforeEach(() => {
@@ -38,7 +36,7 @@ describe("Edit profile tests", () => {
     test("Internal state tests", async () => {
         const userId = 1;
         const editProfile = useEditProfile();
-        expect(editProfile.gpa.value).toBe("");
+        expect(editProfile.gpa.value).toBe(0);
         expect(editProfile.academic_year.value).toBe("");
         expect(editProfile.github_link.value).toBe("");
         expect(editProfile.linkedin_link.value).toBe("");
@@ -55,10 +53,10 @@ describe("Edit profile tests", () => {
         expect(editProfile.github_link.value).toBe("https://github.com");
         expect(editProfile.linkedin_link.value).toBe("https://linkedin.com");
         expect(editProfile.website_link.value).toBe("https://website.com");
-        expect(editProfile.profile_picture_link.value).toBe("https://google.com/logo.png");
+        expect(editProfile.profile_picture_link.value).toBe("https://profile.com");
         expect(editProfile.email.value).toBe("justin.cop@gmail.com");
         expect(editProfile.phone_number.value).toBe("1234567890");
-        expect(editProfile.description.value).toBe("I am Justin and I am very handsome.");
+        expect(editProfile.description.value).toBe("I am Justin Copeland and I am very handsome.");
         expect(editProfile.internship_time_period_id.value).toBe(1);
     });
 });
