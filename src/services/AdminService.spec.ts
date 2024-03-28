@@ -62,7 +62,7 @@ describe("Admin service tests", () => {
             /* ignore */
         }
         expect(fetch).toHaveBeenCalledWith(
-            'http://localhost:5000/time_periods/${timePeriodId}',
+            `http://localhost:5000/admin/delete_time_period/${timePeriodId}`,
             {
                 headers: {},
                 method: "DELETE",

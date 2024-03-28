@@ -1,148 +1,148 @@
 .top {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    margin-top: 100px;
-    margin-left: 1.5rem;
-    text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 100px;
+  margin-left: 1.5rem;
+  text-align: right;
 }
 
 .mid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .about {
-    --shadow-color: rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1rem;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
 }
 
 .extra {
-    --shadow-color: rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.5rem;
-    gap: 1rem;
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  gap: 1rem;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
 }
-  
+
 .student-name {
-    color: white;
-    display: inline;
-    background-color: #462378;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: fit-content;
-    font-weight: 600;
-    font-size: 25px;
-    text-align: right;
+  color: white;
+  display: inline;
+  background-color: #462378;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 25px;
+  text-align: right;
 }
 
 .edit-header {
-    font-family: Roboto Mono;
-    font-size: 20px;
+  font-family: Roboto Mono;
+  font-size: 20px;
 }
 
 h1 {
-    font-family:
-      Roboto Slab,
-      serif;
-    font-weight: 700;
-    font-size: 25px;
-    letter-spacing: 0em;
-    line-height: 0;
+  font-family:
+    Roboto Slab,
+    serif;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: 0em;
+  line-height: 0;
 }
-  
+
 .input-field {
-    position: relative;
-    max-height: 70px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
+  position: relative;
+  max-height: 70px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
 }
 
 .input-field input {
-    width: 350px;
-    height: 50px;
-    border-radius: 6px;
-    font-size: 16px;
-    padding: 0 15px;
-    border: 2px solid #d9d9d9;
-    color: #000000;
-    outline: none;
+  width: 350px;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 0 15px;
+  border: 2px solid #d9d9d9;
+  color: #000000;
+  outline: none;
 }
 
 .input-field label {
-    position: absolute;
-    font-family: Roboto Mono;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #d9d9d9;
-    font-size: 18px;
-    pointer-events: none;
-    transition: 0.3s;
+  position: absolute;
+  font-family: Roboto Mono;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #d9d9d9;
+  font-size: 18px;
+  pointer-events: none;
+  transition: 0.3s;
 }
 
 input:focus {
-    border: 2px solid #dd9832;
+  border: 2px solid #dd9832;
 }
 
 input:focus ~ label,
 input:valid ~ label {
-    top: 0;
-    left: 15px;
-    font-size: 15px;
-    padding: 0 2px;
-    background: #ffffff;
-    color: #dd9832;
+  top: 0;
+  left: 15px;
+  font-size: 15px;
+  padding: 0 2px;
+  background: #ffffff;
+  color: #dd9832;
 }
-  
+
 .input-field-gpa {
-    position: relative;
-    max-height: 70px;
-    min-height: 50px;
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    border-radius: 6px;
+  position: relative;
+  max-height: 70px;
+  min-height: 50px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  border-radius: 6px;
 }
 
 .input-field-gpa input {
-    width: 100px;
-    height: 50px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0 15px;
-    border: 2px solid #d9d9d9;
-    color: #462378;
-    font-family:
-      Roboto Mono,
-      monospace;
-    outline: none;
+  width: 100px;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 15px;
+  border: 2px solid #d9d9d9;
+  color: #462378;
+  font-family:
+    Roboto Mono,
+    monospace;
+  outline: none;
 }
 
 .input-field-gpa label {
-    position: absolute;
-    font-family: Roboto Mono;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #d9d9d9;
-    font-size: 18px;
-    pointer-events: none;
-    transition: 0.3s;
+  position: absolute;
+  font-family: Roboto Mono;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #d9d9d9;
+  font-size: 18px;
+  pointer-events: none;
+  transition: 0.3s;
 }
