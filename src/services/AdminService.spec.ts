@@ -1,5 +1,5 @@
 import {afterEach, beforeEach, describe, expect, test, vi} from "vitest";
-import {changeUserRole, createTimePeriod} from "@/services/AdminService";
+import {changeUserRole, createTimePeriod, deleteTimePeriodById} from "@/services/AdminService";
 
 describe("Admin service tests", () => {
     function mockFetch(returnData: object) {
@@ -50,6 +50,21 @@ describe("Admin service tests", () => {
                 },
                 body: '{"role_id":1}',
                 method: "PUT",
+            },
+        );
+    });
+
+    test("can delete time period", async () => {
+        try {
+            await deleteTimePeriodById(1);
+        } catch (e) {
+            /* ignore */
+        }
+        expect(fetch).toHaveBeenCalledWith(
+            `http://localhost:5000/admin/delete_time_period/1`,
+            {
+                headers: {},
+                method: "DELETE",
             },
         );
     });

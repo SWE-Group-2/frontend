@@ -9,6 +9,7 @@ export enum Endpoints {
   GET_ALL_INTERNSHIPS = "/internships",
   CREATE_INTERNSHIP = "/internships/add_internship",
   GET_TIME_PERIODS = "/time_periods",
+  DELETE_TIME_PERIOD = "/admin/delete_time_period/{time_period_id}",
   GET_ALL_TIME_PERIODS = "/time_periods/all",
   CREATE_TIME_PERIOD = "/admin/add_time_period",
   CHANGE_USER_ROLE = "/admin/change_role/{username}",
