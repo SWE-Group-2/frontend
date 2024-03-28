@@ -2,7 +2,7 @@
 import { ref, Ref } from "vue";
 import { TimePeriod } from "@/types/TimePeriod";
 import { getAllTimePeriods } from "@/services/TimePeriod.service";
-import { createTimePeriod } from "@/services/AdminService";
+import { changeUserRole, createTimePeriod } from "@/services/AdminService";
 
 export interface AdminDashboardState {
   // Define the state of the admin dashboard
@@ -16,7 +16,7 @@ export interface AdminDashboardState {
   loadTimePeriods: () => void;
   createNewTimePeriod: () => void;
   deleteTimePeriod: (timePeriodId: number) => void;
-  changeUserRole: () => void;
+  changeRole: () => void;
 }
 
 export function useAdminDashboard(): AdminDashboardState {
@@ -40,8 +40,8 @@ export function useAdminDashboard(): AdminDashboardState {
   async function deleteTimePeriod() {
     // Delete a time period
   }
-  async function changeUserRole() {
-    // Change the role of a user
+  async function changeRole() {
+    await changeUserRole(roleChangeUsername.value, roleChangeRoleId.value);
   }
   async function loadTimePeriods() {
     timePeriods.value = await getAllTimePeriods();
@@ -56,7 +56,7 @@ export function useAdminDashboard(): AdminDashboardState {
     roleChangeRoleId,
     createNewTimePeriod,
     deleteTimePeriod,
-    changeUserRole,
+    changeRole,
     loadTimePeriods,
   };
 }
@@ -81,7 +81,7 @@ const adminDashboard = useAdminDashboard();
     v-model:role-change-role-id="adminDashboard.roleChangeRoleId.value"
     @load-time-periods="adminDashboard.loadTimePeriods"
     @create-new-time-period="adminDashboard.createNewTimePeriod"
-    @change-user-role="adminDashboard.changeUserRole"
+    @change-role="adminDashboard.changeRole"
     @delete-time-period="adminDashboard.deleteTimePeriod"
   />
 </template>

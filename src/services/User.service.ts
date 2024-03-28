@@ -101,6 +101,19 @@ export async function getUserById(userId: number): Promise<User> {
   }
 }
 
+export async function roleNameFromId(roleId: number): Promise<string> {
+  switch (roleId) {
+    case 1:
+      return "Admin";
+    case 2:
+      return "Instructor";
+    case 3:
+      return "Student";
+    default:
+      throw new Error("Invalid role ID");
+  }
+}
+
 export async function deleteUserById(userId: number) {
   const response = await HttpClient.delete(
     formatEndpoint(Endpoints.GET_USER_BY_ID, {

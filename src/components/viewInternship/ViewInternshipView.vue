@@ -7,6 +7,8 @@ import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
 
 defineProps<{
   internship: Internship;
+  authorUsername: string;
+  authorRole: string;
 }>();
 const emit = defineEmits<{
   (e: "loadInternship", value: number): void;
@@ -104,14 +106,12 @@ function getTimePeriodName(id: number): string {
         <div class="body-2">
           <div class="row">
             <span class="title">Author:</span>
-            <!-- placeholder -->
-            <span> {{ internship.author_id }} </span>
+            <span> {{ authorUsername }} </span>
           </div>
           <div class="row">
             <span class="title">Author role:</span>
             <span>
-              Student
-              <!-- placeholder -->
+              {{ authorRole }}
             </span>
           </div>
           <div class="row">
