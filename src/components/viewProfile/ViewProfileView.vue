@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { User } from "@/types/User";
 import { useRoute } from "vue-router";
-import { getCurrentUserId } from "@/services/Auth.service";
+import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
 
 defineProps<{
   user: User;
 }>();
 const emit = defineEmits<{
   (e: "loadUser", value: number): void;
+  (e: "deleteUser", value: number): void;
 }>();
 const route = useRoute();
 const userId = Number(route.params.userId);
 const currentUserId = await getCurrentUserId();
+const loggedIn = isLoggedIn();
+const userIsAdmin = loggedIn ? await isAdmin() : false;
 emit("loadUser", userId);
 </script>
 
@@ -21,7 +24,7 @@ emit("loadUser", userId);
       <div class="top">
         <div class="main">
           <div class="photo">
-            <img src="/piti.webp" alt="piti" />
+            <img src="/blank_avatar.webp" alt="avatar" />
           </div>
           <div class="main-info">
             <div class="student-name">
@@ -38,6 +41,14 @@ emit("loadUser", userId);
                 >EDIT PROFILE
               </RouterLink>
             </div>
+            <button
+              class="delete-profile"
+              title="Delete profile"
+              v-if="userIsAdmin"
+              @click="$emit('deleteUser', user.id)"
+            >
+              DELETE PROFILE
+            </button>
           </div>
         </div>
         <div class="contacts">
