@@ -40,7 +40,7 @@ export function useAdminDashboard(): AdminDashboardState {
   }
   async function deleteTimePeriod(timePeriodId: number) {
     await deleteTimePeriodById(timePeriodId);
-    await router.push("/admin-dashboard");
+    await loadTimePeriods();
   }
   async function changeRole() {
     await changeUserRole(roleChangeUsername.value, roleChangeRoleId.value);

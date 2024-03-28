@@ -41,7 +41,7 @@ export async function changeUserRole(username: string, roleId: number) {
 
 export async function deleteTimePeriodById(timePeriodId: number) {
     const response = await HttpClient.delete(
-        formatEndpoint(Endpoints.TIME_PERIOD_BY_ID, {
+        formatEndpoint(Endpoints.DELETE_TIME_PERIOD_BY_ID, {
             time_period_id: timePeriodId.toString(),
         }),
         true,
