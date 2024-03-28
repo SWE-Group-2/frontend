@@ -1,8 +1,9 @@
 <script lang="ts">
 import { User } from "@/types/User";
 import { ref, Ref } from "vue";
-import { getUserById, deleteUserById } from "@/services/User.service";
+import { getUserById } from "@/services/User.service";
 import router from "@/router";
+import { deleteUserById } from "@/services/AdminService";
 
 export interface ViewProfileState {
   user: Ref<User>;
