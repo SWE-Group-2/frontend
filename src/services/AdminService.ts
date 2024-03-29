@@ -61,3 +61,25 @@ export async function deleteTimePeriodById(timePeriodId: number) {
             throw new Error("Failed to delete time period");
     }
 }
+
+export async function deleteUserById(userId: number) {
+    const response = await HttpClient.delete(
+        formatEndpoint(Endpoints.DELETE_USER, {
+            user_id: userId.toString(),
+        }),
+        true,
+    );
+
+    if (response.ok) {
+        return response.json();
+    }
+
+    switch (response.status) {
+        case 401:
+            throw new Error("Unauthorized");
+        case 404:
+            throw new Error("User not found");
+        default:
+            throw new Error("Failed to delete user");
+    }
+}
