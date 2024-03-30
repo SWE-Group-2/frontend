@@ -115,10 +115,7 @@ export async function roleNameFromId(roleId: number): Promise<string> {
   }
 }
 
-export async function editProfile(
-  userId: number,
-  profile: Profile,
-) {
+export async function editProfile(userId: number, profile: Profile) {
   const profileJson = {
     gpa: profile.gpa,
     academic_year: profile.academic_year,

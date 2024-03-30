@@ -9,6 +9,18 @@ const router = createRouter({
       component: () => import("../views/HomeView.vue"),
     },
     {
+      path: "/upload_companypic",
+      component: () => import("@/components/upload/UploadCompanyPic.vue"),
+    },
+    {
+      path: "/upload_profilepic",
+      component: () => import("@/components/upload/UploadProfilePic.vue"),
+    },
+    {
+      path: "/upload_cv",
+      component: () => import("@/components/upload/UploadCV.vue"),
+    },
+    {
       path: "/login",
       component: () => import("../components/login/Login.vue"),
     },
