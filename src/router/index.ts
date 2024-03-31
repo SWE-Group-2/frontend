@@ -21,6 +21,18 @@ const router = createRouter({
       component: () => import("@/components/upload/UploadCV.vue"),
     },
     {
+      path: "/delete_profilepic",
+      component: () => import("@/components/upload/DeleteProfilePic.vue"),
+    },
+    {
+      path: "/delete_companypic",
+      component: () => import("@/components/upload/DeleteCompanyPic.vue"),
+    },
+    {
+      path: "/delete_cv",
+      component: () => import("@/components/upload/DeleteCV.vue"),
+    },
+    {
       path: "/login",
       component: () => import("../components/login/Login.vue"),
     },
