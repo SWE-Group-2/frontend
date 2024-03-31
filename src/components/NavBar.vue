@@ -18,7 +18,6 @@ try {
   currentUserId = await getCurrentUserId();
 } catch (error) {
   clearAuthToken();
-  router.push("/login");
 }
 </script>
 
