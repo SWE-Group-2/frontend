@@ -1,5 +1,7 @@
 <script setup lang="ts">
 // The state of the login page
+import { GoogleLogin } from "vue3-google-login";
+
 defineProps<{
   username: string;
   password: string;
@@ -7,11 +9,16 @@ defineProps<{
 
 // Events that can occur on login, i.e., submission of the form
 // No methods here but rather the view informs parent component of an event occurring
-defineEmits<{
+const emit = defineEmits<{
   (e: "submit"): void;
+  (e: "loginWithGoogle", response: object): void;
   (e: "update:username", value: string): void;
   (e: "update:password", value: string): void;
 }>();
+
+function callback(response: object) {
+  emit("loginWithGoogle", response);
+}
 </script>
 <template>
   <div class="item-center">
@@ -42,6 +49,9 @@ defineEmits<{
         </div>
         <button type="submit">Submit</button>
       </form>
+      <div class="google-login">
+        <GoogleLogin :callback="callback" />
+      </div>
     </div>
   </div>
 </template>

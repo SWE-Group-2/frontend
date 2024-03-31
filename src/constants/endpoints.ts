@@ -3,6 +3,7 @@ export enum Endpoints {
   GET_ALL_STUDENTS = "/users/students",
   REGISTER = "/users/register",
   LOGIN = "/users/login",
+  LOGIN_GOOGLE = "/users/google/login",
   GET_CURRENT_USER = "/users/get_current_user",
   GET_USER_BY_ID = "/users/{user_id}",
   INTERNSHIP_BY_ID = "/internships/{internship_id}",
