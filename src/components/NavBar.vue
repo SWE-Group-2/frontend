@@ -12,13 +12,9 @@ function logout() {
   router.push("/login");
 }
 
-let currentUserId: number = -1;
-
-try {
-  currentUserId = await getCurrentUserId();
-} catch (error) {
-  clearAuthToken();
-  router.push("/login");
+async function goToProfile() {
+  const userId = await getCurrentUserId();
+  await router.push({ name: "viewProfile", params: { userId: userId } });
 }
 </script>
 
@@ -70,15 +66,8 @@ try {
                 >Register</RouterLink
               >
             </li>
-            <li class="dropdown-item" v-if="isLoggedIn()">
-              <RouterLink
-                style="text-decoration: none; color: inherit"
-                :to="{
-                  name: 'viewProfile',
-                  params: { userId: currentUserId },
-                }"
-                >Profile
-              </RouterLink>
+            <li class="dropdown-item" v-if="isLoggedIn()" @click="goToProfile">
+              Profile
             </li>
             <li class="dropdown-item" @click="logout" v-if="isLoggedIn()">
               Logout
