@@ -39,7 +39,6 @@ export async function changeUserRole(username: string, roleId: number) {
     throw new Error("Failed to change user role");
 }
 
-
 export async function deleteTimePeriodById(timePeriodId: number) {
     const response = await HttpClient.delete(
         formatEndpoint(Endpoints.DELETE_TIME_PERIOD_BY_ID, {

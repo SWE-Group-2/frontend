@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { TimePeriod } from "@/types/TimePeriod";
+import { User } from "@/types/User";
 
 defineProps<{
   timePeriods: TimePeriod[];
@@ -8,6 +9,7 @@ defineProps<{
   createTimePeriodEndDate: string;
   roleChangeUsername: string;
   roleChangeRoleId: number;
+  students: User[];
 }>();
 
 const emit = defineEmits<{
@@ -20,18 +22,21 @@ const emit = defineEmits<{
   (e: "update:createTimePeriodEndDate", value: string): void;
   (e: "update:roleChangeUsername", value: string): void;
   (e: "update:roleChangeRoleId", value: string): void;
+  (e: "loadStudents"): void;
 }>();
 
 emit("loadTimePeriods");
+emit("loadStudents");
 
 // this should be call to backend but... for now it's just a constant
 const roles = ["admin", "instructor", "student"];
 </script>
 <template>
   <div class="admin-dashboard">
-    <h1>Admin Dashboard</h1>
-
-    <h2>Time Periods</h2>
+    <div class="heading">Admin Dashboard</div>
+    <div class="container">
+      Time Periods
+    </div>
     <table>
       <thead>
         <tr>
@@ -47,14 +52,16 @@ const roles = ["admin", "instructor", "student"];
           <td>{{ timePeriod.start_date }}</td>
           <td>{{ timePeriod.end_date }}</td>
           <td>
-            <button @click="$emit('deleteTimePeriod', timePeriod.id)">
-              Delete
-            </button>
+            <div class="alignment">
+              <button class="delete-button" @click="$emit('deleteTimePeriod', timePeriod.id)">
+                Delete
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <h3>Add Time Period</h3>
+    <div class="container">Add Time Period</div>
     <form @submit.prevent="$emit('createNewTimePeriod')">
       <div class="search-bar">
         <label for="name">Name:</label>
@@ -80,11 +87,21 @@ const roles = ["admin", "instructor", "student"];
           :value="createTimePeriodEndDate"
           @input="$emit('update:createTimePeriodEndDate', $event.target.value)"
         />
-        <button type="submit">Create</button>
+        <button class="create-button" type="submit">Create</button>
       </div>
     </form>
-    <h2>Users</h2>
-    <h3>Change User Role</h3>
+    <div class="container">Users</div>
+    <table>
+      <tr class="table-header">
+        <th>Username</th>
+        <th>Name</th>
+      </tr>
+      <tr v-for="student of students">
+        <td>{{student.username}}</td>
+        <td>{{student.first_name}} {{student.last_name}}</td>
+      </tr>
+    </table>
+    <div class="container">Change User Role</div>
     <form @submit.prevent="$emit('changeRole')">
       <div class="user-form">
         <label for="username">Username:</label>
@@ -104,11 +121,12 @@ const roles = ["admin", "instructor", "student"];
             {{ role }}
           </option>
         </select>
-        <button type="submit">Submit</button>
+        <button class="create-button" type="submit">Submit</button>
       </div>
     </form>
   </div>
 </template>
+
 <style scoped>
 @import "@/components/adminDashboard/AdminDashboard.css";
 </style>
