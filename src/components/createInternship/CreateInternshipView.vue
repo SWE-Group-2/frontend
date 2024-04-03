@@ -94,11 +94,6 @@ const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
                 <label for="deadline-input">Application Deadline</label>
               </div>
             </div>
-            <div class="column">
-              <div class="photo">
-                <img src="/logo_thegang.png" alt="logo" />
-              </div>
-            </div>
           </div>
           <div class="row">
             <button type="submit">Submit</button>

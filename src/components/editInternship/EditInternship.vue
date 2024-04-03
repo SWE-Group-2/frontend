@@ -3,6 +3,7 @@ import { ref, type Ref } from "vue";
 import {
   editInternship,
   getInternshipById,
+  uploadInternshipPhoto,
 } from "@/services/Internship.service";
 import router from "@/router";
 
@@ -13,6 +14,7 @@ export interface EditInternshipState {
   deadline: Ref<string>;
   timePeriodId: Ref<number>;
   companyPhotoLink: Ref<string | null>;
+  uploadedImage: Ref<File | null>;
   edit: (internshipId: number) => Promise<void>;
   loadInternship: (internshipId: number) => Promise<void>;
 }
@@ -24,8 +26,16 @@ export function useEditInternship(): EditInternshipState {
   const deadline = ref("");
   const timePeriodId = ref(1);
   const companyPhotoLink = ref(null);
+  const uploadedImage = ref(null);
 
   async function edit(internshipId: number) {
+    if (uploadedImage.value) {
+      const response = await uploadInternshipPhoto(
+        internshipId,
+        uploadedImage.value,
+      );
+      companyPhotoLink.value = response.url;
+    }
     await editInternship(internshipId, {
       company: company.value,
       position: position.value,
@@ -54,6 +64,7 @@ export function useEditInternship(): EditInternshipState {
     deadline,
     timePeriodId,
     companyPhotoLink,
+    uploadedImage,
     edit,
     loadInternship,
   };
@@ -75,6 +86,7 @@ const editInternshipPage = useEditInternship();
       v-model:deadline="editInternshipPage.deadline.value"
       v-model:timePeriodId="editInternshipPage.timePeriodId.value"
       v-model:companyPhotoLink="editInternshipPage.companyPhotoLink.value"
+      v-model:uploadedImage="editInternshipPage.uploadedImage.value"
       @edit="editInternshipPage.edit"
       @load-internship="editInternshipPage.loadInternship"
     />

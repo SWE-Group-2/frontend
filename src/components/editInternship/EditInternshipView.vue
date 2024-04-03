@@ -9,6 +9,7 @@ defineProps<{
   website: string;
   deadline: string;
   timePeriodId: number;
+  uploadedImage: File | null;
   companyPhotoLink: string | null;
 }>();
 const emit = defineEmits<{
@@ -18,6 +19,7 @@ const emit = defineEmits<{
   (e: "update:deadline", value: string): void;
   (e: "update:timePeriodId", value: string): void;
   (e: "update:companyPhotoLink", value: string | null): void;
+  (e: "update:uploadedImage", value: File | null): void;
   (e: "edit", value: number): void;
   (e: "loadInternship", value: number): void;
 }>();
@@ -99,11 +101,14 @@ emit("loadInternship", internshipId);
                 <label for="deadline-input">Application Deadline</label>
               </div>
             </div>
-            <div class="column">
-              <div class="photo">
-                <img src="/logo_thegang.png" alt="logo" />
-              </div>
-            </div>
+          </div>
+          <div class="row">
+            Company photo
+            <input
+              type="file"
+              accept="image/jpg,image/jpeg,image/png,image/gif"
+              @change="$emit('update:uploadedImage', $event.target.files[0])"
+            />
           </div>
           <div class="row">
             <button type="submit">Submit</button>
