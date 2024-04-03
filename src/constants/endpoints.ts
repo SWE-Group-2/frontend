@@ -15,4 +15,6 @@ export enum Endpoints {
   DELETE_TIME_PERIOD_BY_ID = "/admin/delete_time_period/{time_period_id}",
   EDIT_PROFILE = "/users/edit_profile",
   DELETE_USER = "/admin/delete_user/{user_id}",
+  UPLOAD_PROFILE_PICTURE = "/upload_profilepic",
+  DELETE_PROFILE_PIC = "/delete_profilepic",
 }

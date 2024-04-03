@@ -140,3 +140,35 @@ export async function editProfile(
       throw new Error("Failed to edit profile");
   }
 }
+
+export async function uploadProfilePicture(file: File) {
+  const response = await HttpClient.putFile(Endpoints.UPLOAD_PROFILE_PICTURE, file, true);
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 400:
+      throw new Error("Invalid file");
+    case 401:
+      throw new Error("Unauthorized");
+    default:
+      throw new Error("Failed to upload profile picture");
+  }
+}
+
+export async function clearProfilePicture() {
+  const response = await HttpClient.delete(Endpoints.DELETE_PROFILE_PIC, true);
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 401:
+      throw new Error("Unauthorized");
+    default:
+      throw new Error("Failed to clear profile picture");
+  }
+}

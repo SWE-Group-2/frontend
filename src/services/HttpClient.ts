@@ -39,6 +39,19 @@ class HttpClient {
       },
     });
   }
+
+  static async putFile(url: string, file: File, authRequired: boolean = false) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    return fetch(`${this.baseUrl}${url}`, {
+      method: "PUT",
+      body: formData,
+      headers: {
+        ...(authRequired ? authHeader() : {}),
+      },
+    });
+  }
 }
 
 export default HttpClient;

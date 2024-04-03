@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
 import { getAllTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
+import { clearProfilePicture } from "@/services/User.service";
 
 defineProps<{
   user: User;
@@ -27,6 +28,11 @@ const timePeriodsMap = timePeriods.reduce(
   {},
 );
 emit("loadUser", userId);
+
+async function clearProfilePic() {
+  await clearProfilePicture();
+  window.location.reload();
+}
 </script>
 
 <template>
@@ -35,7 +41,12 @@ emit("loadUser", userId);
       <div class="top">
         <div class="main">
           <div class="photo">
-            <img src="/blank_avatar.webp" alt="avatar" />
+            <img
+              v-if="user.profile_picture_link"
+              :src="user.profile_picture_link"
+              alt="avatar"
+            />
+            <img v-else src="/blank_avatar.webp" alt="avatar" />
           </div>
           <div class="main-info">
             <div class="student-name">
@@ -43,6 +54,12 @@ emit("loadUser", userId);
             </div>
             <div class="student-year">{{ user.id }}</div>
             <div class="edit-profile" v-if="userId == currentUserId">
+              <button
+                v-if="user.id == currentUserId && user.profile_picture_link"
+                @click="clearProfilePic"
+              >
+                Clear profile pic
+              </button>
               <RouterLink
                 style="text-decoration: underline; color: inherit"
                 :to="{

@@ -1,7 +1,12 @@
 <script lang="ts">
 import { ref, type Ref } from "vue";
-import { editProfile, getUserById } from "@/services/User.service";
+import {
+  editProfile,
+  getUserById,
+  uploadProfilePicture,
+} from "@/services/User.service";
 import router from "@/router";
+import { getProfilePictureUrl } from "@/utils/uploadedFileUrl";
 
 export interface EditProfileState {
   username: Ref<string | null>;
@@ -17,6 +22,7 @@ export interface EditProfileState {
   website_link: Ref<string | null>;
   internship_time_period_id: Ref<number | null>;
   profile_picture_link: Ref<string | null>;
+  uploadedProfilePic: Ref<File | null>;
   edit: (userId: number) => Promise<void>;
   loadUser: (userId: number) => Promise<void>;
 }
@@ -35,6 +41,7 @@ export function useEditProfile(): EditProfileState {
   const website_link = ref(null);
   const internship_time_period_id = ref(null);
   const profile_picture_link = ref(null);
+  const uploadedProfilePic = ref(null);
 
   async function edit(userId: number) {
     const data = {
@@ -51,6 +58,11 @@ export function useEditProfile(): EditProfileState {
       internship_time_period_id: internship_time_period_id.value,
       profile_picture_link: profile_picture_link.value,
     };
+
+    if (uploadedProfilePic.value != null) {
+      await uploadProfilePicture(uploadedProfilePic.value);
+      data.profile_picture_link = getProfilePictureUrl(userId);
+    }
 
     for (const key in data) {
       if (data[key.trim()] === "") {
@@ -93,6 +105,7 @@ export function useEditProfile(): EditProfileState {
     website_link,
     internship_time_period_id,
     profile_picture_link,
+    uploadedProfilePic,
     edit,
     loadUser,
   };
@@ -123,6 +136,7 @@ const editProfilePage = useEditProfile();
         editProfilePage.internship_time_period_id.value
       "
       v-model:profile_picture_link="editProfilePage.profile_picture_link.value"
+      v-model:uploadedProfilePic="editProfilePage.uploadedProfilePic.value"
       @edit="editProfilePage.edit"
       @load-user="editProfilePage.loadUser"
     />
