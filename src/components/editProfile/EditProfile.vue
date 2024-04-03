@@ -100,6 +100,7 @@ export function useEditProfile(): EditProfileState {
     internship_time_period_id.value = user.internship_time_period_id;
     profile_picture_link.value = user.profile_picture_link;
     cv_link.value = user.cv_link;
+
   }
 
   return {
