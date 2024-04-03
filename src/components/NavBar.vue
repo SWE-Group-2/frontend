@@ -50,7 +50,10 @@ async function goToProfile() {
           :class="{ 'current-page': $route.path === '/admin-dashboard' }"
           v-if="isAdmin()"
         >
-          <RouterLink style="text-decoration: none; color: inherit" to="/admin-dashboard">
+          <RouterLink
+            style="text-decoration: none; color: inherit"
+            to="/admin-dashboard"
+          >
             Admin Dashboard
           </RouterLink>
         </span>

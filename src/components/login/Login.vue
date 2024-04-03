@@ -1,9 +1,10 @@
 <script lang="ts">
 import { Ref, ref } from "vue";
-import { loginUser } from "@/services/User.service";
+import { loginUser, loginUserWithGoogle } from "@/services/User.service";
 import router from "@/router";
 import { setAuthToken } from "@/services/Auth.service";
 import { UserLoginInfo } from "@/types/UserLoginInfo";
+import { decodeCredential } from "vue3-google-login";
 
 // The state of the login page
 export interface LoginPageState {
@@ -12,6 +13,7 @@ export interface LoginPageState {
   password: Ref<string>;
   // Events that can occur
   submit: () => Promise<void>;
+  loginWithGoogle: (response: object) => Promise<void>;
 }
 
 export function useLoginPage(): LoginPageState {
@@ -29,10 +31,24 @@ export function useLoginPage(): LoginPageState {
     await router.push("/internships");
   }
 
+  async function loginWithGoogle(response: object) {
+    const userData = decodeCredential(response["credential"]);
+    const userInfo = {
+      first_name: userData["given_name"],
+      last_name: userData["family_name"],
+      username: userData["email"],
+      password: userData["sub"],
+    };
+    const resp = await loginUserWithGoogle(userInfo);
+    setAuthToken(resp["access_token"]);
+    await router.push("/internships");
+  }
+
   return {
     username,
     password,
     submit,
+    loginWithGoogle,
   };
 }
 </script>
@@ -46,5 +62,6 @@ const loginPage = useLoginPage();
     v-model:username="loginPage.username.value"
     v-model:password="loginPage.password.value"
     @submit="loginPage.submit"
+    @login-with-google="loginPage.loginWithGoogle"
   ></LoginView>
 </template>

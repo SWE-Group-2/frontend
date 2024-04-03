@@ -172,10 +172,7 @@ const roles = ["Freshmen", "Sophomore", "Junior", "Senior"];
                 $emit('update:internship_time_period_id', $event.target.value)
               "
             >
-              <option
-                v-for="option in timePeriodOptions"
-                :value="option.id"
-              >
+              <option v-for="option in timePeriodOptions" :value="option.id">
                 {{ option.name }}
               </option>
             </select>

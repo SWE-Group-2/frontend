@@ -19,11 +19,15 @@
 .login-box {
   background-color: #b5a7c8;
   width: 280px;
-  height: 300px;
+  height: 350px;
   margin: 200px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.google-login {
+  margin-top: 10%;
 }
 
 .input-text::placeholder {

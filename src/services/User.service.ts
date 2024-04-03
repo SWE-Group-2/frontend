@@ -57,6 +57,21 @@ export async function loginUser(userInfo: UserLoginInfo) {
   throw new Error("Failed to log in");
 }
 
+export async function loginUserWithGoogle(userInfo: UserRegistrationInfo) {
+    const response = await HttpClient.post(Endpoints.LOGIN_GOOGLE, userInfo);
+
+    if (response.ok) {
+        return response.json();
+    }
+
+    if (response.status === 401) {
+        throw new Error("Invalid Google token");
+    }
+
+    throw new Error("Failed to log in with Google");
+
+}
+
 /**
  * Gets the information of the currently logged-in user.
  * @returns the user information

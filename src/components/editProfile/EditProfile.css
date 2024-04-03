@@ -47,7 +47,7 @@
   font-weight: 600;
   font-size: 30px;
   text-align: right;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .edit-header {
@@ -182,7 +182,7 @@ button {
   width: 110px;
   outline: none;
   font-size: 23px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   letter-spacing: 0.3px;
   cursor: pointer;
   color: #fefeff;
