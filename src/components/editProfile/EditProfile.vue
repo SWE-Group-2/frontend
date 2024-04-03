@@ -53,7 +53,7 @@ export function useEditProfile(): EditProfileState {
     };
 
     for (const key in data) {
-      if (data[key].trim() === "") {
+      if (data[key.trim()] === "") {
         data[key] = null;
       }
     }
