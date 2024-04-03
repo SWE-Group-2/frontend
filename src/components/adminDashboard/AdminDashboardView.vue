@@ -34,9 +34,7 @@ const roles = ["admin", "instructor", "student"];
 <template>
   <div class="admin-dashboard">
     <div class="heading">Admin Dashboard</div>
-    <div class="container">
-      Time Periods
-    </div>
+    <div class="container">Time Periods</div>
     <table>
       <thead>
         <tr>
@@ -53,7 +51,10 @@ const roles = ["admin", "instructor", "student"];
           <td>{{ timePeriod.end_date }}</td>
           <td>
             <div class="alignment">
-              <button class="delete-button" @click="$emit('deleteTimePeriod', timePeriod.id)">
+              <button
+                class="delete-button"
+                @click="$emit('deleteTimePeriod', timePeriod.id)"
+              >
                 Delete
               </button>
             </div>
@@ -97,8 +98,8 @@ const roles = ["admin", "instructor", "student"];
         <th>Name</th>
       </tr>
       <tr v-for="student of students">
-        <td>{{student.username}}</td>
-        <td>{{student.first_name}} {{student.last_name}}</td>
+        <td>{{ student.username }}</td>
+        <td>{{ student.first_name }} {{ student.last_name }}</td>
       </tr>
     </table>
     <div class="container">Change User Role</div>
