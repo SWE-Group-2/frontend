@@ -4,40 +4,40 @@ import { editProfile, getUserById } from "@/services/User.service";
 import router from "@/router";
 
 export interface EditProfileState {
-  username: Ref<string>;
-  first_name: Ref<string>;
-  last_name: Ref<string>;
-  gpa: Ref<number>;
-  academic_year: Ref<string>;
-  email: Ref<string>;
-  phone_number: Ref<string>;
-  description: Ref<string>;
-  github_link: Ref<string>;
-  linkedin_link: Ref<string>;
-  website_link: Ref<string>;
-  internship_time_period_id: Ref<number>;
+  username: Ref<string | null>;
+  first_name: Ref<string | null>;
+  last_name: Ref<string | null>;
+  gpa: Ref<number | null>;
+  academic_year: Ref<string | null>;
+  email: Ref<string | null>;
+  phone_number: Ref<string | null>;
+  description: Ref<string | null>;
+  github_link: Ref<string | null>;
+  linkedin_link: Ref<string | null>;
+  website_link: Ref<string | null>;
+  internship_time_period_id: Ref<number | null>;
   profile_picture_link: Ref<string | null>;
   edit: (userId: number) => Promise<void>;
   loadUser: (userId: number) => Promise<void>;
 }
 
 export function useEditProfile(): EditProfileState {
-  const username = ref("");
-  const first_name = ref("");
-  const last_name = ref("");
-  const gpa = ref(0);
-  const academic_year = ref("");
-  const email = ref("");
-  const phone_number = ref("");
-  const description = ref("");
-  const github_link = ref("");
-  const linkedin_link = ref("");
-  const website_link = ref("");
-  const internship_time_period_id = ref(1);
+  const username = ref(null);
+  const first_name = ref(null);
+  const last_name = ref(null);
+  const gpa = ref(null);
+  const academic_year = ref(null);
+  const email = ref(null);
+  const phone_number = ref(null);
+  const description = ref(null);
+  const github_link = ref(null);
+  const linkedin_link = ref(null);
+  const website_link = ref(null);
+  const internship_time_period_id = ref(null);
   const profile_picture_link = ref(null);
 
   async function edit(userId: number) {
-    await editProfile(userId, {
+    const data = {
       first_name: first_name.value,
       last_name: last_name.value,
       gpa: gpa.value,
@@ -50,12 +50,22 @@ export function useEditProfile(): EditProfileState {
       website_link: website_link.value,
       internship_time_period_id: internship_time_period_id.value,
       profile_picture_link: profile_picture_link.value,
-    });
-    await router.push(`/users/${userId}`);
+    };
+
+    for (const key in data) {
+      if (data[key].trim() === "") {
+        data[key] = null;
+      }
+    }
+
+    await editProfile(userId, data);
+    await router.push({ name: "viewProfile", params: { userId: userId } });
   }
 
   async function loadUser(userId: number) {
     const user = await getUserById(userId);
+    first_name.value = user.first_name;
+    last_name.value = user.last_name;
     username.value = user.username;
     gpa.value = user.gpa;
     academic_year.value = user.academic_year;
