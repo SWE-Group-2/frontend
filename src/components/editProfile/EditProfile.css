@@ -12,40 +12,42 @@
 .mid {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 3rem;
+  margin-bottom: 60px;
+  gap: 1rem;
 }
 
 .about {
-  --shadow-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 12px 12px rgba(140, 105, 153, 0.2);
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
   padding: 1.5rem;
+  border: 0.5px solid #ccc;
   gap: 1rem;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
 }
 
 .extra {
-  --shadow-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 12px 12px rgba(140, 105, 153, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem;
   gap: 1rem;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.418);
+  border: 0.5px solid #ccc;
 }
 
 .student-name {
   color: white;
   display: inline;
   background-color: #462378;
-  padding: 5px;
+  padding: 6px;
   padding-left: 10px;
   padding-right: 10px;
   width: fit-content;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 30px;
   text-align: right;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .edit-header {
@@ -57,9 +59,9 @@ h1 {
   font-family:
     Roboto Slab,
     serif;
-  font-weight: 700;
-  font-size: 25px;
-  letter-spacing: 0em;
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: 0.03em;
   line-height: 0;
 }
 
@@ -74,7 +76,7 @@ h1 {
 }
 
 .input-field input {
-  width: 350px;
+  width: 400px;
   height: 50px;
   border-radius: 6px;
   font-size: 16px;
@@ -84,11 +86,25 @@ h1 {
   outline: none;
 }
 
+.input-field select {
+  width: 400px;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 0 15px;
+  border: 2px solid #d9d9d9;
+  color: #000000;
+  outline: none;
+  box-sizing: content-box;
+  background-color: transparent;
+}
+
 .input-field label {
   position: absolute;
-  font-family: Roboto Mono;
+  font-family:
+    Roboto Mono,
+    serif;
   top: 50%;
-  left: 15px;
   transform: translateY(-50%);
   color: #d9d9d9;
   font-size: 18px;
@@ -145,4 +161,44 @@ input:valid ~ label {
   font-size: 18px;
   pointer-events: none;
   transition: 0.3s;
+}
+
+select:focus {
+  border: 2px solid #dd9832;
+}
+
+select:focus ~ label,
+select:valid ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 15px;
+  padding: 0 2px;
+  background: #ffffff;
+  color: #dd9832;
+}
+
+button {
+  height: 60px;
+  width: 110px;
+  outline: none;
+  font-size: 23px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  color: #fefeff;
+  background: #dd9832;
+  border: 1px solid #dd9832;
+  transition: background-color 0.25s ease-in-out;
+}
+
+button:hover {
+  color: white;
+  background: #9d6b20;
+  border: 1px solid #9d6b20;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.alignment {
+  text-align: center;
+  margin-top: 45px;
 }

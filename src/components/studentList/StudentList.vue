@@ -5,7 +5,7 @@ import { User } from "@/types/User";
 
 export interface StudentListState {
   students: Ref<User[]>;
-  loadStudents: () => Promise<void>;
+  loadStudents: () => void;
 }
 
 export function useStudentList(): StudentListState {

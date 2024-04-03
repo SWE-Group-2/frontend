@@ -2,6 +2,8 @@
 import { ref, Ref } from "vue";
 import { TimePeriod } from "@/types/TimePeriod";
 import { getAllTimePeriods } from "@/services/TimePeriod.service";
+import { getAllStudents } from "@/services/Student.service";
+import { User } from "@/types/User";
 import {
   changeUserRole,
   createTimePeriod,
@@ -16,11 +18,13 @@ export interface AdminDashboardState {
   createTimePeriodEndDate: Ref<string>;
   roleChangeUsername: Ref<string>;
   roleChangeRoleId: Ref<number>;
+  students: Ref<User[]>;
   // Define the events that can occur on the admin dashboard
   loadTimePeriods: () => void;
   createNewTimePeriod: () => void;
   deleteTimePeriod: (timePeriodId: number) => void;
   changeRole: () => void;
+  loadStudents: () => void;
 }
 
 export function useAdminDashboard(): AdminDashboardState {
@@ -31,6 +35,7 @@ export function useAdminDashboard(): AdminDashboardState {
   const createTimePeriodEndDate = ref("");
   const roleChangeUsername = ref("");
   const roleChangeRoleId = ref(0);
+  const students = ref<User[]>([]);
   // Define the events that can occur on the admin dashboard
   async function createNewTimePeriod() {
     const newTimePeriod = {
@@ -51,6 +56,9 @@ export function useAdminDashboard(): AdminDashboardState {
   async function loadTimePeriods() {
     timePeriods.value = await getAllTimePeriods();
   }
+  async function loadStudents() {
+    students.value = await getAllStudents();
+  }
 
   return {
     timePeriods,
@@ -63,6 +71,8 @@ export function useAdminDashboard(): AdminDashboardState {
     deleteTimePeriod,
     changeRole,
     loadTimePeriods,
+    students,
+    loadStudents,
   };
 }
 </script>
@@ -82,12 +92,14 @@ const adminDashboard = useAdminDashboard();
     v-model:create-time-period-end-date="
       adminDashboard.createTimePeriodEndDate.value
     "
+    v-model:students="adminDashboard.students.value"
     v-model:role-change-username="adminDashboard.roleChangeUsername.value"
     v-model:role-change-role-id="adminDashboard.roleChangeRoleId.value"
     @load-time-periods="adminDashboard.loadTimePeriods"
     @create-new-time-period="adminDashboard.createNewTimePeriod"
     @change-role="adminDashboard.changeRole"
     @delete-time-period="adminDashboard.deleteTimePeriod"
+    @load-students="adminDashboard.loadStudents"
   />
 </template>
 

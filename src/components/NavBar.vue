@@ -4,6 +4,7 @@ import {
   isLoggedIn,
   clearAuthToken,
   getCurrentUserId,
+  isAdmin,
 } from "@/services/Auth.service";
 import router from "@/router";
 
@@ -12,12 +13,9 @@ function logout() {
   router.push("/login");
 }
 
-let currentUserId: number = -1;
-
-try {
-  currentUserId = await getCurrentUserId();
-} catch (error) {
-  clearAuthToken();
+async function goToProfile() {
+  const userId = await getCurrentUserId();
+  await router.push({ name: "viewProfile", params: { userId: userId } });
 }
 </script>
 
@@ -47,6 +45,18 @@ try {
             Students
           </RouterLink>
         </span>
+        <span
+          class="menu-item"
+          :class="{ 'current-page': $route.path === '/admin-dashboard' }"
+          v-if="isAdmin()"
+        >
+          <RouterLink
+            style="text-decoration: none; color: inherit"
+            to="/admin-dashboard"
+          >
+            Admin Dashboard
+          </RouterLink>
+        </span>
       </div>
       <div class="navbar-menu-right">
         <span
@@ -69,15 +79,8 @@ try {
                 >Register</RouterLink
               >
             </li>
-            <li class="dropdown-item" v-if="isLoggedIn()">
-              <RouterLink
-                style="text-decoration: none; color: inherit"
-                :to="{
-                  name: 'viewProfile',
-                  params: { userId: currentUserId },
-                }"
-                >Profile
-              </RouterLink>
+            <li class="dropdown-item" v-if="isLoggedIn()" @click="goToProfile">
+              Profile
             </li>
             <li class="dropdown-item" @click="logout" v-if="isLoggedIn()">
               Logout
