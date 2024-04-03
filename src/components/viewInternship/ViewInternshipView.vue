@@ -35,7 +35,7 @@ function getTimePeriodName(id: number): string {
     <div class="internship-container">
       <div class="top">
         <div class="photo">
-          <img src="/logo_thegang.png" alt="logo" />
+          <img :src="internship.company_photo_link" alt="logo" />
         </div>
         <div class="main">
           <div class="row">

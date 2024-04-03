@@ -70,6 +70,17 @@ const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
                 <label for="website-input">Application Link</label>
               </div>
               <div class="input-field">
+                <input
+                  id="photo-link-input"
+                  :value="companyPhotoLink"
+                  @input="$emit('update:companyPhotoLink', $event.target.value)"
+                  type="text"
+                  required
+                  spellcheck="false"
+                />
+                <label for="website-input">Company Photo Link</label>
+              </div>
+              <div class="input-field">
                 <select
                   id="time-period-input"
                   :value="timePeriodId"
@@ -92,11 +103,6 @@ const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
                   @change="$emit('update:deadline', $event.target.value)"
                 />
                 <label for="deadline-input">Application Deadline</label>
-              </div>
-            </div>
-            <div class="column">
-              <div class="photo">
-                <img src="/logo_thegang.png" alt="logo" />
               </div>
             </div>
           </div>

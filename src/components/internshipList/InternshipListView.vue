@@ -106,7 +106,7 @@ function getTimePeriodName(id: number): string {
         >
           <div class="internship-container">
             <div class="photo">
-              <img src="/logo_thegang.png" alt="logo" />
+              <img :src="internship.company_photo_link" alt="logo" />
             </div>
             <div class="column">
               <div class="row-main">
