@@ -2,6 +2,8 @@
 import { User } from "@/types/User";
 import { useRoute } from "vue-router";
 import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
+import { getAllTimePeriods } from "@/services/TimePeriod.service";
+import { TimePeriod } from "@/types/TimePeriod";
 
 defineProps<{
   user: User;
@@ -15,6 +17,15 @@ const userId = Number(route.params.userId);
 const currentUserId = await getCurrentUserId();
 const loggedIn = isLoggedIn();
 const userIsAdmin = loggedIn ? await isAdmin() : false;
+
+const timePeriods = await getAllTimePeriods();
+const timePeriodsMap = timePeriods.reduce(
+  (acc: { [key: number]: string }, timePeriod: TimePeriod) => {
+    acc[timePeriod.id] = timePeriod.name;
+    return acc;
+  },
+  {},
+);
 emit("loadUser", userId);
 </script>
 
@@ -53,16 +64,20 @@ emit("loadUser", userId);
         </div>
         <div class="contacts">
           <div class="contacts-left">
-            <a href="https://linkedin.com" class="button">
-              <button class="icon-box" title="LinkedIn">
-                <img class="icon" src="/icon-linkedin.svg" alt="linkedin" />
-              </button>
-            </a>
-            <a href="https://github.com" class="button">
-              <button class="icon-box" title="GitHub">
-                <img class="icon" src="/icon-github.svg" alt="github" />
-              </button>
-            </a>
+            <div class="linkedin-box" v-if="user.linkedin_link">
+              <a :href="user.linkedin_link" class="button">
+                <button class="icon-box" title="LinkedIn">
+                  <img class="icon" src="/icon-linkedin.svg" alt="linkedin" />
+                </button>
+              </a>
+            </div>
+            <div class="github-box" v-if="user.github_link">
+              <a :href="user.github_link" class="button">
+                <button class="icon-box" title="GitHub">
+                  <img class="icon" src="/icon-github.svg" alt="github" />
+                </button>
+              </a>
+            </div>
           </div>
           <div class="contacts-right">
             <div class="student-email">{{ user.email }}</div>
@@ -83,12 +98,12 @@ emit("loadUser", userId);
             <h1>WORK</h1>
             <div class="work-info">
               <div class="work-left">
-                <span>Desired positions:</span>
                 <span>Desired period:</span>
               </div>
               <div class="work-right">
-                <span class="student-positions">CEO</span>
-                <span class="student-period">S + T1/25</span>
+                <span class="student-period">{{
+                  timePeriodsMap[user.internship_time_period_id]
+                }}</span>
               </div>
             </div>
           </div>
