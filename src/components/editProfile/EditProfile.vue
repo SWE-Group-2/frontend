@@ -7,10 +7,6 @@ import {
   uploadProfilePicture,
 } from "@/services/User.service";
 import router from "@/router";
-import {
-  getProfilePictureUrl,
-  getUploadedCvUrl,
-} from "@/utils/uploadedFileUrl";
 
 export interface EditProfileState {
   username: Ref<string | null>;
@@ -69,13 +65,13 @@ export function useEditProfile(): EditProfileState {
     };
 
     if (uploadedProfilePic.value != null) {
-      await uploadProfilePicture(uploadedProfilePic.value);
-      data.profile_picture_link = getProfilePictureUrl(userId);
+      const response = await uploadProfilePicture(uploadedProfilePic.value);
+      data.profile_picture_link = response.url;
     }
 
     if (uploadedCv.value != null) {
-      await uploadCv(uploadedCv.value);
-      data.cv_link = getUploadedCvUrl(userId);
+      const response = await uploadCv(uploadedCv.value);
+      data.cv_link = response.url;
     }
 
     for (const key in data) {

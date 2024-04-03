@@ -116,7 +116,7 @@ const roles = ["Freshmen", "Sophomore", "Junior", "Senior"];
           <span class="edit-header">Update Photo</span>
           <input
             id="profile-picture-input"
-            accept="image/png"
+            accept="image/png,image/jpeg,image/jpg,image/gif"
             type="file"
             @change="$emit('update:uploadedProfilePic', $event.target.files[0])"
           />
