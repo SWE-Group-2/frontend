@@ -4,6 +4,9 @@ import { TimePeriod } from "@/types/TimePeriod";
 import { useRoute } from "vue-router";
 
 defineProps<{
+  username: string;
+  first_name: string;
+  last_name: string;
   gpa: number;
   academic_year: string;
   email: string;
@@ -16,6 +19,8 @@ defineProps<{
   profile_picture_link: string | null;
 }>();
 const emit = defineEmits<{
+  (e: "update:first_name", value: string): void;
+  (e: "update:last_name", value: string): void;
   (e: "update:gpa", value: number): void;
   (e: "update:academic_year", value: string): void;
   (e: "update:email", value: string): void;
@@ -44,7 +49,7 @@ const roles = ["Freshmen", "Sophomore", "Junior", "Senior"];
   <div id="edit-profile">
     <div class="top">
       <h1>Edit Profile</h1>
-      <span class="student-name">Piti Ongmongkolkul</span>
+      <span class="student-name">{{ username }}</span>
     </div>
 
     <div class="mid">

@@ -4,6 +4,9 @@ import { editProfile, getUserById } from "@/services/User.service";
 import router from "@/router";
 
 export interface EditProfileState {
+  username: Ref<string>;
+  first_name: Ref<string>;
+  last_name: Ref<string>;
   gpa: Ref<number>;
   academic_year: Ref<string>;
   email: Ref<string>;
@@ -19,6 +22,9 @@ export interface EditProfileState {
 }
 
 export function useEditProfile(): EditProfileState {
+  const username = ref("");
+  const first_name = ref("");
+  const last_name = ref("");
   const gpa = ref(0);
   const academic_year = ref("");
   const email = ref("");
@@ -32,6 +38,8 @@ export function useEditProfile(): EditProfileState {
 
   async function edit(userId: number) {
     await editProfile(userId, {
+      first_name: first_name.value,
+      last_name: last_name.value,
       gpa: gpa.value,
       academic_year: academic_year.value,
       email: email.value,
@@ -48,6 +56,7 @@ export function useEditProfile(): EditProfileState {
 
   async function loadUser(userId: number) {
     const user = await getUserById(userId);
+    username.value = user.username;
     gpa.value = user.gpa;
     academic_year.value = user.academic_year;
     email.value = user.email;
@@ -61,6 +70,9 @@ export function useEditProfile(): EditProfileState {
   }
 
   return {
+    username,
+    first_name,
+    last_name,
     gpa,
     academic_year,
     email,
@@ -86,6 +98,9 @@ const editProfilePage = useEditProfile();
 <template>
   <Suspense>
     <EditProfileView
+      v-model:username="editProfilePage.username.value"
+      v-model:first_name="editProfilePage.first_name.value"
+      v-model:last_name="editProfilePage.last_name.value"
       v-model:gpa="editProfilePage.gpa.value"
       v-model:academic_year="editProfilePage.academic_year.value"
       v-model:email="editProfilePage.email.value"

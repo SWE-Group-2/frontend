@@ -119,22 +119,9 @@ export async function editProfile(
   userId: number,
   profile: Profile,
 ) {
-  const profileJson = {
-    gpa: profile.gpa,
-    academic_year: profile.academic_year,
-    github_link: profile.github_link,
-    linkedin_link: profile.linkedin_link,
-    website_link: profile.website_link,
-    profile_picture_link: profile.profile_picture_link,
-    email: profile.email,
-    phone_number: profile.phone_number,
-    description: profile.description,
-    internship_time_period_id: profile.internship_time_period_id,
-  };
-
   const response = await HttpClient.put(
     formatEndpoint(Endpoints.EDIT_PROFILE, { user_id: userId.toString() }),
-    profileJson,
+    profile,
     true,
   );
 

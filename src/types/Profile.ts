@@ -1,4 +1,6 @@
 export interface Profile {
+    first_name: string | null;
+    last_name: string | null;
     gpa: number | null;
     academic_year: string | null;
     github_link: string | null;
