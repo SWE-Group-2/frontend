@@ -40,7 +40,9 @@ label {
 }
 
 h1 {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   text-align: center;
   font-size: 42px;
 }
@@ -53,14 +55,18 @@ h1 {
   padding: 6px;
   font-weight: 600;
   font-size: 25px;
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   margin-bottom: 20px;
   margin-top: 50px;
   padding-left: 15px;
 }
 
 .heading {
-  font-family: Roboto Slab;
+  font-family:
+    Roboto Slab,
+    serif;
   letter-spacing: 0.5px;
   font-weight: 700;
   font-size: 45px;
