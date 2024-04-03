@@ -10,6 +10,7 @@ export interface User {
   linkedin_link: string | null;
   website_link: string | null;
   profile_picture_link: string | null;
+  cv_link: string | null;
   email: string | null;
   phone_number: string | null;
   description: string | null;

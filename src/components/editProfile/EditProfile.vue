@@ -3,10 +3,14 @@ import { ref, type Ref } from "vue";
 import {
   editProfile,
   getUserById,
+  uploadCv,
   uploadProfilePicture,
 } from "@/services/User.service";
 import router from "@/router";
-import { getProfilePictureUrl } from "@/utils/uploadedFileUrl";
+import {
+  getProfilePictureUrl,
+  getUploadedCvUrl,
+} from "@/utils/uploadedFileUrl";
 
 export interface EditProfileState {
   username: Ref<string | null>;
@@ -22,7 +26,9 @@ export interface EditProfileState {
   website_link: Ref<string | null>;
   internship_time_period_id: Ref<number | null>;
   profile_picture_link: Ref<string | null>;
+  cv_link: Ref<string | null>;
   uploadedProfilePic: Ref<File | null>;
+  uploadedCv: Ref<File | null>;
   edit: (userId: number) => Promise<void>;
   loadUser: (userId: number) => Promise<void>;
 }
@@ -41,7 +47,9 @@ export function useEditProfile(): EditProfileState {
   const website_link = ref(null);
   const internship_time_period_id = ref(null);
   const profile_picture_link = ref(null);
+  const cv_link = ref(null);
   const uploadedProfilePic = ref(null);
+  const uploadedCv = ref(null);
 
   async function edit(userId: number) {
     const data = {
@@ -57,11 +65,17 @@ export function useEditProfile(): EditProfileState {
       website_link: website_link.value,
       internship_time_period_id: internship_time_period_id.value,
       profile_picture_link: profile_picture_link.value,
+      cv_link: cv_link.value,
     };
 
     if (uploadedProfilePic.value != null) {
       await uploadProfilePicture(uploadedProfilePic.value);
       data.profile_picture_link = getProfilePictureUrl(userId);
+    }
+
+    if (uploadedCv.value != null) {
+      await uploadCv(uploadedCv.value);
+      data.cv_link = getUploadedCvUrl(userId);
     }
 
     for (const key in data) {
@@ -89,6 +103,7 @@ export function useEditProfile(): EditProfileState {
     website_link.value = user.website_link;
     internship_time_period_id.value = user.internship_time_period_id;
     profile_picture_link.value = user.profile_picture_link;
+    cv_link.value = user.cv_link;
   }
 
   return {
@@ -105,7 +120,9 @@ export function useEditProfile(): EditProfileState {
     website_link,
     internship_time_period_id,
     profile_picture_link,
+    cv_link,
     uploadedProfilePic,
+    uploadedCv,
     edit,
     loadUser,
   };
@@ -137,6 +154,7 @@ const editProfilePage = useEditProfile();
       "
       v-model:profile_picture_link="editProfilePage.profile_picture_link.value"
       v-model:uploadedProfilePic="editProfilePage.uploadedProfilePic.value"
+      v-model:uploadedCv="editProfilePage.uploadedCv.value"
       @edit="editProfilePage.edit"
       @load-user="editProfilePage.loadUser"
     />

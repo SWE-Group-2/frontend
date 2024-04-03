@@ -18,6 +18,7 @@ defineProps<{
   internship_time_period_id: number | null;
   profile_picture_link: string | null;
   uploadedProfilePic: File | null;
+  uploadedCv: File | null;
 }>();
 
 const emit = defineEmits<{
@@ -34,6 +35,7 @@ const emit = defineEmits<{
   (e: "update:internship_time_period_id", value: number | null): void;
   (e: "update:profile_picture_link", value: string | null): void;
   (e: "update:uploadedProfilePic", value: File | null): void;
+  (e: "update:uploadedCv", value: File | null): void;
   (e: "edit", value: number): void;
   (e: "loadUser", value: number): void;
 }>();
@@ -117,6 +119,13 @@ const roles = ["Freshmen", "Sophomore", "Junior", "Senior"];
             accept="image/png"
             type="file"
             @change="$emit('update:uploadedProfilePic', $event.target.files[0])"
+          />
+          <span class="edit-header">Update CV</span>
+          <input
+            id="cv-input"
+            accept="application/pdf"
+            type="file"
+            @change="$emit('update:uploadedCv', $event.target.files[0])"
           />
         </div>
         <div class="extra">

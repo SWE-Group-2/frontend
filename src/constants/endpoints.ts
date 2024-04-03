@@ -17,4 +17,6 @@ export enum Endpoints {
   DELETE_USER = "/admin/delete_user/{user_id}",
   UPLOAD_PROFILE_PICTURE = "/upload_profilepic",
   DELETE_PROFILE_PIC = "/delete_profilepic",
+  UPLOAD_CV = "/upload_cv",
+  DELETE_CV = "/delete_cv",
 }

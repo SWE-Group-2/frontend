@@ -172,3 +172,35 @@ export async function clearProfilePicture() {
       throw new Error("Failed to clear profile picture");
   }
 }
+
+export async function uploadCv(file: File) {
+  const response = await HttpClient.putFile(Endpoints.UPLOAD_CV, file, true);
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 400:
+      throw new Error("Invalid file");
+    case 401:
+      throw new Error("Unauthorized");
+    default:
+      throw new Error("Failed to upload profile picture");
+  }
+}
+
+export async function clearCv() {
+  const response = await HttpClient.delete(Endpoints.DELETE_CV, true);
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 401:
+      throw new Error("Unauthorized");
+    default:
+      throw new Error("Failed to clear profile picture");
+  }
+}

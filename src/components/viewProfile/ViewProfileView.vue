@@ -4,7 +4,8 @@ import { useRoute } from "vue-router";
 import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
 import { getAllTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
-import { clearProfilePicture } from "@/services/User.service";
+import { clearCv, clearProfilePicture } from "@/services/User.service";
+import { getUploadedCvUrl } from "@/utils/uploadedFileUrl";
 
 defineProps<{
   user: User;
@@ -31,6 +32,10 @@ emit("loadUser", userId);
 
 async function clearProfilePic() {
   await clearProfilePicture();
+  window.location.reload();
+}
+async function clearResume() {
+  await clearCv();
   window.location.reload();
 }
 </script>
@@ -125,6 +130,17 @@ async function clearProfilePic() {
             </div>
           </div>
         </div>
+      </div>
+      <div class="resume" v-if="user.cv_link">
+        <h1>Resume</h1>
+        <iframe
+          :src="getUploadedCvUrl(user.id)"
+          width="100%"
+          height="600px"
+        ></iframe>
+        <button v-if="user.id == currentUserId" @click="clearResume">
+          Delete resume
+        </button>
       </div>
     </div>
   </div>
