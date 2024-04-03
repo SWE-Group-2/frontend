@@ -5,7 +5,6 @@ import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
 import { getAllTimePeriods } from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 import { clearCv, clearProfilePicture } from "@/services/User.service";
-import { getUploadedCvUrl } from "@/utils/uploadedFileUrl";
 
 defineProps<{
   user: User;
@@ -133,11 +132,7 @@ async function clearResume() {
       </div>
       <div class="resume" v-if="user.cv_link">
         <h1>Resume</h1>
-        <iframe
-          :src="getUploadedCvUrl(user.id)"
-          width="100%"
-          height="600px"
-        ></iframe>
+        <iframe :src="user.cv_link" width="100%" height="600px"></iframe>
         <button v-if="user.id == currentUserId" @click="clearResume">
           Delete resume
         </button>
