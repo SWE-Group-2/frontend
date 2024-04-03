@@ -2,7 +2,7 @@ name: Create and publish a Docker image
 
 on:
   push:
-    branches: ['release']
+    branches: [ 'release' ]
 env:
   REGISTRY: ghcr.io
 jobs:
@@ -12,23 +12,23 @@ jobs:
       contents: read
       packages: write
     steps:
-    - name: Check out the repo
-      uses: actions/checkout@v4
-    - name: Log in to the container registry
-      uses: docker/login-action@v2
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.ICIS_DOCKER_CONTAINER_REGISTRY_TOKEN }}
-    - name: Derive short SHA name
-      id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-    - name: Build the Docker image
-      run: |
-        docker build . --file Dockerfile \
-        --tag ghcr.io/swe-group-2/frontend:${{ steps.vars.outputs.sha_short }} \
-        --tag ghcr.io/swe-group-2/frontend:latest
-    - name: Publish the images
-      run: |
-        docker push ghcr.io/swe-group-2/frontend:${{ steps.vars.outputs.sha_short }}
-        docker push ghcr.io/swe-group-2/frontend:latest
+      - name: Check out the repo
+        uses: actions/checkout@v4
+      - name: Log in to the container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.ICIS_DOCKER_CONTAINER_REGISTRY_TOKEN }}
+      - name: Derive short SHA name
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Build the Docker image
+        run: |
+          docker build . --file Dockerfile \
+          --tag ghcr.io/swe-group-2/frontend:${{ steps.vars.outputs.sha_short }} \
+          --tag ghcr.io/swe-group-2/frontend:latest
+      - name: Publish the images
+        run: |
+          docker push ghcr.io/swe-group-2/frontend:${{ steps.vars.outputs.sha_short }}
+          docker push ghcr.io/swe-group-2/frontend:latest
