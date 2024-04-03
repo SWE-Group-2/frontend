@@ -40,9 +40,15 @@ class HttpClient {
     });
   }
 
-  static async putFile(url: string, file: File, authRequired: boolean = false) {
+  static async putFile(url: string, file: File, authRequired: boolean = false, extraData?: object) {
     const formData = new FormData();
     formData.append("file", file);
+
+    if (extraData) {
+      Object.entries(extraData).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+    }
 
     return fetch(`${this.baseUrl}${url}`, {
       method: "PUT",

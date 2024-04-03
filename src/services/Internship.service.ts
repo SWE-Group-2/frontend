@@ -126,3 +126,27 @@ export async function deleteInternshipById(internshipId: number) {
       throw new Error("Failed to delete internship");
   }
 }
+
+export async function uploadInternshipPhoto(internshipId: number, file: File) {
+  const response = await HttpClient.putFile(
+    Endpoints.UPLOAD_COMPANY_PICTURE,
+    file,
+    true,
+      { internship_id: internshipId },
+  );
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  switch (response.status) {
+    case 400:
+      throw new Error("Invalid request body");
+    case 401:
+      throw new Error("Unauthorized");
+    case 404:
+      throw new Error("Internship not found");
+    default:
+      throw new Error("Failed to upload photo");
+  }
+}

@@ -19,4 +19,5 @@ export enum Endpoints {
   DELETE_PROFILE_PIC = "/delete_profilepic",
   UPLOAD_CV = "/upload_cv",
   DELETE_CV = "/delete_cv",
+  UPLOAD_COMPANY_PICTURE = "/upload_companypic",
 }

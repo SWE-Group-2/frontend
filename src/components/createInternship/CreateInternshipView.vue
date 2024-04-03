@@ -70,17 +70,6 @@ const timePeriodOptions: TimePeriod[] = await getValidTimePeriods();
                 <label for="website-input">Application Link</label>
               </div>
               <div class="input-field">
-                <input
-                  id="photo-link-input"
-                  :value="companyPhotoLink"
-                  @input="$emit('update:companyPhotoLink', $event.target.value)"
-                  type="text"
-                  required
-                  spellcheck="false"
-                />
-                <label for="website-input">Company Photo Link</label>
-              </div>
-              <div class="input-field">
                 <select
                   id="time-period-input"
                   :value="timePeriodId"
