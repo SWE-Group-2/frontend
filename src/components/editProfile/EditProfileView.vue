@@ -172,14 +172,17 @@ const roles = ["Freshmen", "Sophomore", "Junior", "Senior"];
                 $emit('update:internship_time_period_id', $event.target.value)
               "
             >
-              <option v-for="option in timePeriodOptions" :value="option.id">
+              <option
+                v-for="option in timePeriodOptions"
+                :value="option.id"
+              >
                 {{ option.name }}
               </option>
             </select>
             <label for="time-period-input">Desired Period</label>
           </div>
         </div>
-        <div>
+        <div class="alignment">
           <button type="submit">Submit</button>
         </div>
       </form>

@@ -4,6 +4,7 @@ import {
   isLoggedIn,
   clearAuthToken,
   getCurrentUserId,
+  isAdmin,
 } from "@/services/Auth.service";
 import router from "@/router";
 
@@ -42,6 +43,15 @@ async function goToProfile() {
         >
           <RouterLink style="text-decoration: none; color: inherit" to="/users">
             Students
+          </RouterLink>
+        </span>
+        <span
+          class="menu-item"
+          :class="{ 'current-page': $route.path === '/admin-dashboard' }"
+          v-if="isAdmin()"
+        >
+          <RouterLink style="text-decoration: none; color: inherit" to="/admin-dashboard">
+            Admin Dashboard
           </RouterLink>
         </span>
       </div>

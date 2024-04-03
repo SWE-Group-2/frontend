@@ -17,7 +17,7 @@ export function useCreateInternship(): CreateInternshipState {
   const company = ref("");
   const position = ref("");
   const website = ref("");
-  const deadline = ref("2024-01-01");
+  const deadline = ref("");
   const timePeriodId = ref(1);
   const companyPhotoLink = ref(null);
 
