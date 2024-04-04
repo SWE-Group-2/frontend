@@ -152,7 +152,7 @@ async function clearResume() {
         </button>
       </div>
       <h1>Posts</h1>
-      <div id="internships">
+      <div id="internships" class="more-margin">
         <div class="internship-card" v-for="internship of internships">
           <RouterLink
             :to="{
