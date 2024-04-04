@@ -35,7 +35,7 @@ const roles = ["admin", "instructor", "student"];
   <div class="admin-dashboard">
     <div class="heading">Admin Dashboard</div>
     <div class="container">Time Periods</div>
-    <table>
+    <table aria-describedby="Time Periods">
       <thead>
         <tr>
           <th>Name</th>
@@ -92,7 +92,7 @@ const roles = ["admin", "instructor", "student"];
       </div>
     </form>
     <div class="container">Users</div>
-    <table>
+    <table aria-describedby="Users">
       <tr class="table-header">
         <th>Username</th>
         <th>Name</th>

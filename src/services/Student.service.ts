@@ -23,10 +23,9 @@ export async function getStudentById(userId: number) {
     return response.json();
   }
 
-  switch (response.status) {
-    case 404:
-      throw new Error("Student not found");
-    default:
-      throw new Error("Failed to get student");
+  if (response.status === 404) {
+    throw new Error("Student not found");
   }
+
+  throw new Error("Failed to get student");
 }

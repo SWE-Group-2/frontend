@@ -97,12 +97,11 @@ export async function getInternshipById(internshipId: number) {
     return response.json();
   }
 
-  switch (response.status) {
-    case 404:
-      throw new Error("Internship not found");
-    default:
-      throw new Error("Failed to get internship");
+  if (response.status === 404) {
+    throw new Error("Internship not found");
   }
+
+  throw new Error("Failed to get internship");
 }
 
 export async function getInternshipByAuthorId(authorId: number) {
@@ -116,12 +115,11 @@ export async function getInternshipByAuthorId(authorId: number) {
     return response.json();
   }
 
-  switch (response.status) {
-    case 404:
-      throw new Error("Internship not found");
-    default:
-      throw new Error("Failed to get internship");
+  if (response.status === 404) {
+    throw new Error("Internships not found");
   }
+
+  throw new Error("Failed to get internship");
 }
 
 export async function deleteInternshipById(internshipId: number) {
