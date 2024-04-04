@@ -16,4 +16,7 @@ export default defineConfig({
       reporter: ["text", "lcov"],
     },
   },
+  define: {
+    'import.meta.env.VITE_GOOGLE_CLIENT_ID': 'process.env.VITE_GOOGLE_CLIENT_ID'
+  }
 });
