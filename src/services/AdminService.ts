@@ -15,9 +15,11 @@ export async function createTimePeriod(timePeriod: TimePeriodCreate) {
     }
 
     if (response.status === 400) {
-        throw new Error("Invalid input");
+        alert("Invalid input");
+        // throw new Error("Invalid input");
     } else if (response.status === 401) {
-        throw new Error("Unauthorized");
+        alert("Unauthorized");
+        // throw new Error("Unauthorized");
     }
 
     throw new Error("Failed to create time period");
@@ -31,9 +33,11 @@ export async function changeUserRole(username: string, roleId: number) {
     }
 
     if (response.status === 400) {
-        throw new Error("Invalid input");
+        alert("Invalid input");
+        // throw new Error("Invalid input");
     } else if (response.status === 401) {
-        throw new Error("Unauthorized");
+        alert("Unauthorized");
+        // throw new Error("Unauthorized");
     }
 
     throw new Error("Failed to change user role");
@@ -75,10 +79,13 @@ export async function deleteUserById(userId: number) {
 
     switch (response.status) {
         case 401:
-            throw new Error("Unauthorized");
+            alert("Unauthorized");
+            // throw new Error("Unauthorized");
         case 404:
-            throw new Error("User not found");
+            alert("User not found");
+            // throw new Error("User not found");
         default:
-            throw new Error("Failed to delete user");
+            alert("Failed to delete user");
+            // throw new Error("Failed to delete user");
     }
 }

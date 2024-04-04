@@ -31,11 +31,14 @@ export async function createInternship(internship: InternshipCreate) {
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid request body");
+      alert("Invalid request body");
+      // throw new Error("Invalid request body");
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      // throw new Error("Unauthorized");
     default:
-      throw new Error("Failed to create internship");
+      alert("Failed to create internship");
+      // throw new Error("Failed to create internship");
   }
 }
 
@@ -66,13 +69,17 @@ export async function editInternship(
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid request body");
+      alert("Invalid request body");
+      // throw new Error("Invalid request body");
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      // throw new Error("Unauthorized");
     case 404:
-      throw new Error("Internship not found");
+      alert("Internship not found");
+      // throw new Error("Internship not found");
     default:
-      throw new Error("Failed to edit internship");
+      alert("Failed to edit internship");
+      // throw new Error("Failed to edit internship");
   }
 }
 
@@ -82,8 +89,8 @@ export async function getAllInternships() {
   if (response.ok) {
     return response.json();
   }
-
-  throw new Error("Failed to get internships");
+  alert("Failed to get internships");
+  // throw new Error("Failed to get internships");
 }
 
 export async function getInternshipById(internshipId: number) {
@@ -99,9 +106,11 @@ export async function getInternshipById(internshipId: number) {
 
   switch (response.status) {
     case 404:
-      throw new Error("Internship not found");
+      alert("Internship not found");
+      // throw new Error("Internship not found");
     default:
-      throw new Error("Failed to get internship");
+      alert("Failed to get internship");
+      // throw new Error("Failed to get internship");
   }
 }
 
@@ -118,9 +127,11 @@ export async function getInternshipByAuthorId(authorId: number) {
 
   switch (response.status) {
     case 404:
-      throw new Error("Internship not found");
+      alert("Internship not found");
+      // throw new Error("Internship not found");
     default:
-      throw new Error("Failed to get internship");
+      alert("Failed to get internship");
+      // throw new Error("Failed to get internship");
   }
 }
 
@@ -138,11 +149,14 @@ export async function deleteInternshipById(internshipId: number) {
 
   switch (response.status) {
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      // throw new Error("Unauthorized");
     case 404:
-      throw new Error("Internship not found");
+      alert("Internship not found");
+      // throw new Error("Internship not found");
     default:
-      throw new Error("Failed to delete internship");
+      alert("Failed to delete internship");
+      // throw new Error("Failed to delete internship");
   }
 }
 
@@ -160,12 +174,16 @@ export async function uploadInternshipPhoto(internshipId: number, file: File) {
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid request body");
+      alert("Invalid file");
+      // throw new Error("Invalid request body");
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      // throw new Error("Unauthorized");
     case 404:
-      throw new Error("Internship not found");
+      alert("Internship not found");
+      // throw new Error("Internship not found");
     default:
-      throw new Error("Failed to upload photo");
+      alert("Failed to upload photo");
+      // throw new Error("Failed to upload photo");
   }
 }

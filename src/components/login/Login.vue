@@ -13,14 +13,12 @@ export interface LoginPageState {
   password: Ref<string>;
   // Events that can occur
   submit: () => Promise<void>;
-  errorMessages: Ref<string>;
   loginWithGoogle: (response: object) => Promise<void>;
 }
 
 export function useLoginPage(): LoginPageState {
   const username = ref<string>("");
   const password = ref<string>("");
-  const errorMessages = ref<string>("");
 
   // Parent component will handle the submission of the form
   async function submit() {
@@ -34,7 +32,6 @@ export function useLoginPage(): LoginPageState {
       await router.push("/internships");
     } catch (error) {
       console.error(error);
-      errorMessages.value = error;
     }
   }
 
@@ -56,7 +53,6 @@ export function useLoginPage(): LoginPageState {
     password,
     submit,
     loginWithGoogle,
-    errorMessages,
   };
 }
 </script>

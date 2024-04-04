@@ -8,8 +8,8 @@ export async function getAllStudents() {
   if (response.ok) {
     return response.json();
   }
-
-  throw new Error("Failed to get students");
+  alert("Failed to get students");
+  // throw new Error("Failed to get students");
 }
 
 export async function getStudentById(userId: number) {
@@ -25,8 +25,10 @@ export async function getStudentById(userId: number) {
 
   switch (response.status) {
     case 404:
-      throw new Error("Student not found");
+      alert("Student not found");
+      // throw new Error("Student not found");
     default:
-      throw new Error("Failed to get student");
+      alert("Failed to get student");
+      // throw new Error("Failed to get student");
   }
 }
