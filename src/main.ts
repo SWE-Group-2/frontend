@@ -7,7 +7,6 @@ import vue3GoogleLogin from "vue3-google-login";
 import router from "./router";
 
 const app = createApp(App);
-console.log("UNGABUGNA");
 console.log(process.env);
 console.log(import.meta.env);
 console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID);
