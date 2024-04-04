@@ -1,5 +1,8 @@
 FROM node:lts-alpine
 
+ARG VITE_GOOGLE_CLIENT_ID
+ENV VITE_GOOGLE_CLIENT_ID=$VITE_GOOGLE_CLIENT_ID
+
 # install simple http server for serving static content
 RUN npm install -g http-server
 
