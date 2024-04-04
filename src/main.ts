@@ -7,8 +7,9 @@ import vue3GoogleLogin from "vue3-google-login";
 import router from "./router";
 
 const app = createApp(App);
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? process.env.VUE_APP_ENV_VARIABLE;
 app.use(vue3GoogleLogin, {
-    clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID
+    clientId: clientId
 })
 app.use(router);
 app.mount("#app");
