@@ -1,7 +1,7 @@
 import { authHeader } from "@/services/Auth.service";
 
 class HttpClient {
-  private static baseUrl: string = "backend.endmysuffering.online";
+  private static baseUrl: string = "http://backend.endmysuffering.online";
 
   static async get(url: string, authRequired: boolean = false) {
     return fetch(`${this.baseUrl}${url}`, {
