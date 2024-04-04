@@ -52,7 +52,9 @@
 
 .edit-header {
   font-family: Roboto Mono;
-  font-size: 20px;
+  letter-spacing: -0.02em;
+  font-size: 22px;
+  font-weight: 650;
 }
 
 h1 {

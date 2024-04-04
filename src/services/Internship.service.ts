@@ -108,7 +108,7 @@ export async function getInternshipById(internshipId: number) {
 export async function getInternshipByAuthorId(authorId: number) {
   const response = await HttpClient.get(
     formatEndpoint(Endpoints.INTERNSHIP_BY_AUTHOR, {
-      author_id: authorId.toString(),
+      user_id: authorId.toString(),
     }),
   );
 
