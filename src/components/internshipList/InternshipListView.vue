@@ -95,7 +95,7 @@ function getTimePeriodName(id: number): string {
       <button @click="$emit('resetInternships')">Reset</button>
     </div>
 
-    <div id="internships">
+    <div id="internships" class="more-margin">
       <div class="internship-card" v-for="internship of internships">
         <RouterLink
           :to="{
