@@ -8,7 +8,6 @@ import router from "./router";
 
 const app = createApp(App);
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-console.log(clientId);
 app.use(vue3GoogleLogin, {
     clientId: clientId
 })
