@@ -92,12 +92,9 @@ export async function getUserInfo() {
   }
 
   if (response.status === 401) {
-    alert("Not logged in");
-    router.push("/login");
-    // throw new Error("Not logged in");
+    throw new Error("Not logged in");
   }
-  alert("Failed to get user info");
-  // throw new Error("Failed to get user info");
+  throw new Error("Failed to get user info");
 }
 
 /**
