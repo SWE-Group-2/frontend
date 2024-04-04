@@ -1,10 +1,12 @@
 <script setup lang="ts">
 // The state of the login page
 import { GoogleLogin } from "vue3-google-login";
+import { useLoginPage } from "./Login.vue";
 
 defineProps<{
   username: string;
   password: string;
+  // errorMesses: string;
 }>();
 
 // Events that can occur on login, i.e., submission of the form
@@ -14,6 +16,7 @@ const emit = defineEmits<{
   (e: "loginWithGoogle", response: object): void;
   (e: "update:username", value: string): void;
   (e: "update:password", value: string): void;
+  (e: "update:errorMessages", value: string): void;
 }>();
 
 function callback(response: object) {
@@ -22,6 +25,9 @@ function callback(response: object) {
 </script>
 <template>
   <div class="item-center">
+    <!-- <div v-if="useLoginPage().errorMessages">
+      {{ useLoginPage().errorMessages }}
+    </div> -->
     <div class="login-box align-center">
       <h1 class="h1-text">LOGIN</h1>
       <form @submit.prevent="$emit('submit')">

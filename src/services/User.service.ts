@@ -29,9 +29,11 @@ export async function registerUser(userInfo: UserRegistrationInfo) {
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid input");
+      alert("Invalid input");
+      // throw new Error("Invalid input");
     case 409:
-      throw new Error("Username already exists");
+      alert("Username already exists");
+      // throw new Error("Username already exists");
     default:
       throw new Error("Failed to register user");
   }
@@ -51,9 +53,11 @@ export async function loginUser(userInfo: UserLoginInfo) {
   }
 
   if (response.status === 401) {
+    alert("Invalid username or password");
     throw new Error("Invalid username or password");
+    
   }
-
+  alert("Failed to log in");
   throw new Error("Failed to log in");
 }
 

@@ -53,11 +53,11 @@ export async function deleteTimePeriodById(timePeriodId: number) {
 
     switch (response.status) {
         case 401:
-            throw new Error("Unauthorized");
+            alert("Unauthorized");
         case 404:
-            throw new Error("Time period not found");
+            alert("Time period not found");
         default:
-            throw new Error("Failed to delete time period");
+            alert("Time period is in use and cannot be deleted.");
     }
 }
 
