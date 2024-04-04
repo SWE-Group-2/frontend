@@ -101,26 +101,26 @@ export default {
         Ajarn Poramin's Remarks:
         <span class="number-item">
           1. Work-Integrated Education requires students to work in the
-          workplace for at least 16 weeks continuously without any breaks in
-          between. This can be remote or on-site, depending on the company's
-          policy. Moreover, there is no minimum rate for payment but MUIC
-          requires your internship to be paid.
+          workplace for <b>at least 16 weeks continuously</b> without any breaks
+          in between. This can be <b>remote</b> or <b>on-site</b>, depending on
+          the company's policy. Moreover, there is no minimum rate for payment
+          but MUIC requires your internship to be <b>paid</b>.
         </span>
         <span class="number-item">
           2. You can register on 2 possible scenarios:
         </span>
         <span class="bullet-item-small">
-          &#x2022; Summer + Trimester 1 : This scenario, you have to take ICCS
-          384 Work-Integrated Education (Summer) in the summer Term first. Then,
-          follow by ICCS 383 Work-Integrated Education (Trimester) in Trimester
-          1 continuously.
+          &#x2022; <b>Summer + Trimester 1</b>: This scenario, you have to take
+          ICCS 384 Work-Integrated Education (Summer) in the summer Term first.
+          Then, follow by ICCS 383 Work-Integrated Education (Trimester) in
+          Trimester 1 continuously.
         </span>
         <span class="bullet-item-small">
-          &#x2022; Trimester3 + Summer: This scenario, you have to take ICCS383
-          Work-Integrated Education (Trimester) in Trimester 3 and follow by
-          ICCS 384 Work-Integrated Education (Summer) in the summer Term
-          continuously. Note that you must start the internship not later than 2
-          weeks after the trimester starts.
+          &#x2022; <b>Trimester3 + Summer</b>: This scenario, you have to take
+          ICCS383 Work-Integrated Education (Trimester) in Trimester 3 and
+          follow by ICCS 384 Work-Integrated Education (Summer) in the summer
+          Term continuously. Note that you must start the internship not later
+          than 2 weeks after the trimester starts.
         </span>
         <span class="number-item">
           3. MUIC does not offer the Work-Integrated Education course in
@@ -134,7 +134,7 @@ export default {
         </span>
         <span class="number-item">
           5. After you finish your work-integrated education, you have to come
-          back to conduct the final presentation at the university.
+          back to conduct the <b>final presentation at the university</b>.
         </span>
       </div>
       <div class="requirements-info">
@@ -183,14 +183,6 @@ export default {
           3. You will send reports/updates on this project to the university
           after your supervisor at the company has vetted it (as well as removed
           any confidential information).
-        </span>
-      </div>
-      <div class="requirements-info">
-        What to do after the internship?
-        <span class="number-item">
-          After your internship is completed, students will come back to MUIC to
-          present on their experience with other students who interned in the
-          same time period.
         </span>
       </div>
     </div>
@@ -289,6 +281,10 @@ export default {
   font-weight: 400;
   font-size: 17px;
   margin-left: 15px;
+}
+b {
+  color: #dd9832;
+  font-weight: 800;
 }
 
 .animatedHeader {
