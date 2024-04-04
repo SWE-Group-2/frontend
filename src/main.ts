@@ -10,6 +10,7 @@ const app = createApp(App);
 console.log("UNGABUGNA");
 console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 console.log(process.env.VUE_APP_ENV_VARIABLE);
+console.log(process.env.VITE_GOOGLE_CLIENT_ID);
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? process.env.VUE_APP_ENV_VARIABLE;
 app.use(vue3GoogleLogin, {
     clientId: clientId
