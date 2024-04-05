@@ -2,7 +2,10 @@
 import { User } from "@/types/User";
 import { useRoute } from "vue-router";
 import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
-import { getAllTimePeriods, getValidTimePeriods } from "@/services/TimePeriod.service";
+import {
+  getAllTimePeriods,
+  getValidTimePeriods,
+} from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 import { clearCv, clearProfilePicture } from "@/services/User.service";
 import { Internship } from "@/types/Internship";
@@ -33,13 +36,13 @@ const timePeriodsMap = timePeriods.reduce(
 emit("loadUser", userId);
 emit("loadInternships", userId);
 
-
-
 const internshipsTimePeriods = await getValidTimePeriods();
 
 function getTimePeriodName(id: number): string {
-  return ( internshipsTimePeriods.find((time_period: TimePeriod) => time_period.id === id)
-    ?.name ?? "Unknown"
+  return (
+    internshipsTimePeriods.find(
+      (time_period: TimePeriod) => time_period.id === id,
+    )?.name ?? "Unknown"
   );
 }
 
