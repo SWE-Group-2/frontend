@@ -22,6 +22,10 @@ export function useCreateInternship(): CreateInternshipState {
   const companyPhotoLink = ref(null);
 
   async function create() {
+    if (website.value.length > 0 && !website.value.startsWith("http")) {
+      website.value = `https://${website.value}`;
+    }
+
     await createInternship({
       company: company.value,
       position: position.value,
