@@ -187,7 +187,9 @@ export default {
 
 <style scoped>
 .landing-page-header {
-  font-family: Roboto Slab, serif;
+  font-family:
+    Roboto Slab,
+    serif;
   font-weight: 800;
   font-size: 60px;
   letter-spacing: 0.02em;
