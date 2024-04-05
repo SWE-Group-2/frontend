@@ -1,5 +1,5 @@
 import { vi, describe, beforeEach, afterEach, test, expect } from "vitest";
-import { loginUser } from "@/services/User.service";
+import { getUserById, loginUser } from "@/services/User.service";
 
 describe("UserService tests", () => {
   // Going to have to mock fetch (make a fake fetch) since we can't send actual requests to backend
@@ -45,5 +45,20 @@ describe("UserService tests", () => {
       },
       method: "POST",
     });
+  });
+
+  test("Can get user by id", async () => {
+    const userId = 1;
+    try {
+      await getUserById(userId);
+    } catch (e) {
+      /* ignore */
+    }
+    expect(fetch).toHaveBeenCalledWith(
+      `http://localhost:5000/users/${userId}`,
+      {
+        headers: {},
+      },
+    );
   });
 });
