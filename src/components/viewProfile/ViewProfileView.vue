@@ -149,7 +149,12 @@ async function clearResume() {
       </div>
       <div class="resume" v-if="user.cv_link">
         <h1>Resume</h1>
-        <iframe :src="user.cv_link" width="100%" height="600px"></iframe>
+        <iframe
+          title="user_cv"
+          :src="user.cv_link"
+          width="100%"
+          height="600px"
+        ></iframe>
         <button v-if="user.id == currentUserId" @click="clearResume">
           Delete resume
         </button>

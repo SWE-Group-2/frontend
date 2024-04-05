@@ -180,12 +180,11 @@ export async function clearProfilePicture() {
     return response.json();
   }
 
-  switch (response.status) {
-    case 401:
-      throw new Error("Unauthorized");
-    default:
-      throw new Error("Failed to clear profile picture");
+  if (response.status === 401) {
+    throw new Error("Unauthorized");
   }
+
+  throw new Error("Failed to clear profile picture");
 }
 
 export async function uploadCv(file: File) {
@@ -212,10 +211,9 @@ export async function clearCv() {
     return response.json();
   }
 
-  switch (response.status) {
-    case 401:
-      throw new Error("Unauthorized");
-    default:
-      throw new Error("Failed to clear profile picture");
+  if (response.status === 401) {
+    throw new Error("Unauthorized");
   }
+
+  throw new Error("Failed to clear CV");
 }

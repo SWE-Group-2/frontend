@@ -24,41 +24,37 @@ export default {
   },
   methods: {
     typeJs() {
-      if (
-        this.animationCounter < this.textArray.length &&
-        this.stringIndex < this.textArray.length
-      ) {
-        const animatedHeader = this.textArray[this.stringIndex];
-
-        if (this.isTyping) {
-          if (this.charIndex < animatedHeader.length) {
-            this.charIndex++;
-          } else {
-            this.isTyping = false;
-            this.animationCounter++;
-          }
-        } else {
-          if (this.charIndex > 0) {
-            this.charIndex--;
-          } else {
-            this.isTyping = true;
-            this.stringIndex++;
-
-            if (this.stringIndex >= this.textArray.length) {
-              this.stringIndex = 0;
-            }
-
-            this.charIndex = 0;
-          }
+      if (this.animationCounter >= this.textArray.length) {
+        if (!this.isAnimationStopped) {
+          this.isAnimationStopped = true;
+          this.stopAnimation();
         }
+        return;
       }
 
-      if (
-        this.animationCounter === this.textArray.length &&
-        !this.isAnimationStopped
-      ) {
-        this.isAnimationStopped = true;
-        this.stopAnimation();
+      const animatedHeader = this.textArray[this.stringIndex];
+
+      if (this.isTyping) {
+        this.handleTyping(animatedHeader);
+      } else {
+        this.handleDeleting();
+      }
+    },
+    handleTyping(animatedHeader) {
+      if (this.charIndex < animatedHeader.length) {
+        this.charIndex++;
+      } else {
+        this.isTyping = false;
+        this.animationCounter++;
+      }
+    },
+    handleDeleting() {
+      if (this.charIndex > 0) {
+        this.charIndex--;
+      } else {
+        this.isTyping = true;
+        this.stringIndex = (this.stringIndex + 1) % this.textArray.length;
+        this.charIndex = 0;
       }
     },
     stopAnimation() {
@@ -208,17 +204,20 @@ export default {
   flex-direction: row;
   width: 1000px;
 }
+
 .landing-page-information {
   display: flex;
   flex-direction: column;
   animation-name: fade-in;
   animation-duration: 5s;
 }
+
 .landing-page-title {
   color: #dd9832;
   font-weight: 600;
   font-size: 40px;
 }
+
 .landing-page-description {
   color: #462378;
   font-weight: 300;
@@ -243,6 +242,7 @@ export default {
   animation-name: fade-in;
   animation-duration: 5s;
 }
+
 .requirements-header {
   font-family:
     Roboto Slab,
@@ -253,6 +253,7 @@ export default {
   line-height: 0;
   margin-bottom: 30px;
 }
+
 .requirements-info {
   display: flex;
   flex-direction: column;
@@ -270,18 +271,21 @@ export default {
   font-size: 20px;
   margin-left: 5px;
 }
+
 .number-item {
   color: black;
   font-weight: 400;
   font-size: 19px;
   margin-left: 5px;
 }
+
 .bullet-item-small {
   color: black;
   font-weight: 400;
   font-size: 17px;
   margin-left: 15px;
 }
+
 b {
   color: #dd9832;
   font-weight: 800;
@@ -293,6 +297,7 @@ b {
   display: inline-block;
   border-right: 1px solid #414141;
 }
+
 @keyframes fade-in {
   from {
     opacity: 0;

@@ -110,20 +110,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* animation: slide-left 5s linear infinite; */
 }
-
-/* @keyframes slide-left {
-  0% {
-    text-indent: 0;
-  }
-  5% {
-    text-indent: 0;
-  }
-  100% {
-    text-indent: -10%;
-  }
-} */
 
 .position {
   color: white;
