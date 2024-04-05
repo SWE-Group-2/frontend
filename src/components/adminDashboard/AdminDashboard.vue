@@ -102,5 +102,3 @@ const adminDashboard = useAdminDashboard();
     @load-students="adminDashboard.loadStudents"
   />
 </template>
-
-<style scoped lang="scss"></style>

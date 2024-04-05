@@ -5,7 +5,7 @@ import { ref, Ref } from "vue";
 import { getUserById } from "@/services/User.service";
 import router from "@/router";
 import { deleteUserById } from "@/services/AdminService";
-import { getInternshipByAuthorId, getAllInternships } from "@/services/Internship.service";
+import { getInternshipByAuthorId } from "@/services/Internship.service";
 
 export interface ViewProfileState {
   user: Ref<User>;
@@ -36,7 +36,9 @@ export function useViewProfile(): ViewProfileState {
 
   async function loadInternships(userId: number) {
     internships.value = await getInternshipByAuthorId(userId);
-    console.log(internships.value.forEach((internship) => console.log(internship)));
+    console.log(
+      internships.value.forEach((internship) => console.log(internship)),
+    );
   }
 
   return {
