@@ -36,7 +36,7 @@ export async function changeUserRole(username: string, roleId: number) {
         alert("Invalid input");
         // throw new Error("Invalid input");
     } else if (response.status === 401) {
-        alert("Unauthorized");
+        alert("User not found");
         // throw new Error("Unauthorized");
     }
 

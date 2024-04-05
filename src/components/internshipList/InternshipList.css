@@ -85,8 +85,6 @@
 }
 
 .button {
-  top: 10px;
-  right: 10px;
   width: 40px;
   height: 40px;
   background-color: #e5eaef;
@@ -128,4 +126,14 @@
 }
 .icon-box:hover {
   border: 1px solid #dd9832;
+}
+
+.sort-button-container {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.filter-internship-container {
+  text-align: center;
+  margin-bottom: 20px;
 }

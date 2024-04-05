@@ -71,7 +71,7 @@ export default {
       <div class="animatedHeader">{{ animatedHeader }}</div>
     </div>
     <div class="landing-page-body">
-      <div class="landing-page-information">
+      <div class="landing-page-information align-center">
         <span class="landing-page-title">
           Computer Science Internship Search
         </span>
@@ -187,15 +187,13 @@ export default {
 
 <style scoped>
 .landing-page-header {
-  font-family:
-    Roboto Slab,
-    serif;
-  font-weight: 700;
-  font-size: 50px;
-  letter-spacing: 0em;
+  font-family: Roboto Slab, serif;
+  font-weight: 800;
+  font-size: 60px;
+  letter-spacing: 0.02em;
   line-height: 1.3;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   margin-top: 100px;
 }
 
@@ -236,7 +234,8 @@ export default {
   justify-content: space-between;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.418);
   border-radius: 8px;
-  margin-top: 16rem;
+  margin-top: 80px;
+  margin-bottom: 80px;
   padding: 1.5rem;
   width: 1000px;
   animation-name: fade-in;
@@ -267,6 +266,7 @@ export default {
 
 .bullet-item {
   color: black;
+  max-width: fit-content;
   font-weight: 300;
   font-size: 20px;
   margin-left: 5px;
@@ -305,5 +305,10 @@ b {
   to {
     opacity: 1;
   }
+}
+
+.align-center {
+  margin-left: 100px;
+  margin-right: 100px;
 }
 </style>
