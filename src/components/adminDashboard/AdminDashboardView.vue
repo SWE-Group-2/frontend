@@ -104,7 +104,7 @@ const roles = ["admin", "instructor", "student"];
     </table>
     <div class="container">Change User Role</div>
     <form @submit.prevent="$emit('changeRole')">
-      <div class="user-form">
+      <div class="user-form alignment">
         <label for="username">Username:</label>
         <input
           type="text"

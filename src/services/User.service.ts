@@ -27,13 +27,12 @@ export async function registerUser(userInfo: UserRegistrationInfo) {
     return response.json();
   }
 
-  switch (response.status) {
-    case 400:
-      throw new Error("Invalid input");
-    case 409:
-      throw new Error("Username already exists");
-    default:
-      throw new Error("Failed to register user");
+  if (response.status === 400) {
+    alert("Invalid input");
+  } else if (response.status === 409) {
+    alert("Username already exists");
+  } else {
+    alert("Failed to register user");
   }
 }
 
@@ -51,10 +50,10 @@ export async function loginUser(userInfo: UserLoginInfo) {
   }
 
   if (response.status === 401) {
-    throw new Error("Invalid username or password");
+    alert("Invalid username or password");
+  } else {
+    alert("Failed to log in");
   }
-
-  throw new Error("Failed to log in");
 }
 
 export async function loginUserWithGoogle(userInfo: UserRegistrationInfo) {
@@ -65,10 +64,10 @@ export async function loginUserWithGoogle(userInfo: UserRegistrationInfo) {
     }
 
     if (response.status === 401) {
-        throw new Error("Invalid Google token");
+        alert("Invalid Google token");
+    } else {
+      alert("Failed to log in with Google");
     }
-
-    throw new Error("Failed to log in with Google");
 
 }
 
@@ -87,7 +86,6 @@ export async function getUserInfo() {
   if (response.status === 401) {
     throw new Error("Not logged in");
   }
-
   throw new Error("Failed to get user info");
 }
 
@@ -109,11 +107,13 @@ export async function getUserById(userId: number): Promise<User> {
 
   switch (response.status) {
     case 404:
-      throw new Error("User not found");
+      alert("User not found");
+      break;
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      break;
     default:
-      throw new Error("Failed to get user");
+      alert("Failed to get user");
   }
 }
 
@@ -146,13 +146,16 @@ export async function editProfile(
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid request body");
+      alert("Invalid request body");
+      break;
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      break;
     case 404:
-      throw new Error("User not found");
+      alert("User not found");
+      break;
     default:
-      throw new Error("Failed to edit profile");
+      alert("Failed to edit profile");
   }
 }
 
@@ -165,11 +168,13 @@ export async function uploadProfilePicture(file: File) {
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid file");
+      alert("Invalid file");
+      break;
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      break;
     default:
-      throw new Error("Failed to upload profile picture");
+      alert("Failed to upload profile picture");
   }
 }
 
@@ -181,10 +186,11 @@ export async function clearProfilePicture() {
   }
 
   if (response.status === 401) {
-    throw new Error("Unauthorized");
+    alert("Unauthorized");
+  } else {
+    alert("Failed to clear profile picture");
   }
 
-  throw new Error("Failed to clear profile picture");
 }
 
 export async function uploadCv(file: File) {
@@ -196,11 +202,13 @@ export async function uploadCv(file: File) {
 
   switch (response.status) {
     case 400:
-      throw new Error("Invalid file");
+      alert("Invalid file");
+      break;
     case 401:
-      throw new Error("Unauthorized");
+      alert("Unauthorized");
+      break;
     default:
-      throw new Error("Failed to upload profile picture");
+      alert("Failed to upload CV");
   }
 }
 
@@ -212,8 +220,8 @@ export async function clearCv() {
   }
 
   if (response.status === 401) {
-    throw new Error("Unauthorized");
+    alert("Unauthorized");
+  } else {
+    alert("Failed to clear CV");
   }
-
-  throw new Error("Failed to clear CV");
 }

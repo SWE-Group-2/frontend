@@ -159,7 +159,7 @@ async function clearResume() {
           Delete resume
         </button>
       </div>
-      <h1>Posts</h1>
+      <div class="post-align">Posts</div>
       <div id="internships" class="more-margin">
         <div class="internship-card" v-for="internship of internships">
           <RouterLink
