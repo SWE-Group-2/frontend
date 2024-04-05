@@ -116,6 +116,7 @@ export async function getInternshipById(internshipId: number) {
   }
 
   throw new Error("Failed to get internship");
+  }
 }
 
 export async function getInternshipByAuthorId(authorId: number) {
@@ -141,6 +142,7 @@ export async function getInternshipByAuthorId(authorId: number) {
   }
 
   throw new Error("Failed to get internship");
+  }
 }
 
 export async function deleteInternshipById(internshipId: number) {

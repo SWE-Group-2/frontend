@@ -35,4 +35,5 @@ export async function getStudentById(userId: number) {
   }
 
   throw new Error("Failed to get student");
+  }
 }

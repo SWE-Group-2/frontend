@@ -208,6 +208,7 @@ export async function clearProfilePicture() {
   }
 
   throw new Error("Failed to clear profile picture");
+  }
 }
 
 export async function uploadCv(file: File) {
@@ -249,4 +250,5 @@ export async function clearCv() {
   }
 
   throw new Error("Failed to clear CV");
+  }
 }
