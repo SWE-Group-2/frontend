@@ -23,7 +23,6 @@ export function useRegisterPage(): RegisterPageState {
   // Parent component will handle the submission of the form
   async function submit() {
     if (password.value !== confirm_password.value) {
-      // console.error("Passwords do not match");
       alert("Passwords do not match");
       return;
     }
