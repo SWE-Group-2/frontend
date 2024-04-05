@@ -15,12 +15,12 @@ export async function createTimePeriod(timePeriod: TimePeriodCreate) {
     }
 
     if (response.status === 400) {
-        throw new Error("Invalid input");
+        alert("Invalid input");
     } else if (response.status === 401) {
-        throw new Error("Unauthorized");
+        alert("Unauthorized");
+    } else {
+        alert("Failed to create time period");
     }
-
-    throw new Error("Failed to create time period");
 }
 
 export async function changeUserRole(username: string, roleId: number) {
@@ -31,12 +31,12 @@ export async function changeUserRole(username: string, roleId: number) {
     }
 
     if (response.status === 400) {
-        throw new Error("Invalid input");
+        alert("Invalid input");
     } else if (response.status === 401) {
-        throw new Error("Unauthorized");
+        alert("User not found");
+    } else {
+        alert("Failed to change user role");
     }
-
-    throw new Error("Failed to change user role");
 }
 
 export async function deleteTimePeriodById(timePeriodId: number) {
@@ -53,11 +53,13 @@ export async function deleteTimePeriodById(timePeriodId: number) {
 
     switch (response.status) {
         case 401:
-            throw new Error("Unauthorized");
+            alert("Unauthorized");
+            break;
         case 404:
-            throw new Error("Time period not found");
+            alert("Time period not found");
+            break;
         default:
-            throw new Error("Failed to delete time period");
+            alert("Time period is in use and cannot be deleted.");
     }
 }
 
@@ -75,10 +77,12 @@ export async function deleteUserById(userId: number) {
 
     switch (response.status) {
         case 401:
-            throw new Error("Unauthorized");
+            alert("Unauthorized");
+            break;
         case 404:
-            throw new Error("User not found");
+            alert("User not found");
+            break;
         default:
-            throw new Error("Failed to delete user");
+            alert("Failed to delete user");
     }
 }

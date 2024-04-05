@@ -2,16 +2,22 @@
 import { User } from "@/types/User";
 import { useRoute } from "vue-router";
 import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
-import { getAllTimePeriods } from "@/services/TimePeriod.service";
+import {
+  getAllTimePeriods,
+  getValidTimePeriods,
+} from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 import { clearCv, clearProfilePicture } from "@/services/User.service";
+import { Internship } from "@/types/Internship";
 
 defineProps<{
   user: User;
+  internships: Internship[];
 }>();
 const emit = defineEmits<{
   (e: "loadUser", value: number): void;
   (e: "deleteUser", value: number): void;
+  (e: "loadInternships", value: number): void;
 }>();
 const route = useRoute();
 const userId = Number(route.params.userId);
@@ -28,6 +34,17 @@ const timePeriodsMap = timePeriods.reduce(
   {},
 );
 emit("loadUser", userId);
+emit("loadInternships", userId);
+
+const internshipsTimePeriods = await getValidTimePeriods();
+
+function getTimePeriodName(id: number): string {
+  return (
+    internshipsTimePeriods.find(
+      (time_period: TimePeriod) => time_period.id === id,
+    )?.name ?? "Unknown"
+  );
+}
 
 async function clearProfilePic() {
   await clearProfilePicture();
@@ -56,7 +73,7 @@ async function clearResume() {
             <div class="student-name">
               {{ user.first_name }} {{ user.last_name }}
             </div>
-            <div class="student-year">{{ user.id }}</div>
+            <div class="student-year">{{ user.username }}</div>
             <div class="edit-profile" v-if="userId == currentUserId">
               <button
                 v-if="user.id == currentUserId && user.profile_picture_link"
@@ -132,10 +149,53 @@ async function clearResume() {
       </div>
       <div class="resume" v-if="user.cv_link">
         <h1>Resume</h1>
-        <iframe :src="user.cv_link" width="100%" height="600px"></iframe>
+        <iframe
+          title="user_cv"
+          :src="user.cv_link"
+          width="100%"
+          height="600px"
+        ></iframe>
         <button v-if="user.id == currentUserId" @click="clearResume">
           Delete resume
         </button>
+      </div>
+      <div class="post-align">Posts</div>
+      <div id="internships" class="more-margin">
+        <div class="internship-card" v-for="internship of internships">
+          <RouterLink
+            :to="{
+              name: 'viewInternship',
+              params: { internshipId: internship.id },
+            }"
+            style="text-decoration: none"
+          >
+            <div class="internship-container">
+              <div class="internship-photo">
+                <img :src="internship.company_photo_link" alt="logo" />
+              </div>
+              <div class="column">
+                <div class="row-main">
+                  <span class="company-offer">
+                    {{ internship.position }}
+                  </span>
+                  <span class="company-info"> @ {{ internship.company }} </span>
+                </div>
+                <div class="row">
+                  Internship Period:
+                  <span class="company-info">
+                    {{ getTimePeriodName(internship.time_period_id) }}
+                  </span>
+                </div>
+                <div class="row">
+                  Application Deadline:
+                  <span class="company-info">
+                    {{ internship.deadline }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </RouterLink>
+        </div>
       </div>
     </div>
   </div>

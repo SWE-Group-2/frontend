@@ -26,9 +26,13 @@ export function useLoginPage(): LoginPageState {
       username: username.value,
       password: password.value,
     };
-    const response = await loginUser(userLoginInfo);
-    setAuthToken(response["access_token"]);
-    await router.push("/internships");
+    try {
+      const response = await loginUser(userLoginInfo);
+      setAuthToken(response["access_token"]);
+      await router.push("/internships");
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async function loginWithGoogle(response: object) {

@@ -13,7 +13,7 @@ describe("CreateInternship tests", () => {
     expect(createInternship.company.value).toBe("");
     expect(createInternship.position.value).toBe("");
     expect(createInternship.website.value).toBe("");
-    expect(createInternship.deadline.value).toBe("2024-01-01");
+    expect(createInternship.deadline.value).toBe("");
     expect(createInternship.timePeriodId.value).toBe(1);
     expect(createInternship.companyPhotoLink.value).toBe(null);
   });

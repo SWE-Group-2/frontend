@@ -64,6 +64,7 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 3rem;
+  margin-bottom: 50px;
 }
 
 .about {
@@ -72,7 +73,8 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.418);
+  box-shadow: 12px 12px rgba(188, 125, 94, 0.347);
+  border: 0.5px solid #ccc;
   padding: 1.5rem;
   width: 650px;
 }
@@ -89,7 +91,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.418);
+  box-shadow: 12px 12px rgba(188, 125, 94, 0.347);
+  border: 0.5px solid #ccc;
   padding: 1.5rem;
 }
 
@@ -127,20 +130,24 @@
   color: white;
   display: inline;
   background-color: #462378;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.02em;
   padding: 5px 10px;
   width: fit-content;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 26px;
 }
 
 .student-year {
   color: white;
   display: inline;
   background-color: #dd9832;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.02em;
   padding: 5px 10px;
   width: fit-content;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 23px;
 }
 .student-gpa {
   color: #462378;
@@ -163,12 +170,9 @@
 }
 
 h1 {
-  font-family:
-    Roboto Slab,
-    serif;
-  font-weight: 700;
-  font-size: 25px;
-  letter-spacing: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
   line-height: 0;
   margin-bottom: 30px;
 }
@@ -176,12 +180,12 @@ h1 {
 .photo {
   position: absolute;
   margin-left: 30px;
-  margin-top: -30px;
+  margin-top: -15px;
   width: 140px;
   height: 140px;
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid #000000;
+  border: 1px solid #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,10 +237,10 @@ h1 {
 
 .delete-profile {
   position: absolute;
-  margin-left: 930px;
-  margin-top: -30px;
-  height: 25px;
-  width: 140px;
+  margin-left: 990px;
+  margin-top: -42px;
+  height: 40px;
+  width: 110px;
   outline: none;
   font-size: 15px;
   font-weight: 700;
@@ -251,4 +255,88 @@ h1 {
   background: #dd9832;
   border: 1px solid #dd9832;
   transition: background-color 0.25s ease-in-out;
+}
+
+.internship-card {
+  margin-bottom: 50px;
+}
+
+.internship-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-shadow: 12px 12px rgba(157, 115, 172, 0.347);
+  width: 800px;
+  height: 230px;
+  padding: 20px;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f2ff;
+  &:hover {
+    filter: brightness(102%);
+    cursor: pointer;
+  }
+}
+
+.row,
+.row-main {
+  max-width: 450px;
+  font-family:
+    Roboto Slab,
+    serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #462378;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.row-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  gap: 1rem;
+}
+
+.company-offer {
+  font-family: Roboto, serif;
+  font-weight: 500;
+  font-size: 23px;
+  color: #dd9832;
+}
+.company-info {
+  font-family: Roboto, serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+}
+
+.internship-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  margin-left: 16px;
+  margin-right: 50px;
+  overflow: hidden;
+}
+
+.more-margin {
+  width: fit-content;
+  margin: 60px auto;
+}
+
+.post-align {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 35px;
+  letter-spacing: 0.02em;
+  line-height: 0;
+  margin-bottom: 30px;
+  margin-top: 60px;
 }

@@ -37,7 +37,7 @@ defineEmits<{
         </div>
         <div class="input-group">
           <input
-            id="last_nname"
+            id="last_name"
             :value="last_name"
             @input="$emit('update:last_name', $event.target.value)"
             class="input-text"
