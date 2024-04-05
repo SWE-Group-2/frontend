@@ -2,7 +2,10 @@
 import { User } from "@/types/User";
 import { useRoute } from "vue-router";
 import { getCurrentUserId, isLoggedIn, isAdmin } from "@/services/Auth.service";
-import { getAllTimePeriods, getValidTimePeriods } from "@/services/TimePeriod.service";
+import {
+  getAllTimePeriods,
+  getValidTimePeriods,
+} from "@/services/TimePeriod.service";
 import { TimePeriod } from "@/types/TimePeriod";
 import { clearCv, clearProfilePicture } from "@/services/User.service";
 import { Internship } from "@/types/Internship";
@@ -33,13 +36,13 @@ const timePeriodsMap = timePeriods.reduce(
 emit("loadUser", userId);
 emit("loadInternships", userId);
 
-
-
 const internshipsTimePeriods = await getValidTimePeriods();
 
 function getTimePeriodName(id: number): string {
-  return ( internshipsTimePeriods.find((time_period: TimePeriod) => time_period.id === id)
-    ?.name ?? "Unknown"
+  return (
+    internshipsTimePeriods.find(
+      (time_period: TimePeriod) => time_period.id === id,
+    )?.name ?? "Unknown"
   );
 }
 
@@ -146,7 +149,12 @@ async function clearResume() {
       </div>
       <div class="resume" v-if="user.cv_link">
         <h1>Resume</h1>
-        <iframe :src="user.cv_link" width="100%" height="600px"></iframe>
+        <iframe
+          title="user_cv"
+          :src="user.cv_link"
+          width="100%"
+          height="600px"
+        ></iframe>
         <button v-if="user.id == currentUserId" @click="clearResume">
           Delete resume
         </button>
