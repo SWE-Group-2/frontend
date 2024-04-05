@@ -111,7 +111,11 @@ export async function getInternshipById(internshipId: number) {
     default:
       alert("Failed to get internship");
       // throw new Error("Failed to get internship");
+  if (response.status === 404) {
+    throw new Error("Internship not found");
   }
+
+  throw new Error("Failed to get internship");
 }
 
 export async function getInternshipByAuthorId(authorId: number) {
@@ -132,7 +136,11 @@ export async function getInternshipByAuthorId(authorId: number) {
     default:
       alert("Failed to get internship");
       // throw new Error("Failed to get internship");
+  if (response.status === 404) {
+    throw new Error("Internships not found");
   }
+
+  throw new Error("Failed to get internship");
 }
 
 export async function deleteInternshipById(internshipId: number) {

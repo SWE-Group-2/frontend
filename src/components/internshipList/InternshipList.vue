@@ -26,7 +26,9 @@ export function useInternshipList(): InternshipListState {
 
   async function loadInternships() {
     await sortInternships("created_at");
-    console.log(internships.value.forEach((internship) => console.log(internship)));
+    console.log(
+      internships.value.forEach((internship) => console.log(internship)),
+    );
   }
 
   async function sortInternships(sortKey: InternshipSortKey) {

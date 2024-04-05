@@ -36,16 +36,16 @@ describe("Edit profile tests", () => {
     test("Internal state tests", async () => {
         const userId = 1;
         const editProfile = useEditProfile();
-        expect(editProfile.gpa.value).toBe(0);
-        expect(editProfile.academic_year.value).toBe("");
-        expect(editProfile.github_link.value).toBe("");
-        expect(editProfile.linkedin_link.value).toBe("");
-        expect(editProfile.website_link.value).toBe("");
+        expect(editProfile.gpa.value).toBe(null);
+        expect(editProfile.academic_year.value).toBe(null);
+        expect(editProfile.github_link.value).toBe(null);
+        expect(editProfile.linkedin_link.value).toBe(null);
+        expect(editProfile.website_link.value).toBe(null);
         expect(editProfile.profile_picture_link.value).toBe(null);
-        expect(editProfile.email.value).toBe("");
-        expect(editProfile.phone_number.value).toBe("");
-        expect(editProfile.description.value).toBe("");
-        expect(editProfile.internship_time_period_id.value).toBe(1);
+        expect(editProfile.email.value).toBe(null);
+        expect(editProfile.phone_number.value).toBe(null);
+        expect(editProfile.description.value).toBe(null);
+        expect(editProfile.internship_time_period_id.value).toBe(null);
 
         await editProfile.loadUser(userId);
         expect(editProfile.gpa.value).toBe(3.5);

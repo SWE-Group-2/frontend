@@ -203,7 +203,11 @@ export async function clearProfilePicture() {
     default:
       alert("Failed to clear profile picture");
       // throw new Error("Failed to clear profile picture");
+  if (response.status === 401) {
+    throw new Error("Unauthorized");
   }
+
+  throw new Error("Failed to clear profile picture");
 }
 
 export async function uploadCv(file: File) {
@@ -240,5 +244,9 @@ export async function clearCv() {
     default:
       alert("Failed to clear CV");
       // throw new Error("Failed to clear CV");
+  if (response.status === 401) {
+    throw new Error("Unauthorized");
   }
+
+  throw new Error("Failed to clear CV");
 }

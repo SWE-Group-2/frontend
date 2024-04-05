@@ -30,5 +30,9 @@ export async function getStudentById(userId: number) {
     default:
       alert("Failed to get student");
       // throw new Error("Failed to get student");
+  if (response.status === 404) {
+    throw new Error("Student not found");
   }
+
+  throw new Error("Failed to get student");
 }
