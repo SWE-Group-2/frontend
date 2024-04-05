@@ -16,13 +16,11 @@ export async function createTimePeriod(timePeriod: TimePeriodCreate) {
 
     if (response.status === 400) {
         alert("Invalid input");
-        // throw new Error("Invalid input");
     } else if (response.status === 401) {
         alert("Unauthorized");
-        // throw new Error("Unauthorized");
+    } else {
+        alert("Failed to create time period");
     }
-
-    throw new Error("Failed to create time period");
 }
 
 export async function changeUserRole(username: string, roleId: number) {
@@ -34,13 +32,11 @@ export async function changeUserRole(username: string, roleId: number) {
 
     if (response.status === 400) {
         alert("Invalid input");
-        // throw new Error("Invalid input");
     } else if (response.status === 401) {
         alert("User not found");
-        // throw new Error("Unauthorized");
+    } else {
+        alert("Failed to change user role");
     }
-
-    throw new Error("Failed to change user role");
 }
 
 export async function deleteTimePeriodById(timePeriodId: number) {
@@ -58,8 +54,10 @@ export async function deleteTimePeriodById(timePeriodId: number) {
     switch (response.status) {
         case 401:
             alert("Unauthorized");
+            break;
         case 404:
             alert("Time period not found");
+            break;
         default:
             alert("Time period is in use and cannot be deleted.");
     }
@@ -80,12 +78,11 @@ export async function deleteUserById(userId: number) {
     switch (response.status) {
         case 401:
             alert("Unauthorized");
-            // throw new Error("Unauthorized");
+            break;
         case 404:
             alert("User not found");
-            // throw new Error("User not found");
+            break;
         default:
             alert("Failed to delete user");
-            // throw new Error("Failed to delete user");
     }
 }

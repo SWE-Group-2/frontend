@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // The state of the login page
 import { GoogleLogin } from "vue3-google-login";
-import { useLoginPage } from "./Login.vue";
 
 defineProps<{
   username: string;

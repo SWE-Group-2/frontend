@@ -5,8 +5,6 @@ import { Profile } from "@/types/Profile";
 import HttpClient from "@/services/HttpClient";
 import { Endpoints } from "@/constants/endpoints";
 import formatEndpoint from "@/utils/formatEndpoint";
-import router from "@/router";
-import { a } from "vitest/dist/suite-a18diDsI";
 
 /**
  * Registers a new user.
@@ -29,15 +27,12 @@ export async function registerUser(userInfo: UserRegistrationInfo) {
     return response.json();
   }
 
-  switch (response.status) {
-    case 400:
-      alert("Invalid input");
-      // throw new Error("Invalid input");
-    case 409:
-      alert("Username already exists");
-      // throw new Error("Username already exists");
-    default:
-      throw new Error("Failed to register user");
+  if (response.status === 400) {
+    alert("Invalid input");
+  } else if (response.status === 409) {
+    alert("Username already exists");
+  } else {
+    alert("Failed to register user");
   }
 }
 
@@ -56,11 +51,9 @@ export async function loginUser(userInfo: UserLoginInfo) {
 
   if (response.status === 401) {
     alert("Invalid username or password");
-    // throw new Error("Invalid username or password");
-    
+  } else {
+    alert("Failed to log in");
   }
-  alert("Failed to log in");
-  // throw new Error("Failed to log in");
 }
 
 export async function loginUserWithGoogle(userInfo: UserRegistrationInfo) {
@@ -72,10 +65,9 @@ export async function loginUserWithGoogle(userInfo: UserRegistrationInfo) {
 
     if (response.status === 401) {
         alert("Invalid Google token");
-        // throw new Error("Invalid Google token");
+    } else {
+      alert("Failed to log in with Google");
     }
-    alert("Failed to log in with Google");
-    // throw new Error("Failed to log in with Google");
 
 }
 
@@ -116,13 +108,12 @@ export async function getUserById(userId: number): Promise<User> {
   switch (response.status) {
     case 404:
       alert("User not found");
-      // throw new Error("User not found");
+      break;
     case 401:
       alert("Unauthorized");
-      // throw new Error("Unauthorized");
+      break;
     default:
       alert("Failed to get user");
-      // throw new Error("Failed to get user");
   }
 }
 
@@ -156,16 +147,15 @@ export async function editProfile(
   switch (response.status) {
     case 400:
       alert("Invalid request body");
-      // throw new Error("Invalid request body");
+      break;
     case 401:
       alert("Unauthorized");
-      // throw new Error("Unauthorized");
+      break;
     case 404:
       alert("User not found");
-      // throw new Error("User not found");
+      break;
     default:
       alert("Failed to edit profile");
-      // throw new Error("Failed to edit profile");
   }
 }
 
@@ -179,13 +169,12 @@ export async function uploadProfilePicture(file: File) {
   switch (response.status) {
     case 400:
       alert("Invalid file");
-      // throw new Error("Invalid file");
+      break;
     case 401:
       alert("Unauthorized");
-      // throw new Error("Unauthorized");
+      break;
     default:
       alert("Failed to upload profile picture");
-      // throw new Error("Failed to upload profile picture");
   }
 }
 
@@ -196,19 +185,12 @@ export async function clearProfilePicture() {
     return response.json();
   }
 
-  switch (response.status) {
-    case 401:
-      alert("Unauthorized");
-      // throw new Error("Unauthorized");
-    default:
-      alert("Failed to clear profile picture");
-      // throw new Error("Failed to clear profile picture");
   if (response.status === 401) {
-    throw new Error("Unauthorized");
+    alert("Unauthorized");
+  } else {
+    alert("Failed to clear profile picture");
   }
 
-  throw new Error("Failed to clear profile picture");
-  }
 }
 
 export async function uploadCv(file: File) {
@@ -221,13 +203,12 @@ export async function uploadCv(file: File) {
   switch (response.status) {
     case 400:
       alert("Invalid file");
-      // throw new Error("Invalid file");
+      break;
     case 401:
       alert("Unauthorized");
-      // throw new Error("Unauthorized");
+      break;
     default:
       alert("Failed to upload CV");
-      // throw new Error("Failed to upload CV");
   }
 }
 
@@ -238,17 +219,9 @@ export async function clearCv() {
     return response.json();
   }
 
-  switch (response.status) {
-    case 401:
-      alert("Unauthorized");
-      // throw new Error("Unauthorized");
-    default:
-      alert("Failed to clear CV");
-      // throw new Error("Failed to clear CV");
   if (response.status === 401) {
-    throw new Error("Unauthorized");
-  }
-
-  throw new Error("Failed to clear CV");
+    alert("Unauthorized");
+  } else {
+    alert("Failed to clear CV");
   }
 }
